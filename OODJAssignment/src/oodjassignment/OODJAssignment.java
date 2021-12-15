@@ -9,12 +9,12 @@ package oodjassignment;
  * @author User
  */
 public class OODJAssignment {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        centerManager user1 = new centerManager("1","John Doe", "test@gmail.com", "CT", "15/12/2021", "pass");
+        
+        user1.registerCustomer("1","Customer Name", "test@gmail.com", "customer", "15/12/2021", 0, "27, Taman Minang, Kuala Lumpur");
+        
+        user1.registerCenterManager("1","John Doe", "test@gmail.com", "CT", "15/12/2021", "pass");
     }
     
 }
