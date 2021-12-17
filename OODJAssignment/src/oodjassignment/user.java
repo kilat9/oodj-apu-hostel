@@ -8,6 +8,14 @@ public abstract class user {
 
 String userId, name, email, role;
 String accountCreationDate;
+    
+    public user(){
+        userId = "0";
+        name = "test";
+        email = "test2gmail.com";
+        role = "CT";
+        accountCreationDate = "0/0/2021";
+    }
 
 
     public user(String userId, String name, String email, String role, String accountCreationDate){

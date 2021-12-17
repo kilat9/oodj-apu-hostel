@@ -5,6 +5,7 @@
 package oodjassignment;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
@@ -12,6 +13,11 @@ import javax.swing.JOptionPane;
 public class centerManager extends user{
  
     String password;
+    public centerManager(){
+        super();
+        this.password = "pass";
+    }
+    
     public centerManager(String userId, String name, String email, String role, String accountCreationDate, String password){
         super(userId, name, email, role, accountCreationDate);
         super.setRole("CM");
@@ -49,7 +55,7 @@ public class centerManager extends user{
 
                 //JOptionPane.showMessageDialog(null, "Adding Succesful!");
         }
-        catch(Exception e){
+        catch(IOException e){
 
             JOptionPane.showMessageDialog(null, "An error occured!");
         }
@@ -79,7 +85,7 @@ public class centerManager extends user{
 
                 //JOptionPane.showMessageDialog(null, "Adding Succesful!");
         }
-        catch(Exception e){
+        catch(IOException e){
 
             JOptionPane.showMessageDialog(null, "An error occured!" + " " +e);
         }

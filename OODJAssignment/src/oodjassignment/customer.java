@@ -27,4 +27,16 @@ public class customer extends user{
         return customerAddress;
     }
     
+    public String toString(){
+      
+       return "ID : " + super.getUserId()+ "\n" +
+              "Name : " + super.getName() + "\n" +
+              "Email : " + super.getEmail() + "\n" +
+              "Role : " + super.getRole() + "\n" +
+              "Account Creation Date : " + super.getAccountCreationDate() + "\n" +
+              "Loyalty Points : " + getCustomerLoyaltyPoint() + "\n" +
+              "Address : " +  getCustomerAddress()
+              ;
+   }
+    
 }
