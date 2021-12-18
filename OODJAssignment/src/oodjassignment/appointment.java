@@ -12,10 +12,11 @@ package oodjassignment;
 public class appointment {
     private String id, appointmentTime, appliance, dateCreated, appointmentCustomerId, appointmentManagerId, appointmentTechnicianId;
     
-    public appointment(String appointmentTime, String appliance, String dateCreated, String appointmentCustomerId, String appointmentTechnicianId){
-        // constructor does not take in appointmentManagerId as it is obtained from login
+    public appointment(String appointmentTime, String appliance, String dateCreated, String appointmentCustomerId, String appointmentManagerId, String appointmentTechnicianId){
         // TODO: get appointmentManagerId from login
-        appointmentManagerId = "1"; // else assign to first manager
+        this.appointmentManagerId = appointmentManagerId;
+        // else assign to first manager
+        appointmentManagerId = "1";
         
         // TODO: automatic ID assignment
         
