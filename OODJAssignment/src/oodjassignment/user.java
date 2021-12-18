@@ -13,7 +13,7 @@ String accountCreationDate;
         userId = "0";
         name = "test";
         email = "test2gmail.com";
-        role = "CT";
+        role = "user";
         accountCreationDate = "0/0/2021";
     }
 
