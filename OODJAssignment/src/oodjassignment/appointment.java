@@ -27,7 +27,7 @@ public class appointment {
     }
     
     public String getAppointmentTime(){
-        return id;
+        return appointmentTime;
     }
     
     public String getAppliance(){
