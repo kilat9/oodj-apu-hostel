@@ -12,10 +12,10 @@ import javax.swing.JOptionPane;
  *
  * @author K15H3N
  */
-public class AHHASC_Home extends javax.swing.JFrame {
+public class AHHASC_Manager extends javax.swing.JFrame {
 
     public static void main(String args[]){
-        AHHASC_Home home = new AHHASC_Home();
+        AHHASC_Manager home = new AHHASC_Manager();
         home.setVisible(true);
     }
     
@@ -23,7 +23,7 @@ public class AHHASC_Home extends javax.swing.JFrame {
         greeting.setText("Welcome Back " + uname +"!");
     }
     
-    public AHHASC_Home() {
+    public AHHASC_Manager() {
         initComponents();
     }
 
@@ -148,8 +148,8 @@ public class AHHASC_Home extends javax.swing.JFrame {
         appointment.setForeground(new java.awt.Color(226, 38, 88));
         MDIparent.addTab("Appointments", appointment);
 
-        //user.setBackground(new java.awt.Color(225, 226, 188));
-        //user.setForeground(new java.awt.Color(226, 38, 88));
+        // user.setBackground(new java.awt.Color(225, 226, 188));
+        // user.setForeground(new java.awt.Color(226, 38, 88));
         MDIparent.addTab("Users", user);
 
         MDIparent.setSelectedComponent(home);
