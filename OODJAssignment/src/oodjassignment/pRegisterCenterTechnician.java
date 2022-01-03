@@ -18,14 +18,14 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class pRegisterCustomer extends javax.swing.JFrame {
+public class pRegisterCenterTechnician extends javax.swing.JFrame {
 
     /**
      * Creates new form pRegisterCustomer
      */
-    public pRegisterCustomer() {
+    public pRegisterCenterTechnician() {
         initComponents();
-        AutoCustomerID();
+        AutoCenterTechnicianID();
         if (txtID.getText().equals("")){
                     txtID.setText("1");
                 }
@@ -47,15 +47,16 @@ public class pRegisterCustomer extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        lblAddress = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
         btnRegister = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtAddress = new javax.swing.JTextArea();
+        txtPassword = new javax.swing.JTextField();
+        lblBasePay = new javax.swing.JLabel();
+        txtBasePay = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Register Customer");
+        jLabel1.setText("Register Center Technician");
 
         txtID.setEditable(false);
 
@@ -68,6 +69,11 @@ public class pRegisterCustomer extends javax.swing.JFrame {
                 txtNameFocusLost(evt);
             }
         });
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
 
         lblEmail.setText("Email");
 
@@ -77,7 +83,7 @@ public class pRegisterCustomer extends javax.swing.JFrame {
             }
         });
 
-        lblAddress.setText("Address");
+        lblPassword.setText("Password");
 
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -86,54 +92,62 @@ public class pRegisterCustomer extends javax.swing.JFrame {
             }
         });
 
-        txtAddress.setColumns(20);
-        txtAddress.setRows(5);
-        txtAddress.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtAddressFocusLost(evt);
+                txtPasswordFocusLost(evt);
             }
         });
-        jScrollPane1.setViewportView(txtAddress);
+
+        lblBasePay.setText("Base Pay");
+
+        txtBasePay.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtBasePayFocusLost(evt);
+            }
+        });
+        txtBasePay.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBasePayKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(btnRegister)
+                .addGap(133, 133, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblUserID)
-                                .addGap(292, 292, 292))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblName)
-                                .addGap(300, 300, 300)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblEmail)
-                            .addGap(303, 303, 303)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblAddress)
-                        .addGap(303, 303, 303))))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(lblUserID)
+                            .addGap(292, 292, 292))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblPassword)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEmail)
+                                    .addComponent(lblName)))
+                            .addGap(300, 300, 300)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(32, 32, 32))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblBasePay)
+                .addGap(100, 100, 100)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtBasePay)
+                    .addComponent(txtPassword)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail)
-                            .addComponent(jScrollPane1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(160, 160, 160)
-                                .addComponent(btnRegister)))
-                        .addGap(112, 112, 112)))
+                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtEmail)
+                    .addComponent(txtName))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -146,20 +160,24 @@ public class pRegisterCustomer extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblUserID)
                         .addGap(35, 35, 35)
-                        .addComponent(lblName)
-                        .addGap(37, 37, 37)
-                        .addComponent(lblEmail)
-                        .addGap(44, 44, 44)
-                        .addComponent(lblAddress))
+                        .addComponent(lblName))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmail))))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPassword))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBasePay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBasePay))
+                .addGap(35, 35, 35)
                 .addComponent(btnRegister)
                 .addContainerGap(107, Short.MAX_VALUE))
         );
@@ -167,9 +185,9 @@ public class pRegisterCustomer extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    String userID, name, email, role, accountCreationDate, address;
-    int customerLoyaltyPoints;
-    boolean IsEmpty;
+    String userID, name, email, role, accountCreationDate, password;
+    double basePay;
+    boolean IsEmpty, validPassword;
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
    
         try{
@@ -183,28 +201,29 @@ public class pRegisterCustomer extends javax.swing.JFrame {
             userID = txtID.getText();
             name = txtName.getText();
             email = txtEmail.getText();
-            role = "customer";
+            role = "CM";
             accountCreationDate = datef.format(currentDate.getTime());
-            customerLoyaltyPoints = 0;
-            address = txtAddress.getText();
+            password = txtPassword.getText();
+            basePay = Double.parseDouble(txtBasePay.getText());
            
             
             IsEmpty = true;
             CheckEmpty();
+            CheckPassword();
 
             if (IsEmpty == false){
 
                 // Write the name to the file.
                 centerManager ct = new centerManager();
-                ct.registerCustomer(userID, name, email , role , accountCreationDate , customerLoyaltyPoints, address);
+                ct.registerCenterTechnician(userID, name, email , role , accountCreationDate , password, basePay);
 
                 //JOptionPane.showMessageDialog(null, "Adding Succesful!");
                 ClearText();
-                AutoCustomerID();
+                AutoCenterTechnicianID();
                 
-                customer customer1 = new customer(userID, name, email , role , accountCreationDate , customerLoyaltyPoints, address);
+                centerManager newCT = new centerManager(userID, name, email , role , accountCreationDate , password);
             
-                JOptionPane.showMessageDialog(null, customer1.toString(), "Adding Succesful!",  JOptionPane.PLAIN_MESSAGE );
+                JOptionPane.showMessageDialog(null, newCT.toString(), "Adding Succesful!",  JOptionPane.PLAIN_MESSAGE );
                 
             }else {
                 JOptionPane.showMessageDialog(null, "Make sure all input fields are properly keyed in");
@@ -241,19 +260,57 @@ public class pRegisterCustomer extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtEmailFocusLost
 
-    private void txtAddressFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddressFocusLost
-       if(txtAddress.getText().contains(":")){
+    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
+        if(txtPassword.getText().contains(":")){
             JOptionPane.showMessageDialog(null, "Invalid symbol ':' used ");
-            txtAddress.setText("");
+            txtPassword.setText("");
        } 
-    }//GEN-LAST:event_txtAddressFocusLost
+    }//GEN-LAST:event_txtPasswordFocusLost
+
+    private void txtBasePayFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtBasePayFocusLost
+        if(txtBasePay.getText().contains(":")){
+            JOptionPane.showMessageDialog(null, "Invalid symbol ':' used ");
+            txtBasePay.setText("");
+       } 
+    }//GEN-LAST:event_txtBasePayFocusLost
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtBasePayKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBasePayKeyReleased
+        String value = txtBasePay.getText();
+            int l = value.length();
+            if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') || evt.getKeyChar() <= '-' ) {
+               if(l <0 || l>12){
+               JOptionPane.showMessageDialog(null, "Invalid Length");
+                txtBasePay.setText("");
+               }
+            } else {
+               JOptionPane.showMessageDialog(null, "Please enter only numbers");
+                txtBasePay.setText("");
+            }
+    }//GEN-LAST:event_txtBasePayKeyReleased
 
     
     private void defaultLabelColor(){
             lblUserID.setForeground(Color.BLACK);
             lblName.setForeground(Color.BLACK);
             lblEmail.setForeground(Color.BLACK);
-            lblAddress.setForeground(Color.BLACK);
+            lblPassword.setForeground(Color.BLACK);
+    }
+    
+    private void CheckPassword(){
+        if (txtPassword.getText().length() < 6){
+           defaultLabelColor();
+           lblPassword.setForeground(Color.red);
+           JOptionPane.showMessageDialog(null, "Password length is less than 6 characters!");
+           txtPassword.setText("");
+           validPassword = false;
+        } else {
+            validPassword = true;
+            defaultLabelColor();
+        }
     }
     
     
@@ -261,7 +318,6 @@ public class pRegisterCustomer extends javax.swing.JFrame {
     
         if (txtID.getText().equals("")){
            txtID.setText("1");
-            
         } else if (txtName.getText().equals("")){
            IsEmpty = true;
            defaultLabelColor();
@@ -272,10 +328,14 @@ public class pRegisterCustomer extends javax.swing.JFrame {
            defaultLabelColor();
            lblEmail.setForeground(Color.red);
             
-        }else if (txtAddress.getText().equals("")){
+        }else if (txtPassword.getText().equals("")){
            IsEmpty = true;
            defaultLabelColor();
-           lblAddress.setForeground(Color.red);
+           lblPassword.setForeground(Color.red);
+        }else if (txtBasePay.getText().equals("")){
+           IsEmpty = true;
+           defaultLabelColor();
+           lblBasePay.setForeground(Color.red);
         }else{
            IsEmpty = false;
            defaultLabelColor();
@@ -288,11 +348,11 @@ public class pRegisterCustomer extends javax.swing.JFrame {
            txtID.setText("");
            txtName.setText("");
            txtEmail.setText("");
-           txtAddress.setText("");
+           txtPassword.setText("");
            defaultLabelColor();
     }
     
-     private void AutoCustomerID(){
+     private void AutoCenterTechnicianID(){
         //DecimalFormat dc = new DecimalFormat("000000");
         // This is to ensure the entire method have access to the selectedID array
         String[] selectedID = null;
@@ -300,7 +360,7 @@ public class pRegisterCustomer extends javax.swing.JFrame {
             String dir = System.getProperty("user.dir") + "\\src\\DB\\";
             // For debugging purpose only
             // JOptionPane.showMessageDialog(null, bID);
-            File customertxt = new File(dir + "customer_t.txt");
+            File customertxt = new File(dir + "centerTechnician_t.txt");
             Scanner inputFile;
             try {
                 inputFile = new Scanner(customertxt);
@@ -316,9 +376,6 @@ public class pRegisterCustomer extends javax.swing.JFrame {
                 int newCustomerID = Integer.parseInt(selectedID[0]) + 1;
                 txtID.setText(String.valueOf(newCustomerID));
                 
-                if (txtID.getText().equals("")){
-                    txtID.setText("1");
-                }
                 
             } catch (FileNotFoundException ex) {
               
@@ -346,20 +403,23 @@ public class pRegisterCustomer extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(pRegisterCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pRegisterCenterTechnician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(pRegisterCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pRegisterCenterTechnician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(pRegisterCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pRegisterCenterTechnician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(pRegisterCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pRegisterCenterTechnician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new pRegisterCustomer().setVisible(true);
+                new pRegisterCenterTechnician().setVisible(true);
             }
         });
     }
@@ -367,14 +427,15 @@ public class pRegisterCustomer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblBasePay;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUserID;
-    private javax.swing.JTextArea txtAddress;
+    private javax.swing.JTextField txtBasePay;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
