@@ -1,5 +1,4 @@
-1:John Doe:test@gmail.com:CT:15/12/2021:pass
-1:John Doe:test@gmail.com:CT:15/12/2021:pass
-2:CT:Invalid@email.com:customer:03/01/2022:pass
+1:John Doe:test@gmail.com:CM:15/12/2021:pass
+2:CM:Invalid@email.com:CM:03/01/2022:pass
 3:awd:awdwad@wad:CM:03/01/2022:test
 4:awdd:Wd@wad:CM:03/01/2022:password
