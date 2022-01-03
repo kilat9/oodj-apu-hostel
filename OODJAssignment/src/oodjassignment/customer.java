@@ -32,10 +32,10 @@ public class customer extends user{
        return "ID : " + super.getUserId()+ "\n" +
               "Name : " + super.getName() + "\n" +
               "Email : " + super.getEmail() + "\n" +
+              "Address : " +  getCustomerAddress() +"\n" +
               "Role : " + super.getRole() + "\n" +
               "Account Creation Date : " + super.getAccountCreationDate() + "\n" +
-              "Loyalty Points : " + getCustomerLoyaltyPoint() + "\n" +
-              "Address : " +  getCustomerAddress()
+              "Loyalty Points : " + getCustomerLoyaltyPoint() + "\n"
               ;
    }
     
