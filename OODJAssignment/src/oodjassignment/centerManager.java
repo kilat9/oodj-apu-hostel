@@ -48,7 +48,7 @@ public class centerManager extends user{
 
 
                 // Write the name to the file.
-                outputFile.println(userId + ":" + name + ":" + email + ":" + role + ":" + accountCreationDate + ":" + custLoyaltypoint + ":" +  customerAddress);
+                outputFile.println(userId + ":" + name + ":" + email + ":" + customerAddress + ":" + role + ":" + accountCreationDate + ":" + custLoyaltypoint );
 
                 outputFile.close(); // Close the file.
                 System.out.println("Data written to the file.");
@@ -90,6 +90,46 @@ public class centerManager extends user{
             JOptionPane.showMessageDialog(null, "An error occured!" + " " +e);
         }
     }
+    
+    public void registerCenterTechnician(String userId, String name, String email, String role, String accountCreationDate, String password, double basePay){
+        try{
+            
+
+            String Filename = "src\\db\\centerTechnician_t.txt";
+
+            // Open the file.
+            //Add onto the existing file
+            FileWriter fw = new FileWriter(Filename, true);
+            PrintWriter outputFile = new PrintWriter(fw);
+
+            //Overide the existing file
+
+
+                // Write the name to the file.
+                outputFile.println(userId + ":" + name + ":" + email + ":" + role + ":" + accountCreationDate + ":" + password + ":" + basePay);
+
+                outputFile.close(); // Close the file.
+                System.out.println("Data written to the file.");
+
+                //JOptionPane.showMessageDialog(null, "Adding Succesful!");
+        }
+        catch(IOException e){
+
+            JOptionPane.showMessageDialog(null, "An error occured!" + " " +e);
+        }
+    }
+    
+    @Override
+    public String toString(){
+      
+       return "ID : " + super.getUserId()+ "\n" +
+              "Name : " + super.getName() + "\n" +
+              "Email : " + super.getEmail() + "\n" +
+              "Role : " + super.getRole() + "\n" +
+              "Account Creation Date : " + super.getAccountCreationDate() + "\n" +
+              "Password : " + getPassword() + "\n"
+              ;
+   }
     
     
     
