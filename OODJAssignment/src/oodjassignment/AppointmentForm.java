@@ -21,13 +21,12 @@ import java.util.Scanner;
  */
 public class AppointmentForm extends javax.swing.JPanel {
     
-    int borrow_id;
-    int customerId;
-    String borrower_name;
-    String borrower_role;
-    Date borrow_date;
-    Date borrow_duedate;
-    Date borrow_returndate;
+    String managerId;
+    
+    public void setManagerId(String id){
+        this.managerId = id;
+        System.out.println(managerId);
+    }
     
     public AppointmentForm() {
         initComponents();
@@ -68,7 +67,7 @@ public class AppointmentForm extends javax.swing.JPanel {
         customerList = new javax.swing.JTable();
         technicianLBL = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        bookList = new javax.swing.JTable();
+        technicianList = new javax.swing.JTable();
         updateAppointment = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(900, 600));
@@ -150,7 +149,6 @@ public class AppointmentForm extends javax.swing.JPanel {
 
         appointmentManagerId_TXT.setEditable(false);
         appointmentManagerId_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
-        appointmentManagerId_TXT.setText("0");
 
         appointmentTime_TXT.setEditable(false);
         appointmentTime_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
@@ -174,7 +172,6 @@ public class AppointmentForm extends javax.swing.JPanel {
 
         appointmentTechnicianId_TXT.setEditable(false);
         appointmentTechnicianId_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
-        appointmentTechnicianId_TXT.setText("0");
 
         appointmentTechnicianId_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         appointmentTechnicianId_LBL.setForeground(new java.awt.Color(226, 38, 88));
@@ -240,13 +237,13 @@ public class AppointmentForm extends javax.swing.JPanel {
         technicianLBL.setForeground(new java.awt.Color(226, 38, 88));
         technicianLBL.setText("Technician");
 
-        bookList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
-        bookList.setModel(new javax.swing.table.DefaultTableModel(
+        technicianList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        technicianList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Book_ID", "Book_Name", "Book_Genre"
+                "Technician_ID", "Name", "Email"
             }
         ) {
             Class[] types = new Class [] {
@@ -264,21 +261,18 @@ public class AppointmentForm extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        bookList.getTableHeader().setReorderingAllowed(false);
-        bookList.addMouseListener(new java.awt.event.MouseAdapter() {
+        technicianList.getTableHeader().setReorderingAllowed(false);
+        technicianList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bookListMouseClicked(evt);
+                technicianListMouseClicked(evt);
             }
         });
-        bookList.addKeyListener(new java.awt.event.KeyAdapter() {
+        technicianList.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                bookListKeyReleased(evt);
+                technicianListKeyReleased(evt);
             }
         });
-        jScrollPane3.setViewportView(bookList);
-        if (bookList.getColumnModel().getColumnCount() > 0) {
-            bookList.getColumnModel().getColumn(0).setMaxWidth(100);
-        }
+        jScrollPane3.setViewportView(technicianList);
 
         updateAppointment.setBackground(new java.awt.Color(226, 38, 88));
         updateAppointment.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
@@ -460,7 +454,7 @@ public class AppointmentForm extends javax.swing.JPanel {
             //Clear Selections
             appointmentList.clearSelection();
             customerList.clearSelection();
-            bookList.clearSelection();
+            technicianList.clearSelection();
             
             initializeAppointments();
         }
@@ -484,22 +478,31 @@ public class AppointmentForm extends javax.swing.JPanel {
     
     private void customerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerListMouseClicked
         clickFiller(customerList, appointmentCustomerId_TXT);
+        
+        DefaultTableModel model = (DefaultTableModel)customerList.getModel(); //model from JTable
+        int rowIndex = customerList.getSelectedRow();
+        rowHighlighter(appointmentList, Integer.parseInt(model.getValueAt(rowIndex, 0).toString()), 4);
     }//GEN-LAST:event_customerListMouseClicked
 
     private void customerListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerListKeyReleased
         clickFiller(customerList, appointmentCustomerId_TXT);
+        
+        DefaultTableModel model = (DefaultTableModel)customerList.getModel(); //model from JTable
+        int rowIndex = customerList.getSelectedRow();
+        rowHighlighter(appointmentList, Integer.parseInt(model.getValueAt(rowIndex, 0).toString()), 4);
     }//GEN-LAST:event_customerListKeyReleased
 
-    private void bookListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookListMouseClicked
-        clickFiller(bookList, appointmentManagerId_TXT);
-    }//GEN-LAST:event_bookListMouseClicked
+    private void technicianListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_technicianListMouseClicked
+        clickFiller(technicianList, appointmentTechnicianId_TXT);
+    }//GEN-LAST:event_technicianListMouseClicked
 
-    private void bookListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bookListKeyReleased
-        clickFiller(bookList, appointmentManagerId_TXT);
-    }//GEN-LAST:event_bookListKeyReleased
+    private void technicianListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_technicianListKeyReleased
+        clickFiller(technicianList, appointmentTechnicianId_TXT);
+    }//GEN-LAST:event_technicianListKeyReleased
 
     private void updateAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAppointmentActionPerformed
-        APLS_renewBorrowing();
+        appointment updateAppointment = new appointment(id_TXT.getText(), appointmentTime_TXT.getText(), appliance_TXT.getText(), dateCreated_TXT.getText(), appointmentCustomerId_TXT.getText(), appointmentManagerId_TXT.getText(), appointmentTechnicianId_TXT.getText(), appointmentList.getRowCount(), appointmentList.getColumnCount(), appointmentList.getSelectedRow());
+        initializeAppointments();
     }//GEN-LAST:event_updateAppointmentActionPerformed
 
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm a"); //format date time and am/pm
@@ -527,11 +530,13 @@ public class AppointmentForm extends javax.swing.JPanel {
             appointmentManagerId_TXT.setText(String.valueOf(managerId));
             appointmentTechnicianId_TXT.setText(String.valueOf(technicianId));
             
-            rowHighlighter(customerList, customerId); // customer Table
-            // rowHighlighter(bookList, book_id); //book Table
+            rowHighlighter(customerList, customerId , 0); // customer Table [id at 0th row]
+            rowHighlighter(technicianList, technicianId, 0); //book Table [id at 0th row]
             
             addAppointment.setText("Create New Appointment");
             addAppointmentMode = false;
+            updateAppointment.setEnabled(true);
+            deleteAppointment.setEnabled(true);
         } catch (ParseException ex) {}
     }
     
@@ -576,7 +581,8 @@ public class AppointmentForm extends javax.swing.JPanel {
         //Clear textboxes
         appointmentTime_TXT.setText("");
         appointmentCustomerId_TXT.setText("");
-        appointmentManagerId_TXT.setText("");
+        appointmentManagerId_TXT.setText(oodjassignment.pLogin.getId());
+        System.out.println(managerId + "hello");
         appointmentTechnicianId_TXT.setText("");
         appliance_TXT.setText("");
         
@@ -599,19 +605,19 @@ public class AppointmentForm extends javax.swing.JPanel {
             model.addRow(row); //load data
         }
         
-        //BOOK_T
-        File book = new File("src/apls_DBTXT/book_t.txt");
+        //TECHNICIAN_T
+        File technician = new File("src/db/centerTechnician_t.txt");
                 
-        fr = new FileReader(book);
+        fr = new FileReader(technician);
         br = new BufferedReader(fr);
             
-        model = (DefaultTableModel)bookList.getModel();
+        model = (DefaultTableModel)technicianList.getModel();
         model.setRowCount(0); //clear table
         lines = br.lines().toArray();
         
-        //List Books
+        //List Technicians
         for(int i = 0; i < lines.length; i++){
-            String[] row = lines[i].toString().split(";");
+            String[] row = lines[i].toString().split(":");
             model.addRow(row); //load data
         }
         
@@ -620,13 +626,13 @@ public class AppointmentForm extends javax.swing.JPanel {
         deleteAppointment.setEnabled(false);
     }
         
-    public void rowHighlighter(javax.swing.JTable table, int id){
+    public void rowHighlighter(javax.swing.JTable table, int id, int colNum){
         try{ //Highlight
             int rowNum = -1;
             Object valueRow;
             do{
                 rowNum++; //increment to 0
-                valueRow = table.getModel().getValueAt(rowNum, 0); //get the id at stated row
+                valueRow = table.getModel().getValueAt(rowNum, colNum); //get the id at stated row
             }while(Integer.parseInt(valueRow.toString()) != id && rowNum < table.getRowCount()); //check if id matches and ensure checking does not exceed number of rows
                 table.setRowSelectionInterval(rowNum, rowNum); //highlight the row in table
         } catch (ArrayIndexOutOfBoundsException ex) {
@@ -674,12 +680,12 @@ public class AppointmentForm extends javax.swing.JPanel {
     private void updateDBTXT(){
         //update from JTable to textfile
             try {
-                File borrowingTXTF = new File("src/apls_DBTXT/borrowing_t.txt");
-                FileWriter fw = new FileWriter(borrowingTXTF);
+                File appointmentTXTF = new File("src/apls_DBTXT/appointment_t.txt");
+                FileWriter fw = new FileWriter(appointmentTXTF);
                 BufferedWriter bw = new BufferedWriter(fw);
 
-                for(int i = 0; i < appointmentList.getRowCount(); i++){ //rows in borrowing List table
-                    for(int j = 0; j < appointmentList.getColumnCount(); j++){//columns in borrowing list table
+                for(int i = 0; i < appointmentList.getRowCount(); i++){ //rows in appointment List table
+                    for(int j = 0; j < appointmentList.getColumnCount(); j++){//columns in appointment list table
                         bw.write(appointmentList.getValueAt(i, j).toString()+";"); //use delimiter ":" to seperate
                     }
                     bw.newLine();
@@ -707,7 +713,6 @@ public class AppointmentForm extends javax.swing.JPanel {
     private javax.swing.JLabel appointmentTime_LBL;
     protected javax.swing.JTextField appointmentTime_TXT;
     private javax.swing.JLabel appointment_LBL;
-    javax.swing.JTable bookList;
     private javax.swing.JLabel customerLBL;
     javax.swing.JTable customerList;
     private javax.swing.JLabel dateCreated_LBL;
@@ -719,6 +724,7 @@ public class AppointmentForm extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel technicianLBL;
+    javax.swing.JTable technicianList;
     private javax.swing.JButton updateAppointment;
     // End of variables declaration//GEN-END:variables
 }

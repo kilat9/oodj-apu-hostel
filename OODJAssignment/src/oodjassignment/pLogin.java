@@ -89,6 +89,13 @@ public class pLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (loginValidate()) {
              JOptionPane.showMessageDialog(null, "Login Successful!");
+             
+             AHHASC_Manager managerInterface = new AHHASC_Manager();
+             managerInterface.managerID(ID);
+             managerInterface.setUsername(name);
+             managerInterface.setVisible(true);
+
+             this.setVisible(false);             
         } else {
             JOptionPane.showMessageDialog(null, "Login failed! Your ID or password may be wrong.", "Account Authentication Failed!", JOptionPane.ERROR_MESSAGE);
         }
@@ -138,13 +145,18 @@ public class pLogin extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 
-
+    protected static String ID, name;
+    
+    public static String getId(){
+        return ID;
+    }
+    
     private boolean loginValidate() {
        
         boolean Validated = false;
         try {
             String saveDir = System.getProperty("user.dir") + "\\src\\db\\";
-            String ID = txtUserID.getText();
+            ID = txtUserID.getText();
             String Password = String.valueOf(txtPassword.getText());
             File centerManagerText = new File(saveDir + "centerManager_t.txt");
             if (!centerManagerText.exists()){
@@ -162,7 +174,7 @@ public class pLogin extends javax.swing.JFrame {
 
                 if (ID.equals(SelectedID[0]) && Password.equals(SelectedID[5])) {
                     Validated = true;
-                    
+                    name = SelectedID[1];
                 }
             }
             inputFile.close();
