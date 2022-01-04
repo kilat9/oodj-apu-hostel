@@ -13,10 +13,11 @@ import javax.swing.JOptionPane;
  * @author K15H3N
  */
 public class AHHASC_Manager extends javax.swing.JFrame {
-
-    public static void main(String args[]){
-        AHHASC_Manager home = new AHHASC_Manager();
-        home.setVisible(true);
+    
+    String managerID;
+    public void managerID(String id){
+        managerID = id;
+        //appointment.setManagerId(managerID);
     }
     
     public void setUsername(String uname){
@@ -148,8 +149,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         appointment.setForeground(new java.awt.Color(226, 38, 88));
         MDIparent.addTab("Appointments", appointment);
 
-        // user.setBackground(new java.awt.Color(225, 226, 188));
-        // user.setForeground(new java.awt.Color(226, 38, 88));
+        //user.setBackground(new java.awt.Color(225, 226, 188));
+        //user.setForeground(new java.awt.Color(226, 38, 88));
         MDIparent.addTab("Users", user);
 
         MDIparent.setSelectedComponent(home);
@@ -195,8 +196,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         int result = JOptionPane.showConfirmDialog(null, "Are you sure you would like to logout? Any unsaved changes will be lost.", "Logout?", JOptionPane.ERROR_MESSAGE); 
         if (result == JOptionPane.YES_OPTION){
             this.setVisible(false);
-            // APLS_login login = new APLS_login();
-            // login.setVisible(true);
+            pLogin login = new pLogin();
+            login.setVisible(true);
         } else {
             setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         }
