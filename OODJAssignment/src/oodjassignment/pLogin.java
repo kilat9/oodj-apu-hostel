@@ -30,6 +30,8 @@ public class pLogin extends javax.swing.JFrame {
         txtUserID = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
+        txtAccountType = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,32 +46,46 @@ public class pLogin extends javax.swing.JFrame {
             }
         });
 
+        txtAccountType.setEditable(true);
+        txtAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Center Manager", "Center Technician", " " }));
+        txtAccountType.setToolTipText("");
+
+        jLabel3.setText("Account Type");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(39, 39, 39)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnLogin)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE))
-                            .addComponent(txtPassword)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLogin)))
-                .addGap(127, 127, 127))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, Short.MAX_VALUE))
+                            .addComponent(txtPassword))
+                        .addGap(127, 127, 127))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -77,9 +93,9 @@ public class pLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                .addGap(49, 49, 49)
                 .addComponent(btnLogin)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,12 +155,14 @@ public class pLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JComboBox<String> txtAccountType;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserID;
     // End of variables declaration//GEN-END:variables
 
 
-    protected static String ID, name;
+    protected static String ID, name,userRole;
     
     public static String getId(){
         return ID;
@@ -153,8 +171,12 @@ public class pLogin extends javax.swing.JFrame {
     private boolean loginValidate() {
        
         boolean Validated = false;
+        
+        String userRole = txtAccountType.getItemAt(txtAccountType.getSelectedIndex());
+        
         try {
-            String saveDir = System.getProperty("user.dir") + "\\src\\db\\";
+            if(userRole == "Center Manager"){
+                String saveDir = System.getProperty("user.dir") + "\\src\\db\\";
             ID = txtUserID.getText();
             String Password = String.valueOf(txtPassword.getText());
             File centerManagerText = new File(saveDir + "centerManager_t.txt");
@@ -177,6 +199,34 @@ public class pLogin extends javax.swing.JFrame {
                 }
             }
             inputFile.close();
+            }
+            
+            if(userRole == "Center Technician"){
+                String saveDir = System.getProperty("user.dir") + "\\src\\db\\";
+            ID = txtUserID.getText();
+            String Password = String.valueOf(txtPassword.getText());
+            File centerManagerText = new File(saveDir + "centerTechnician_t.txt");
+            if (!centerManagerText.exists()){
+                centerManagerText.createNewFile();
+            }
+      
+            Scanner inputFile = new Scanner(centerManagerText);
+            String[] SelectedID;
+            while (inputFile.hasNext())
+            {
+                
+                String lEntry = inputFile.nextLine();
+   
+                SelectedID = lEntry.split(":");
+
+                if (ID.equals(SelectedID[0]) && Password.equals(SelectedID[5])) {
+                    Validated = true;
+                    name = SelectedID[1];
+                }
+            }
+            inputFile.close();
+            }
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
 

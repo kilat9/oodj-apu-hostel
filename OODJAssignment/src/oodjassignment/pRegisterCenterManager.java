@@ -187,7 +187,7 @@ public class pRegisterCenterManager extends javax.swing.JFrame {
             validPassword = true;
             CheckPassword();
 
-            if (IsEmpty == false && validPassword){
+            if (IsEmpty == false && validPassword == true){
 
                 // Write the name to the file.
                 centerManager ct = new centerManager();
