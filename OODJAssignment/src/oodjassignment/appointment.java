@@ -19,7 +19,11 @@ import javax.swing.table.DefaultTableModel;
 public class appointment {
     private String id, appointmentTime, appliance, dateCreated, appointmentCustomerId, appointmentManagerId, appointmentTechnicianId;
     
-    public appointment(String id, String appointmentTime, String appliance, String dateCreated, String appointmentCustomerId, String appointmentManagerId, String appointmentTechnicianId){
+    public appointment(){
+        // empty constructor to call the delete function
+    }
+    
+    public appointment(String id, String appointmentTime, String appliance, String dateCreated, int slot, String appointmentCustomerId, String appointmentManagerId, String appointmentTechnicianId){
         try{
             //Open the file
             String filename = "src/db/appointment_t.txt";
@@ -31,6 +35,7 @@ public class appointment {
                 ";" + appointmentTime +
                 ";" + appliance +
                 ";" + dateCreated +
+                ";" + slot +
                 ";" + appointmentCustomerId +
                 ";" + appointmentManagerId +
                 ";" + appointmentTechnicianId
@@ -41,16 +46,17 @@ public class appointment {
     }
     
     AppointmentForm updateAppointment = new AppointmentForm();
-    public appointment(String id, String appointmentTime, String appliance, String dateCreated, String appointmentCustomerId, String appointmentManagerId, String appointmentTechnicianId, int rowCount, int columnCount, int selectedRow){
+    public appointment(String id, String appointmentTime, String appliance, String dateCreated, int slot, String appointmentCustomerId, String appointmentManagerId, String appointmentTechnicianId, int rowCount, int columnCount, int selectedRow){
         DefaultTableModel model = (DefaultTableModel)updateAppointment.appointmentList.getModel(); //model from JTable
         
         model.setValueAt(id, selectedRow, 0); // id
         model.setValueAt(appointmentTime, selectedRow, 1); //appointmentTime
         model.setValueAt(appliance, selectedRow, 2); // appliance
         model.setValueAt(dateCreated, selectedRow, 3); // dateCreated
-        model.setValueAt(appointmentCustomerId, selectedRow, 4); // customer id
-        model.setValueAt(appointmentManagerId, selectedRow, 5); // manager id
-        model.setValueAt(appointmentTechnicianId, selectedRow, 6); // technician id
+        model.setValueAt(slot, selectedRow, 4); // slot
+        model.setValueAt(appointmentCustomerId, selectedRow, 5); // customer id
+        model.setValueAt(appointmentManagerId, selectedRow, 6); // manager id
+        model.setValueAt(appointmentTechnicianId, selectedRow, 7); // technician id
         
         //update from JTable to textfile
         try {
@@ -69,6 +75,29 @@ public class appointment {
             fw.close();
 
         } catch (IOException ex) {}
+    }
+    
+    public void deleteUser(int rowCount, int columnCount, int selectedRow){
+        DefaultTableModel model = (DefaultTableModel)updateAppointment.appointmentList.getModel(); //model from JTable
+        model.removeRow(selectedRow);
+        
+            //update from JTable to textfile
+            try {
+                File appointmentTXTF = new File("src/db/appointment_t.txt");
+                FileWriter fw = new FileWriter(appointmentTXTF);
+                BufferedWriter bw = new BufferedWriter(fw);
+                
+                for(int i = 0; i < rowCount - 1; i++){ //rows in appointment List table //row -1 because has been removed
+                    for(int j = 0; j < columnCount; j++){//columns in appointment list table
+                        bw.write(updateAppointment.appointmentList.getValueAt(i, j).toString()+";"); //use delimiter ";" to seperate
+                    }
+                    bw.newLine();
+                }
+
+                bw.close();
+                fw.close();
+            
+            } catch (IOException ex) {}
     }
     
     public String getAppointmentTime(){
