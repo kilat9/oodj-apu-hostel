@@ -91,7 +91,6 @@ public class pLogin extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "Login Successful!");
              
              AHHASC_Manager managerInterface = new AHHASC_Manager();
-             managerInterface.managerID(ID);
              managerInterface.setUsername(name);
              managerInterface.setVisible(true);
 

@@ -21,13 +21,6 @@ import java.util.Scanner;
  */
 public class AppointmentForm extends javax.swing.JPanel {
     
-    String managerId;
-    
-    public void setManagerId(String id){
-        this.managerId = id;
-        System.out.println(managerId);
-    }
-    
     public AppointmentForm() {
         initComponents();
         initializeAppointments();
@@ -582,7 +575,6 @@ public class AppointmentForm extends javax.swing.JPanel {
         appointmentTime_TXT.setText("");
         appointmentCustomerId_TXT.setText("");
         appointmentManagerId_TXT.setText(oodjassignment.pLogin.getId());
-        System.out.println(managerId + "hello");
         appointmentTechnicianId_TXT.setText("");
         appliance_TXT.setText("");
         

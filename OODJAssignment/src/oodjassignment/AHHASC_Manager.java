@@ -14,12 +14,6 @@ import javax.swing.JOptionPane;
  */
 public class AHHASC_Manager extends javax.swing.JFrame {
     
-    String managerID;
-    public void managerID(String id){
-        managerID = id;
-        //appointment.setManagerId(managerID);
-    }
-    
     public void setUsername(String uname){
         greeting.setText("Welcome Back " + uname +"!");
     }
