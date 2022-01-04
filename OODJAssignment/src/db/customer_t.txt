@@ -1,1 +1,2 @@
 1:John Doe:doe@mail.com:27, Garrison Lane, Small Heath, Birmingham:customer:03/01/2022:0
+2:Customer Name:test@gmail.com:27, Taman Minang, Kuala Lumpur:customer:15/12/2021:0

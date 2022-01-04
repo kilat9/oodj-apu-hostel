@@ -46,7 +46,6 @@ public class pLogin extends javax.swing.JFrame {
             }
         });
 
-        txtAccountType.setEditable(true);
         txtAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Center Manager", "Center Technician", " " }));
         txtAccountType.setToolTipText("");
 
@@ -95,7 +94,7 @@ public class pLogin extends javax.swing.JFrame {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(btnLogin)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         pack();

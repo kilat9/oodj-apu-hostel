@@ -2,3 +2,4 @@
 2:CM:Invalid@email.com:CM:03/01/2022:pass
 3:awd:awdwad@wad:CM:03/01/2022:test
 4:awdd:Wd@wad:CM:03/01/2022:password
+1:John Doe:test@gmail.com:CT:15/12/2021:pass
