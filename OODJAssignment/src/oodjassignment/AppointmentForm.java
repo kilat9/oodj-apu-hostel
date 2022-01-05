@@ -498,6 +498,9 @@ public class AppointmentForm extends javax.swing.JPanel {
         else if (appliance_TXT.getText().contains(";") == true){
             JOptionPane.showMessageDialog(null, "Please ensure that the appliance textfield does not have the ';' character.", "Invalid Character", JOptionPane.WARNING_MESSAGE); //pronpt user to select
         }
+        else if (checkAvailability(appointmentTimeFormatter.format(appointmentTime_TXT.getDate()), slotCB.getSelectedIndex(), Integer.valueOf(appointmentTechnicianId_TXT.getText())) == false){
+            JOptionPane.showMessageDialog(null, "The technician is unavailable for the selected slot and date. Please try choosing another technician, date or slot.", "Appointment Unavailable", JOptionPane.WARNING_MESSAGE); //validate if timeslot has been taken
+        }
         // Create Appointment Object
         else {
             appointment newAppointment = new appointment(id_TXT.getText(), appointmentTimeFormatter.format(appointmentTime_TXT.getDate()), appliance_TXT.getText(), dateCreated_TXT.getText(), slotCB.getSelectedIndex(), appointmentCustomerId_TXT.getText(), appointmentManagerId_TXT.getText(), appointmentTechnicianId_TXT.getText());
@@ -535,9 +538,24 @@ public class AppointmentForm extends javax.swing.JPanel {
     }//GEN-LAST:event_technicianListKeyReleased
 
     private void updateAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAppointmentActionPerformed
-        appointment updateAppointment = new appointment(id_TXT.getText(), appointmentTimeFormatter.format(appointmentTime_TXT.getDate()), appliance_TXT.getText(), dateCreated_TXT.getText(), slotCB.getSelectedIndex(), appointmentCustomerId_TXT.getText(), appointmentManagerId_TXT.getText(), appointmentTechnicianId_TXT.getText(), appointmentList.getRowCount(), appointmentList.getColumnCount(), appointmentList.getSelectedRow());
-        addAppointment.doClick();
-        initializeAppointments();
+        if ((appointmentTime_TXT.getDate() == null) ||(appliance_TXT.getText().equals("") == true)){
+            JOptionPane.showMessageDialog(null, "Please ensure appointment time and appliance have been stated. Multiple appliances can be seperated by a comma ','", "Incomplete Appointment Entry", JOptionPane.WARNING_MESSAGE); //pronpt user on empty fields
+        }
+        else if ((appointmentCustomerId_TXT.getText().equals("") == true) || (appointmentTechnicianId_TXT.getText().equals("") == true)) {
+            JOptionPane.showMessageDialog(null, "Please ensure customer and technician have been selected from the tables", "Incomplete Appointment Entry", JOptionPane.WARNING_MESSAGE); //pronpt user to select
+        }
+        else if (appliance_TXT.getText().contains(";") == true){
+            JOptionPane.showMessageDialog(null, "Please ensure that the appliance textfield does not have the ';' character.", "Invalid Character", JOptionPane.WARNING_MESSAGE); //pronpt user to select
+        }
+        else if (checkAvailability(appointmentTimeFormatter.format(appointmentTime_TXT.getDate()), slotCB.getSelectedIndex(), Integer.valueOf(appointmentTechnicianId_TXT.getText())) == false){
+            JOptionPane.showMessageDialog(null, "The technician is unavailable for the selected slot and date. Please try choosing another technician, date or slot.", "Appointment Unavailable", JOptionPane.WARNING_MESSAGE); //validate if timeslot has been taken
+        }
+        // Create Appointment Object
+        else {        
+            appointment updateAppointment = new appointment(id_TXT.getText(), appointmentTimeFormatter.format(appointmentTime_TXT.getDate()), appliance_TXT.getText(), dateCreated_TXT.getText(), slotCB.getSelectedIndex(), appointmentCustomerId_TXT.getText(), appointmentManagerId_TXT.getText(), appointmentTechnicianId_TXT.getText(), appointmentList.getRowCount(), appointmentList.getColumnCount(), appointmentList.getSelectedRow());
+            addAppointment.doClick();
+            initializeAppointments();
+        }
     }//GEN-LAST:event_updateAppointmentActionPerformed
 
     SimpleDateFormat appointmentTimeFormatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -576,6 +594,33 @@ public class AppointmentForm extends javax.swing.JPanel {
             updateAppointment.setEnabled(true);
             deleteAppointment.setEnabled(true);
         } catch (ParseException ex) {}
+    }
+    
+    public boolean checkAvailability(String date, int slotTime, int technicianID){
+        DefaultTableModel model = (DefaultTableModel)appointmentList.getModel(); //model from JTable
+        int rowIndex = appointmentList.getSelectedRow();
+
+        String appointmentTime;
+        int slot, technicianId;
+        
+        try{
+            for(int i = 0; i < appointmentList.getRowCount(); i++){ //rows in appointment List table
+                if(i == rowIndex){
+                    i++;
+                }
+
+                appointmentTime = model.getValueAt(i, 1).toString();
+                slot = Integer.parseInt(model.getValueAt(i, 4).toString());
+                technicianId = Integer.parseInt(model.getValueAt(i, 7).toString());
+
+                if((appointmentTime.equals(date)) && (slot == slotTime) && (technicianId == technicianID)){
+                    return false;
+                }
+            }
+        }catch(ArrayIndexOutOfBoundsException ex){
+           return true;
+        }
+        return true;
     }
     
     public void initializeAppointments(){
