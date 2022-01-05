@@ -28,7 +28,7 @@ public class pRegisterCenterTechnician extends javax.swing.JFrame {
         AutoCenterTechnicianID();
         if (txtID.getText().equals("")){
                     txtID.setText("1");
-                }
+        }
     }
 
     /**
