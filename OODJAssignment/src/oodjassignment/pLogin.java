@@ -46,7 +46,7 @@ public class pLogin extends javax.swing.JFrame {
             }
         });
 
-        txtAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Center Manager", "Center Technician", " " }));
+        txtAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Center Manager", "Center Technician" }));
         txtAccountType.setToolTipText("");
 
         jLabel3.setText("Account Type");
@@ -103,12 +103,19 @@ public class pLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         if (loginValidate()) {
-             JOptionPane.showMessageDialog(null, "Login Successful!");
+             //JOptionPane.showMessageDialog(null, "Login Successful!");
              
-             AHHASC_Manager managerInterface = new AHHASC_Manager();
-             managerInterface.setUsername(name);
-             managerInterface.setVisible(true);
-
+            if(userRole == "Center Manager"){
+                AHHASC_Manager managerInterface = new AHHASC_Manager();
+                managerInterface.setUsername(name);
+                managerInterface.setVisible(true);
+            }
+            else if(userRole == "Center Technician"){
+                AHHASC_Technician technicianInterface = new AHHASC_Technician();
+                technicianInterface.setUsername(name);
+                technicianInterface.setVisible(true);
+            }
+            
              this.setVisible(false);             
         } else {
             JOptionPane.showMessageDialog(null, "Login failed! Your ID or password may be wrong.", "Account Authentication Failed!", JOptionPane.ERROR_MESSAGE);
@@ -171,7 +178,7 @@ public class pLogin extends javax.swing.JFrame {
        
         boolean Validated = false;
         
-        String userRole = txtAccountType.getItemAt(txtAccountType.getSelectedIndex());
+        userRole = txtAccountType.getItemAt(txtAccountType.getSelectedIndex());
         
         try {
             if(userRole == "Center Manager"){
