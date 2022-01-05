@@ -196,13 +196,14 @@ public class pRegisterCustomer extends javax.swing.JFrame {
 
                 // Write the name to the file.
                 centerManager ct = new centerManager();
-                ct.registerCustomer(userID, name, email , role , accountCreationDate , customerLoyaltyPoints, address);
+                ct.registerCustomer(userID, name, email , address, accountCreationDate );
 
                 //JOptionPane.showMessageDialog(null, "Adding Succesful!");
                 ClearText();
                 AutoCustomerID();
                 
-                customer customer1 = new customer(userID, name, email , role , accountCreationDate , customerLoyaltyPoints, address);
+              
+                customer customer1 = new customer(userID, name, email , address, accountCreationDate);
             
                 JOptionPane.showMessageDialog(null, customer1.toString(), "Adding Succesful!",  JOptionPane.PLAIN_MESSAGE );
                 

@@ -6,23 +6,21 @@ package oodjassignment;
 
 public abstract class user {
 
-String userId, name, email, role;
+String userId, name, email;
 String accountCreationDate;
     
     public user(){
         userId = "0";
         name = "test";
         email = "test2gmail.com";
-        role = "user";
         accountCreationDate = "0/0/2021";
     }
 
 
-    public user(String userId, String name, String email, String role, String accountCreationDate){
+    public user(String userId, String name, String email, String accountCreationDate){
         this.userId = userId;
         this.name = name;
         this.email = email;
-        this.role = role;
         this.accountCreationDate = accountCreationDate;
     }
 
@@ -38,9 +36,6 @@ String accountCreationDate;
         return email;
     }
     
-    public String getRole(){
-        return role;
-    }
     
     public String getAccountCreationDate(){
         return accountCreationDate;
@@ -58,9 +53,6 @@ String accountCreationDate;
         this.email = email;
     }
     
-    public void setRole(String role){
-        this.role = role;
-    }
     
     public void setAccountCreationDate(String accountCreationDate){
         this.accountCreationDate = accountCreationDate;
