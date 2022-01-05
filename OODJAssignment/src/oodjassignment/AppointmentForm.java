@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import java.time.temporal.ChronoUnit;
@@ -45,7 +46,6 @@ public class AppointmentForm extends javax.swing.JPanel {
         appointmentCustomerId_LBL = new javax.swing.JLabel();
         appointmentManagerId_LBL = new javax.swing.JLabel();
         appointmentManagerId_TXT = new javax.swing.JTextField();
-        appointmentTime_TXT = new javax.swing.JTextField();
         appointmentTime_LBL = new javax.swing.JLabel();
         dateCreated_LBL = new javax.swing.JLabel();
         dateCreated_TXT = new javax.swing.JTextField();
@@ -62,6 +62,9 @@ public class AppointmentForm extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         technicianList = new javax.swing.JTable();
         updateAppointment = new javax.swing.JButton();
+        appointmentTime_TXT = new com.toedter.calendar.JDateChooser();
+        slot_LBL = new javax.swing.JLabel();
+        slotCB = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(900, 600));
 
@@ -85,14 +88,14 @@ public class AppointmentForm extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Time", "Appliance", "Date Created", "Customer_ID", "Manager_ID", "Technician_ID"
+                "ID", "Date", "Appliance", "Date Created", "Slot", "Customer_ID", "Manager_ID", "Technician_ID"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -117,8 +120,8 @@ public class AppointmentForm extends javax.swing.JPanel {
         jScrollPane1.setViewportView(appointmentList);
         if (appointmentList.getColumnModel().getColumnCount() > 0) {
             appointmentList.getColumnModel().getColumn(0).setMaxWidth(25);
-            appointmentList.getColumnModel().getColumn(4).setMinWidth(75);
-            appointmentList.getColumnModel().getColumn(5).setMaxWidth(60);
+            appointmentList.getColumnModel().getColumn(5).setMinWidth(75);
+            appointmentList.getColumnModel().getColumn(6).setMaxWidth(60);
         }
 
         id_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
@@ -142,9 +145,6 @@ public class AppointmentForm extends javax.swing.JPanel {
 
         appointmentManagerId_TXT.setEditable(false);
         appointmentManagerId_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
-
-        appointmentTime_TXT.setEditable(false);
-        appointmentTime_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
         appointmentTime_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         appointmentTime_LBL.setForeground(new java.awt.Color(226, 38, 88));
@@ -278,6 +278,25 @@ public class AppointmentForm extends javax.swing.JPanel {
             }
         });
 
+        appointmentTime_TXT.setDateFormatString("dd/MM/y");
+        appointmentTime_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        appointmentTime_TXT.setEnabled(false);
+        appointmentTime_TXT.getCalendarButton().setEnabled(true);
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, +1);// 1 MONTH later
+        Date max = cal.getTime();
+
+        Date now = new Date();
+        appointmentTime_TXT.setSelectableDateRange(now, max);
+
+        slot_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
+        slot_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        slot_LBL.setText("Slot");
+
+        slotCB.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        slotCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10am - 12pm", "2pm - 4pm", "4pm - 6pm" }));
+
         javax.swing.GroupLayout appointmentLayout = new javax.swing.GroupLayout(appointment);
         appointment.setLayout(appointmentLayout);
         appointmentLayout.setHorizontalGroup(
@@ -291,12 +310,16 @@ public class AppointmentForm extends javax.swing.JPanel {
                             .addComponent(id_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(appointmentTime_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(appointmentTime_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(appointmentTime_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(appointmentTime_TXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(dateCreated_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dateCreated_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(dateCreated_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(slot_LBL, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(slotCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(appointmentLayout.createSequentialGroup()
                         .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(appointmentCustomerId_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -350,18 +373,24 @@ public class AppointmentForm extends javax.swing.JPanel {
                     .addGroup(appointmentLayout.createSequentialGroup()
                         .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(appointmentLayout.createSequentialGroup()
-                                .addComponent(dateCreated_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dateCreated_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(appointmentLayout.createSequentialGroup()
                                 .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(appointmentTime_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(id_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(id_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(appointmentLayout.createSequentialGroup()
+                                        .addComponent(appointmentTime_TXT, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                                        .addGap(20, 20, 20))))
+                            .addGroup(appointmentLayout.createSequentialGroup()
                                 .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(appointmentTime_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(id_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
+                                    .addComponent(dateCreated_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(slot_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(dateCreated_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(slotCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)))
                         .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(appointmentLayout.createSequentialGroup()
                                 .addGap(35, 35, 35)
@@ -414,7 +443,7 @@ public class AppointmentForm extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 607, Short.MAX_VALUE)
+            .addGap(0, 609, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -424,7 +453,15 @@ public class AppointmentForm extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void deleteAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAppointmentActionPerformed
-        APLS_returnBorrowing();
+        if (JOptionPane.showConfirmDialog(null, "Are you sure you would like to delete this appointment?", 
+                                      "Delete Appointment?", 
+                                      JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+            appointment deleteAppointment = new appointment();
+            deleteAppointment.deleteUser(appointmentList.getRowCount(), appointmentList.getColumnCount(), appointmentList.getSelectedRow());
+        
+            addAppointment.doClick();
+            initializeAppointments();
+        } else {}
     }//GEN-LAST:event_deleteAppointmentActionPerformed
 
     private void appointmentListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_appointmentListKeyReleased
@@ -436,7 +473,7 @@ public class AppointmentForm extends javax.swing.JPanel {
     }//GEN-LAST:event_appointmentListMouseClicked
 
         
-    public Boolean addAppointmentMode = true; //Boolean check if ready to add new borrowing entry
+    public Boolean addAppointmentMode = true; //Boolean check if ready to add new appointment entry
     String nextAppointmentID;
             
     private void addAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAppointmentActionPerformed
@@ -452,7 +489,7 @@ public class AppointmentForm extends javax.swing.JPanel {
             initializeAppointments();
         }
         // VALIDATION
-        else if ((appointmentTime_TXT.getText().equals("") == true) ||(appliance_TXT.getText().equals("") == true)){
+        else if ((appointmentTime_TXT.getDate() == null) ||(appliance_TXT.getText().equals("") == true)){
             JOptionPane.showMessageDialog(null, "Please ensure appointment time and appliance have been stated. Multiple appliances can be seperated by a comma ','", "Incomplete Appointment Entry", JOptionPane.WARNING_MESSAGE); //pronpt user on empty fields
         }
         else if ((appointmentCustomerId_TXT.getText().equals("") == true) || (appointmentTechnicianId_TXT.getText().equals("") == true)) {
@@ -461,9 +498,12 @@ public class AppointmentForm extends javax.swing.JPanel {
         else if (appliance_TXT.getText().contains(";") == true){
             JOptionPane.showMessageDialog(null, "Please ensure that the appliance textfield does not have the ';' character.", "Invalid Character", JOptionPane.WARNING_MESSAGE); //pronpt user to select
         }
+        else if (checkAvailability(appointmentTimeFormatter.format(appointmentTime_TXT.getDate()), slotCB.getSelectedIndex(), Integer.valueOf(appointmentTechnicianId_TXT.getText())) == false){
+            JOptionPane.showMessageDialog(null, "The technician is unavailable for the selected slot and date. Please try choosing another technician, date or slot.", "Appointment Unavailable", JOptionPane.WARNING_MESSAGE); //validate if timeslot has been taken
+        }
         // Create Appointment Object
         else {
-            appointment newAppointment = new appointment(id_TXT.getText(), appointmentTime_TXT.getText(), appliance_TXT.getText(), dateCreated_TXT.getText(), appointmentCustomerId_TXT.getText(), appointmentManagerId_TXT.getText(), appointmentTechnicianId_TXT.getText());
+            appointment newAppointment = new appointment(id_TXT.getText(), appointmentTimeFormatter.format(appointmentTime_TXT.getDate()), appliance_TXT.getText(), dateCreated_TXT.getText(), slotCB.getSelectedIndex(), appointmentCustomerId_TXT.getText(), appointmentManagerId_TXT.getText(), appointmentTechnicianId_TXT.getText());
             initializeAppointments();
         }
                 
@@ -472,17 +512,21 @@ public class AppointmentForm extends javax.swing.JPanel {
     private void customerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerListMouseClicked
         clickFiller(customerList, appointmentCustomerId_TXT);
         
-        DefaultTableModel model = (DefaultTableModel)customerList.getModel(); //model from JTable
-        int rowIndex = customerList.getSelectedRow();
-        rowHighlighter(appointmentList, Integer.parseInt(model.getValueAt(rowIndex, 0).toString()), 4);
+//        if (addAppointmentMode == true){
+//            DefaultTableModel model = (DefaultTableModel)customerList.getModel(); //model from JTable
+//            int rowIndex = customerList.getSelectedRow();
+//            rowHighlighter(appointmentList, Integer.parseInt(model.getValueAt(rowIndex, 0).toString()), 4);
+//        }
     }//GEN-LAST:event_customerListMouseClicked
 
     private void customerListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerListKeyReleased
         clickFiller(customerList, appointmentCustomerId_TXT);
         
-        DefaultTableModel model = (DefaultTableModel)customerList.getModel(); //model from JTable
-        int rowIndex = customerList.getSelectedRow();
-        rowHighlighter(appointmentList, Integer.parseInt(model.getValueAt(rowIndex, 0).toString()), 4);
+//        if (addAppointmentMode == true){
+//            DefaultTableModel model = (DefaultTableModel)customerList.getModel(); //model from JTable
+//            int rowIndex = customerList.getSelectedRow();
+//            rowHighlighter(appointmentList, Integer.parseInt(model.getValueAt(rowIndex, 0).toString()), 4);
+//        }
     }//GEN-LAST:event_customerListKeyReleased
 
     private void technicianListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_technicianListMouseClicked
@@ -494,10 +538,27 @@ public class AppointmentForm extends javax.swing.JPanel {
     }//GEN-LAST:event_technicianListKeyReleased
 
     private void updateAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAppointmentActionPerformed
-        appointment updateAppointment = new appointment(id_TXT.getText(), appointmentTime_TXT.getText(), appliance_TXT.getText(), dateCreated_TXT.getText(), appointmentCustomerId_TXT.getText(), appointmentManagerId_TXT.getText(), appointmentTechnicianId_TXT.getText(), appointmentList.getRowCount(), appointmentList.getColumnCount(), appointmentList.getSelectedRow());
-        initializeAppointments();
+        if ((appointmentTime_TXT.getDate() == null) ||(appliance_TXT.getText().equals("") == true)){
+            JOptionPane.showMessageDialog(null, "Please ensure appointment time and appliance have been stated. Multiple appliances can be seperated by a comma ','", "Incomplete Appointment Entry", JOptionPane.WARNING_MESSAGE); //pronpt user on empty fields
+        }
+        else if ((appointmentCustomerId_TXT.getText().equals("") == true) || (appointmentTechnicianId_TXT.getText().equals("") == true)) {
+            JOptionPane.showMessageDialog(null, "Please ensure customer and technician have been selected from the tables", "Incomplete Appointment Entry", JOptionPane.WARNING_MESSAGE); //pronpt user to select
+        }
+        else if (appliance_TXT.getText().contains(";") == true){
+            JOptionPane.showMessageDialog(null, "Please ensure that the appliance textfield does not have the ';' character.", "Invalid Character", JOptionPane.WARNING_MESSAGE); //pronpt user to select
+        }
+        else if (checkAvailability(appointmentTimeFormatter.format(appointmentTime_TXT.getDate()), slotCB.getSelectedIndex(), Integer.valueOf(appointmentTechnicianId_TXT.getText())) == false){
+            JOptionPane.showMessageDialog(null, "The technician is unavailable for the selected slot and date. Please try choosing another technician, date or slot.", "Appointment Unavailable", JOptionPane.WARNING_MESSAGE); //validate if timeslot has been taken
+        }
+        // Create Appointment Object
+        else {        
+            appointment updateAppointment = new appointment(id_TXT.getText(), appointmentTimeFormatter.format(appointmentTime_TXT.getDate()), appliance_TXT.getText(), dateCreated_TXT.getText(), slotCB.getSelectedIndex(), appointmentCustomerId_TXT.getText(), appointmentManagerId_TXT.getText(), appointmentTechnicianId_TXT.getText(), appointmentList.getRowCount(), appointmentList.getColumnCount(), appointmentList.getSelectedRow());
+            addAppointment.doClick();
+            initializeAppointments();
+        }
     }//GEN-LAST:event_updateAppointmentActionPerformed
 
+    SimpleDateFormat appointmentTimeFormatter = new SimpleDateFormat("dd/MM/yyyy");
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm a"); //format date time and am/pm
                 
     public void appointmentInfo(){
@@ -507,18 +568,20 @@ public class AppointmentForm extends javax.swing.JPanel {
             
             //Save to variables
             int appointmentId = Integer.parseInt(model.getValueAt(rowIndex, 0).toString());
-            Date appointmentTime = formatter.parse(model.getValueAt(rowIndex, 1).toString());
+            Date appointmentTime = appointmentTimeFormatter.parse(model.getValueAt(rowIndex, 1).toString());
             String appliance = model.getValueAt(rowIndex, 2).toString();
             Date dateCreated = formatter.parse(model.getValueAt(rowIndex, 3).toString());
-            int customerId = Integer.parseInt(model.getValueAt(rowIndex, 4).toString());
-            int managerId = Integer.parseInt(model.getValueAt(rowIndex, 5).toString());
-            int technicianId = Integer.parseInt(model.getValueAt(rowIndex, 6).toString());
+            int slot = Integer.parseInt(model.getValueAt(rowIndex, 4).toString());
+            int customerId = Integer.parseInt(model.getValueAt(rowIndex, 5).toString());
+            int managerId = Integer.parseInt(model.getValueAt(rowIndex, 6).toString());
+            int technicianId = Integer.parseInt(model.getValueAt(rowIndex, 7).toString());
 
             //Save to variables
             id_TXT.setText(String.valueOf(appointmentId));
-            appointmentTime_TXT.setText(formatter.format(appointmentTime));
+            appointmentTime_TXT.setDate(appointmentTime);
             appliance_TXT.setText(appliance);
             dateCreated_TXT.setText(formatter.format(dateCreated));
+            slotCB.setSelectedIndex(slot);
             appointmentCustomerId_TXT.setText(String.valueOf(customerId));
             appointmentManagerId_TXT.setText(String.valueOf(managerId));
             appointmentTechnicianId_TXT.setText(String.valueOf(technicianId));
@@ -533,6 +596,33 @@ public class AppointmentForm extends javax.swing.JPanel {
         } catch (ParseException ex) {}
     }
     
+    public boolean checkAvailability(String date, int slotTime, int technicianID){
+        DefaultTableModel model = (DefaultTableModel)appointmentList.getModel(); //model from JTable
+        int rowIndex = appointmentList.getSelectedRow();
+
+        String appointmentTime;
+        int slot, technicianId;
+        
+        try{
+            for(int i = 0; i < appointmentList.getRowCount(); i++){ //rows in appointment List table
+                if(i == rowIndex){
+                    i++;
+                }
+
+                appointmentTime = model.getValueAt(i, 1).toString();
+                slot = Integer.parseInt(model.getValueAt(i, 4).toString());
+                technicianId = Integer.parseInt(model.getValueAt(i, 7).toString());
+
+                if((appointmentTime.equals(date)) && (slot == slotTime) && (technicianId == technicianID)){
+                    return false;
+                }
+            }
+        }catch(ArrayIndexOutOfBoundsException ex){
+           return true;
+        }
+        return true;
+    }
+    
     public void initializeAppointments(){
         //APPOINTMENT_T
         File appointment = new File("src/db/appointment_t.txt");
@@ -545,22 +635,12 @@ public class AppointmentForm extends javax.swing.JPanel {
         model.setRowCount(0); //clear table
         Object[] lines = br.lines().toArray();
         
-        //Sort Table unreturned books at the top
         for(int i = 0; i < lines.length; i++){
             String[] row = lines[i].toString().split(";");
-            if (row[5].toString().equals("") == true){ //empty indicates books have not been returned
-                model.addRow(row); //load data
-            }
-        }
-        //Sort table returned books below
-        for(int i = 0; i < lines.length; i++){
-            String[] row = lines[i].toString().split(";");
-            if (row[5].toString().equals("") == false){ //not empty indicates books have been returned
-                model.addRow(row); //load data
-            }
+            model.addRow(row); //load data
         }
         
-        //Generate Borrowing ID for next entry
+        //Generate Appointment ID for next entry
         int newAppointmentID = 0;
         for(int i = 0; i < lines.length; i++){
             String[] row = lines[i].toString().split(";");
@@ -570,9 +650,9 @@ public class AppointmentForm extends javax.swing.JPanel {
         }
         
         nextAppointmentID = String.valueOf(newAppointmentID + 1);//+1 for next entry
-        id_TXT.setText(nextAppointmentID); //load next borrowing ID
-        //Clear textboxes
-        appointmentTime_TXT.setText("");
+        id_TXT.setText(nextAppointmentID); //load next appointment ID
+        //Clear textboxes        
+        appointmentTime_TXT.setDate(null);
         appointmentCustomerId_TXT.setText("");
         appointmentManagerId_TXT.setText(oodjassignment.pLogin.getId());
         appointmentTechnicianId_TXT.setText("");
@@ -581,10 +661,12 @@ public class AppointmentForm extends javax.swing.JPanel {
         Date dateCreated = new Date();
         dateCreated_TXT.setText(formatter.format(dateCreated));
         
-        //CUSTOMER_T
-        File borrower = new File("src/db/customer_t.txt");
+        slotCB.setSelectedIndex(0);
         
-        fr = new FileReader(borrower);
+        //CUSTOMER_T
+        File customer = new File("src/db/customer_t.txt");
+        
+        fr = new FileReader(customer);
         br = new BufferedReader(fr);
             
         model = (DefaultTableModel)customerList.getModel();
@@ -641,34 +723,6 @@ public class AppointmentForm extends javax.swing.JPanel {
         txt.setText(selectedID); //add to textbox
     }
     
-    private void APLS_renewBorrowing(){
-        DefaultTableModel model = (DefaultTableModel)appointmentList.getModel(); //model from JTable
-
-        //Set Values in Table
-        model.setValueAt(dateCreated_TXT.getText(), appointmentList.getSelectedRow(), 4);
-
-        //Update Renewal count
-        int renewalCount = Integer.parseInt(model.getValueAt(appointmentList.getSelectedRow(), 6).toString()) + 1; //add 1
-        model.setValueAt(renewalCount, appointmentList.getSelectedRow(), 6);
-
-        updateDBTXT();
-    }
-    
-    private void APLS_returnBorrowing(){
-            if (JOptionPane.showConfirmDialog(null, "By clicking 'yes', I as the librarian-in-charge acknowledge that the borrower has returned the book and paid the late fees where applicable", 
-                                      "Return Book?", 
-                                      JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-            DefaultTableModel model = (DefaultTableModel)appointmentList.getModel(); //model from JTable
-            LocalDate returndate = LocalDate.now();
-            
-            //Set Return Date
-            appointmentTechnicianId_TXT.setText(returndate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-            model.setValueAt(appointmentTechnicianId_TXT.getText(), appointmentList.getSelectedRow(), 5);
-            
-            updateDBTXT();
-        } else {}
-    }
-    
     private void updateDBTXT(){
         //update from JTable to textfile
             try {
@@ -703,7 +757,7 @@ public class AppointmentForm extends javax.swing.JPanel {
     private javax.swing.JLabel appointmentTechnicianId_LBL;
     protected javax.swing.JTextField appointmentTechnicianId_TXT;
     private javax.swing.JLabel appointmentTime_LBL;
-    protected javax.swing.JTextField appointmentTime_TXT;
+    private com.toedter.calendar.JDateChooser appointmentTime_TXT;
     private javax.swing.JLabel appointment_LBL;
     private javax.swing.JLabel customerLBL;
     javax.swing.JTable customerList;
@@ -715,6 +769,8 @@ public class AppointmentForm extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    protected javax.swing.JComboBox<String> slotCB;
+    private javax.swing.JLabel slot_LBL;
     private javax.swing.JLabel technicianLBL;
     javax.swing.JTable technicianList;
     private javax.swing.JButton updateAppointment;
