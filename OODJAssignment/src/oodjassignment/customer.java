@@ -10,18 +10,13 @@ package oodjassignment;
  */
 public class customer extends user{
     
-    int customerLoyaltyPoint;
     String customerAddress;
     
-    public customer(String userId, String name, String email, String role, String accountCreationDate, int custLoyaltypoint, String customerAddress){
-        super(userId, name, email, role, accountCreationDate);
-        this.customerLoyaltyPoint = custLoyaltypoint;
+    public customer(String userId, String name, String email,  String customerAddress, String accountCreationDate){
+        super(userId, name, email, accountCreationDate);
         this.customerAddress = customerAddress;
     }
     
-    public int getCustomerLoyaltyPoint(){
-        return customerLoyaltyPoint;
-    }
     
     public String getCustomerAddress(){
         return customerAddress;
@@ -33,9 +28,7 @@ public class customer extends user{
               "Name : " + super.getName() + "\n" +
               "Email : " + super.getEmail() + "\n" +
               "Address : " +  getCustomerAddress() +"\n" +
-              "Role : " + super.getRole() + "\n" +
-              "Account Creation Date : " + super.getAccountCreationDate() + "\n" +
-              "Loyalty Points : " + getCustomerLoyaltyPoint() + "\n"
+              "Account Creation Date : " + super.getAccountCreationDate() + "\n"
               ;
    }
     

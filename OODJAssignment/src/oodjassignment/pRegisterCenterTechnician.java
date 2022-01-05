@@ -221,7 +221,7 @@ public class pRegisterCenterTechnician extends javax.swing.JFrame {
                 ClearText();
                 AutoCenterTechnicianID();
                 
-                centerManager newCT = new centerManager(userID, name, email , role , accountCreationDate , password);
+                centerManager newCT = new centerManager(userID, name, email , password, accountCreationDate);
             
                 JOptionPane.showMessageDialog(null, newCT.toString(), "Adding Succesful!",  JOptionPane.PLAIN_MESSAGE );
                 

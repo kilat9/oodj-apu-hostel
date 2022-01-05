@@ -24,9 +24,8 @@ public class centerTechnician extends user{
         this.basePay = 0;
     }
     
-    public centerTechnician(String userId, String name, String email, String role, String accountCreationDate, String password, double basePay){
-        super(userId, name, email, role, accountCreationDate);
-        super.setRole("CT");
+    public centerTechnician(String userId, String name, String email, String password, double basePay, String accountCreationDate){
+        super(userId, name, email, accountCreationDate);
         this.password = password;
         this.basePay = basePay;
     }
@@ -48,7 +47,7 @@ public class centerTechnician extends user{
     }
     
      
-    public void registerCenterTechnician(String userId, String name, String email, String role, String accountCreationDate, String password, double basePay){
+    public void registerCenterTechnician(String userId, String name, String email, String password, double basePay, String accountCreationDate){
         try{
             
 
@@ -63,7 +62,7 @@ public class centerTechnician extends user{
 
 
                 // Write the name to the file.
-                outputFile.println(userId + ":" + name + ":" + email + ":" + role + ":" + accountCreationDate + ":" + password + ":" + basePay);
+                outputFile.println(userId + ":" + name + ":" + email + ":" + password + ":" + basePay + ":" + accountCreationDate);
 
                 outputFile.close(); // Close the file.
                 System.out.println("Data written to the file.");
@@ -83,7 +82,6 @@ public class centerTechnician extends user{
        return "ID : " + super.getUserId()+ "\n" +
               "Name : " + super.getName() + "\n" +
               "Email : " + super.getEmail() + "\n" +
-              "Role : " + super.getRole() + "\n" +
               "Account Creation Date : " + super.getAccountCreationDate() + "\n" +
               "Password : " + getPassword() + "\n" +
               "Base Pay : " + getBasePay() + "\n" 
