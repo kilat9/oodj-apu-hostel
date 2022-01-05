@@ -201,7 +201,7 @@ public class pRegisterCenterTechnician extends javax.swing.JFrame {
             userID = txtID.getText();
             name = txtName.getText();
             email = txtEmail.getText();
-            role = "CM";
+            role = "CT";
             accountCreationDate = datef.format(currentDate.getTime());
             password = txtPassword.getText();
             basePay = Double.parseDouble(txtBasePay.getText());
