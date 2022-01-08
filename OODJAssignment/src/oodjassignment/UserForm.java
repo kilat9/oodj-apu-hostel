@@ -487,7 +487,7 @@ public class UserForm extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Password & Confirm Password Do Not Match! Please re-enter passwords", "Passwords don't match", JOptionPane.WARNING_MESSAGE);
             }
             else{
-                CLASS_librarian addLibrarian = new CLASS_librarian(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), usernameTXT.getText(), String.valueOf(passwordTXT.getPassword()));
+                //CLASS_librarian addLibrarian = new CLASS_librarian(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), usernameTXT.getText(), String.valueOf(passwordTXT.getPassword()));
                 APLS_initializeUser();
             }
         }
@@ -511,11 +511,11 @@ public class UserForm extends javax.swing.JPanel {
                 emailTXT.requestFocus();
             }
             else if (roleCB.getSelectedIndex() == 0){ //student
-                CLASS_student addStudent = new CLASS_student(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText());
+                //CLASS_student addStudent = new CLASS_student(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText());
                 APLS_initializeUser();
             }
             else if (roleCB.getSelectedIndex() == 1){ //staff
-                CLASS_staff addStaff = new CLASS_staff(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText());
+                //CLASS_staff addStaff = new CLASS_staff(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText());
                 APLS_initializeUser();
             }
         }
@@ -527,11 +527,11 @@ public class UserForm extends javax.swing.JPanel {
                                       "Delete User?", 
                                       JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
             if (librarianTable == false ){
-                CLASS_student borrower = new CLASS_student();
-                borrower.deleteUser(borrowerList.getRowCount(), borrowerList.getColumnCount(), borrowerList.getSelectedRow());
+                //CLASS_student borrower = new CLASS_student();
+                //borrower.deleteUser(borrowerList.getRowCount(), borrowerList.getColumnCount(), borrowerList.getSelectedRow());
             } else{
-                CLASS_librarian librarian = new CLASS_librarian();
-                librarian.deleteUser(librarianList.getRowCount(), librarianList.getColumnCount(), librarianList.getSelectedRow());
+                //CLASS_librarian librarian = new CLASS_librarian();
+                //librarian.deleteUser(librarianList.getRowCount(), librarianList.getColumnCount(), librarianList.getSelectedRow());
             }
         
         addUser.doClick();
@@ -563,7 +563,7 @@ public class UserForm extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Password & Confirm Password Do Not Match! Please re-enter passwords", "Passwords don't match", JOptionPane.WARNING_MESSAGE);
             }
             else{
-                CLASS_librarian updateLibrarian = new CLASS_librarian(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), usernameTXT.getText(), String.valueOf(passwordTXT.getPassword()), librarianList.getRowCount(), librarianList.getColumnCount(), librarianList.getSelectedRow());
+                //CLASS_librarian updateLibrarian = new CLASS_librarian(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), usernameTXT.getText(), String.valueOf(passwordTXT.getPassword()), librarianList.getRowCount(), librarianList.getColumnCount(), librarianList.getSelectedRow());
                 addUser.doClick();
                 APLS_initializeUser();
             }
@@ -588,12 +588,12 @@ public class UserForm extends javax.swing.JPanel {
                 emailTXT.requestFocus();
             }
             else if (roleCB.getSelectedIndex() == 0){ //student
-                CLASS_student addStudent = new CLASS_student(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), borrowerList.getRowCount(), borrowerList.getColumnCount(), borrowerList.getSelectedRow());
+                //CLASS_student addStudent = new CLASS_student(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), borrowerList.getRowCount(), borrowerList.getColumnCount(), borrowerList.getSelectedRow());
                 addUser.doClick();
                 APLS_initializeUser();
             }
             else if (roleCB.getSelectedIndex() == 1){ //staff
-                CLASS_student addStudent = new CLASS_student(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), borrowerList.getRowCount(), borrowerList.getColumnCount(), borrowerList.getSelectedRow());
+                //CLASS_student addStudent = new CLASS_student(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), borrowerList.getRowCount(), borrowerList.getColumnCount(), borrowerList.getSelectedRow());
                 addUser.doClick();
                 APLS_initializeUser();
             }
