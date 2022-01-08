@@ -103,7 +103,7 @@ public class pLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         if (loginValidate()) {
-             //JOptionPane.showMessageDialog(null, "Login Successful!");
+             this.setVisible(false);
              
             if(userRole == "Center Manager"){
                 AHHASC_Manager managerInterface = new AHHASC_Manager();
@@ -116,7 +116,7 @@ public class pLogin extends javax.swing.JFrame {
                 technicianInterface.setVisible(true);
             }
             
-             this.setVisible(false);             
+                          
         } else {
             JOptionPane.showMessageDialog(null, "Login failed! Your ID or password may be wrong.", "Account Authentication Failed!", JOptionPane.ERROR_MESSAGE);
         }

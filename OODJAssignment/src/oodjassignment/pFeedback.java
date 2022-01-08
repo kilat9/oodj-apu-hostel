@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 /**
  *
  * @author User
@@ -26,6 +27,7 @@ public class pFeedback extends javax.swing.JFrame {
         if (txtFeedbackID.getText().equals("")){
                     txtFeedbackID.setText("1");
         }
+        setTechnicianId();
     }
 
     /**
@@ -52,6 +54,11 @@ public class pFeedback extends javax.swing.JFrame {
         txtTechnicianID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         lblTechnicianID.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         lblTechnicianID.setText("Technician ID");
@@ -75,6 +82,7 @@ public class pFeedback extends javax.swing.JFrame {
         });
 
         txtAppointmentID.setFont(new java.awt.Font("Bahnschrift", 0, 11)); // NOI18N
+        txtAppointmentID.setEnabled(false);
         txtAppointmentID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtAppointmentIDKeyReleased(evt);
@@ -104,10 +112,16 @@ public class pFeedback extends javax.swing.JFrame {
 
         btnBack.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         lblMessage1.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         lblMessage1.setText("Feedback ID");
 
+        txtTechnicianID.setEnabled(false);
         txtTechnicianID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTechnicianIDActionPerformed(evt);
@@ -266,7 +280,7 @@ public class pFeedback extends javax.swing.JFrame {
                 System.out.println(feedbackID);
 
                 JOptionPane.showMessageDialog(null, fb.toString(), "Adding Succesful!",  JOptionPane.PLAIN_MESSAGE );
-
+                returnToMenu();
             }else {
                 JOptionPane.showMessageDialog(null, "Make sure all input fields are properly keyed in");
 
@@ -276,6 +290,7 @@ public class pFeedback extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "An error occured!");
         }
 
+        
     }//GEN-LAST:event_btnSendActionPerformed
 
     private void txtTechnicianIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTechnicianIDActionPerformed
@@ -295,6 +310,14 @@ public class pFeedback extends javax.swing.JFrame {
             txtTechnicianID.setText("");
         }
     }//GEN-LAST:event_txtTechnicianIDKeyReleased
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        returnToMenu();
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        returnToMenu();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -332,6 +355,13 @@ public class pFeedback extends javax.swing.JFrame {
         });
     }
     
+    private void setTechnicianId(){
+        txtTechnicianID.setText(oodjassignment.pLogin.getId());
+    }
+    
+    public void setAppointmentId(int id){
+        txtAppointmentID.setText(String.valueOf(id));
+    }
     
     boolean IsEmpty;
     private void CheckEmpty(){
@@ -407,6 +437,15 @@ public class pFeedback extends javax.swing.JFrame {
    
         }
     }
+     
+     private void returnToMenu(){
+         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+         
+         this.setVisible(false);
+         
+         AHHASC_Technician technicianInterface = new AHHASC_Technician();
+         technicianInterface.setVisible(true);
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
