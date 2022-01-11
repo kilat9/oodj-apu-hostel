@@ -5,6 +5,11 @@
 package oodjassignment;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -32,6 +37,7 @@ public class pLogin extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         txtAccountType = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -62,36 +68,44 @@ public class pLogin extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         jLabel3.setText("Account Type");
 
+        jLabel5.setFont(new java.awt.Font("Bahnschrift", 0, 36)); // NOI18N
+        jLabel5.setText("LOGIN");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnLogin)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(txtPassword))
-                        .addGap(127, 127, 127))))
+                        .addGap(47, 47, 47)))
+                .addGap(95, 95, 95))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(jLabel5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -105,7 +119,7 @@ public class pLogin extends javax.swing.JFrame {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(btnLogin)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -115,6 +129,7 @@ public class pLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (loginValidate()) {
              this.setVisible(false);
+             addLoginLog();
              
             if(userRole == "Center Manager"){
                 AHHASC_Manager managerInterface = new AHHASC_Manager();
@@ -173,6 +188,7 @@ public class pLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JComboBox<String> txtAccountType;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserID;
@@ -253,7 +269,42 @@ public class pLogin extends javax.swing.JFrame {
 
 
 
+    private void addLoginLog(){
+        
+        Calendar currentDate = Calendar.getInstance();
+        SimpleDateFormat datef = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
+        String creationDate = datef.format(currentDate.getTime());
+        String userID = txtUserID.getText();
+        
+        
+        try{
+            
+
+           String Filename = "src\\db\\loginLog_t.txt";
+
+            // Open the file.
+            //Add onto the existing file
+            FileWriter fw = new FileWriter(Filename, true);
+            PrintWriter outputFile = new PrintWriter(fw);
+
+            //Overide the existing file
+
+
+                // Write the name to the file.
+                outputFile.println(userRole + ":" + userID + ":" + creationDate);
+
+                outputFile.close(); // Close the file.
+                System.out.println("Data written to the file.");
+
+                //JOptionPane.showMessageDialog(null, "Adding Succesful!");
+        }
+        catch(IOException e){
+
+            JOptionPane.showMessageDialog(null, "An error occured!");
+        }
+    
+    }
 
 
 
