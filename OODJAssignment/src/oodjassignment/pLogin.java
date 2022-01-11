@@ -5,6 +5,7 @@
 package oodjassignment;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -202,10 +203,14 @@ public class pLogin extends javax.swing.JFrame {
     }
     
     private boolean loginValidate() {
+        
+        
        
         boolean Validated = false;
         
         userRole = txtAccountType.getItemAt(txtAccountType.getSelectedIndex());
+    
+        
         
         try {
             if(userRole == "Center Manager"){
@@ -292,7 +297,7 @@ public class pLogin extends javax.swing.JFrame {
 
 
                 // Write the name to the file.
-                outputFile.println(userRole + ":" + userID + ":" + creationDate);
+                outputFile.println(userRole + ":" + userID + ":" + name + ":" + creationDate);
 
                 outputFile.close(); // Close the file.
                 System.out.println("Data written to the file.");
@@ -305,9 +310,7 @@ public class pLogin extends javax.swing.JFrame {
         }
     
     }
-
-
-
+    
 
 
 }
