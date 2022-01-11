@@ -34,11 +34,18 @@ public class pLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
+        setResizable(false);
 
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         jLabel1.setText("User ID");
 
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         jLabel2.setText("Password");
 
+        txtUserID.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+
+        btnLogin.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,9 +53,13 @@ public class pLogin extends javax.swing.JFrame {
             }
         });
 
+        txtPassword.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+
+        txtAccountType.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         txtAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Center Manager", "Center Technician" }));
         txtAccountType.setToolTipText("");
 
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         jLabel3.setText("Account Type");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -73,7 +84,7 @@ public class pLogin extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(txtPassword))
                         .addGap(127, 127, 127))))
         );
@@ -94,7 +105,7 @@ public class pLogin extends javax.swing.JFrame {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(btnLogin)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         pack();
