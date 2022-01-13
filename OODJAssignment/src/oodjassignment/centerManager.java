@@ -62,7 +62,7 @@ public class centerManager extends user{
     
     
     
-    public void registerCenterManager(String userId, String name, String email, String role, String accountCreationDate, String password){
+    public void registerCenterManager(String userId, String name, String email, String accountCreationDate, String password){
         try{
             
 
@@ -77,7 +77,7 @@ public class centerManager extends user{
 
 
                 // Write the name to the file.
-                outputFile.println(userId + ":" + name + ":" + email + ":" + role + ":" + accountCreationDate + ":" + password);
+                outputFile.println(userId + ":" + name + ":" + email + ":" + password + ":" + accountCreationDate );
 
                 outputFile.close(); // Close the file.
                 System.out.println("Data written to the file.");
@@ -90,7 +90,7 @@ public class centerManager extends user{
         }
     }
     
-    public void registerCenterTechnician(String userId, String name, String email, String role, String accountCreationDate, String password, double basePay){
+    public void registerCenterTechnician(String userId, String name, String email, String accountCreationDate, String password, double basePay){
         try{
             
 
@@ -105,7 +105,7 @@ public class centerManager extends user{
 
 
                 // Write the name to the file.
-                outputFile.println(userId + ":" + name + ":" + email + ":" + role + ":" + accountCreationDate + ":" + password + ":" + basePay);
+                outputFile.println(userId + ":" + name + ":" + email + ":" + password + ":" + basePay + ":" + accountCreationDate);
 
                 outputFile.close(); // Close the file.
                 System.out.println("Data written to the file.");

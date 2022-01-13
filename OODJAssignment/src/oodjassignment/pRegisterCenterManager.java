@@ -191,7 +191,7 @@ public class pRegisterCenterManager extends javax.swing.JFrame {
 
                 // Write the name to the file.
                 centerManager ct = new centerManager();
-                ct.registerCenterManager(userID, name, email , role , accountCreationDate , password);
+                ct.registerCenterManager(userID, name, email, accountCreationDate , password);
 
                 //JOptionPane.showMessageDialog(null, "Adding Succesful!");
                 ClearText();
