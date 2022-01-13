@@ -1,4 +1,2 @@
-1:Billy Kid:billy@gmail.com:CT:03/01/2022:pass:125.0
-2:test:test@mail.com:CT:04/01/2022:test:124.0
-3:1231313:awdawd@awd:CT:04/01/2022:123456:300.0
-4:Test:awd@gmail.com:CT:05/01/2022:password:123.0
+1:Billy Kid:billy@gmail.com:pass:125.0:03/01/2022
+2:test:Email@gmail.com:password2:123.0:13/01/2022

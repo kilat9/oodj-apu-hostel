@@ -215,7 +215,7 @@ public class pRegisterCenterTechnician extends javax.swing.JFrame {
 
                 // Write the name to the file.
                 centerManager ct = new centerManager();
-                ct.registerCenterTechnician(userID, name, email , role , accountCreationDate , password, basePay);
+                ct.registerCenterTechnician(userID, name, email, accountCreationDate , password, basePay);
 
                 //JOptionPane.showMessageDialog(null, "Adding Succesful!");
                 ClearText();
