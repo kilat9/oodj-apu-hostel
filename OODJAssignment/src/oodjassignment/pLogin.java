@@ -231,7 +231,7 @@ public class pLogin extends javax.swing.JFrame {
    
                 SelectedID = lEntry.split(":");
 
-                if (ID.equals(SelectedID[0]) && Password.equals(SelectedID[5])) {
+                if (ID.equals(SelectedID[0]) && Password.equals(SelectedID[3])) {
                     Validated = true;
                     name = SelectedID[1];
                 }
@@ -257,7 +257,7 @@ public class pLogin extends javax.swing.JFrame {
    
                 SelectedID = lEntry.split(":");
 
-                if (ID.equals(SelectedID[0]) && Password.equals(SelectedID[5])) {
+                if (ID.equals(SelectedID[0]) && Password.equals(SelectedID[3])) {
                     Validated = true;
                     name = SelectedID[1];
                 }
