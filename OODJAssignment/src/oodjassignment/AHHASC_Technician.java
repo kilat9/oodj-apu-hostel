@@ -111,6 +111,7 @@ public class AHHASC_Technician extends javax.swing.JFrame {
             }
         });
 
+        appointmentList.setAutoCreateRowSorter(true);
         appointmentList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         appointmentList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -193,6 +194,7 @@ public class AHHASC_Technician extends javax.swing.JFrame {
         slotCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "10am - 12pm", "2pm - 4pm", "4pm - 6pm" }));
         slotCB.setEnabled(false);
 
+        pastAppointmentList.setAutoCreateRowSorter(true);
         pastAppointmentList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         pastAppointmentList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

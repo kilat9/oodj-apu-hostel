@@ -82,6 +82,7 @@ public class AppointmentForm extends javax.swing.JPanel {
             }
         });
 
+        appointmentList.setAutoCreateRowSorter(true);
         appointmentList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         appointmentList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
