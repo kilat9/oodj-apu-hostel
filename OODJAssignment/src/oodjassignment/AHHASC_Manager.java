@@ -40,8 +40,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         logoutButton = new javax.swing.JButton();
         oodjassignment.AppointmentForm appointment;
         appointment = appointmentTab;
-        //oodjassignment.customer user;
-        user = null; //new oodjassignment.customer();
+        oodjassignment.UserForm user;
+        user = new oodjassignment.UserForm();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("AHHASC");
@@ -143,8 +143,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         appointment.setForeground(new java.awt.Color(226, 38, 88));
         MDIparent.addTab("Appointments", appointment);
 
-        //user.setBackground(new java.awt.Color(225, 226, 188));
-        //user.setForeground(new java.awt.Color(226, 38, 88));
+        user.setBackground(new java.awt.Color(225, 226, 188));
+        user.setForeground(new java.awt.Color(226, 38, 88));
         MDIparent.addTab("Users", user);
 
         MDIparent.setSelectedComponent(home);

@@ -22,7 +22,7 @@ public class UserForm extends javax.swing.JPanel {
      */
     public UserForm() {
         initComponents();
-        APLS_initializeUser();
+        initializeUser();
     }
 
     /**
@@ -37,21 +37,21 @@ public class UserForm extends javax.swing.JPanel {
         selectUserLBL = new javax.swing.JLabel();
         roleCB = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        borrowerList = new javax.swing.JTable();
-        borrowerLBL = new javax.swing.JLabel();
+        customerList = new javax.swing.JTable();
+        customerLBL = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        librarianList = new javax.swing.JTable();
-        librarianLBL = new javax.swing.JLabel();
+        technicianList = new javax.swing.JTable();
+        technicianLBL = new javax.swing.JLabel();
         user_idTXT = new javax.swing.JTextField();
         user_idLBL = new javax.swing.JLabel();
         nameLBL = new javax.swing.JLabel();
         nameTXT = new javax.swing.JTextField();
         emailLBL = new javax.swing.JLabel();
         emailTXT = new javax.swing.JTextField();
-        phone_numberLBL = new javax.swing.JLabel();
-        phone_numberTXT = new javax.swing.JTextField();
-        usernameTXT = new javax.swing.JTextField();
-        usernameLBL = new javax.swing.JLabel();
+        dateCreatedLBL = new javax.swing.JLabel();
+        dateCreatedTXT = new javax.swing.JTextField();
+        payGradeTXT = new javax.swing.JTextField();
+        payGradeLBL = new javax.swing.JLabel();
         passwordLBL = new javax.swing.JLabel();
         confirmPasswordLBL = new javax.swing.JLabel();
         addUser = new javax.swing.JButton();
@@ -61,8 +61,8 @@ public class UserForm extends javax.swing.JPanel {
         confirmPasswordTXT = new javax.swing.JPasswordField();
         passwordTXT = new javax.swing.JPasswordField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        librarianList1 = new javax.swing.JTable();
-        librarianLBL1 = new javax.swing.JLabel();
+        managerList = new javax.swing.JTable();
+        managerLBL = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(225, 226, 188));
         setPreferredSize(new java.awt.Dimension(900, 600));
@@ -72,15 +72,15 @@ public class UserForm extends javax.swing.JPanel {
         selectUserLBL.setText("Select User:");
 
         roleCB.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        roleCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Student", "Staff", "Librarian" }));
+        roleCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Manager", "Technician" }));
         roleCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roleCBActionPerformed(evt);
             }
         });
 
-        borrowerList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
-        borrowerList.setModel(new javax.swing.table.DefaultTableModel(
+        customerList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        customerList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -103,25 +103,25 @@ public class UserForm extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        borrowerList.getTableHeader().setReorderingAllowed(false);
-        borrowerList.addMouseListener(new java.awt.event.MouseAdapter() {
+        customerList.getTableHeader().setReorderingAllowed(false);
+        customerList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                borrowerListMouseClicked(evt);
+                customerListMouseClicked(evt);
             }
         });
-        borrowerList.addKeyListener(new java.awt.event.KeyAdapter() {
+        customerList.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                borrowerListKeyReleased(evt);
+                customerListKeyReleased(evt);
             }
         });
-        jScrollPane2.setViewportView(borrowerList);
+        jScrollPane2.setViewportView(customerList);
 
-        borrowerLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        borrowerLBL.setForeground(new java.awt.Color(226, 38, 88));
-        borrowerLBL.setText("Customers");
+        customerLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
+        customerLBL.setForeground(new java.awt.Color(226, 38, 88));
+        customerLBL.setText("Customers");
 
-        librarianList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
-        librarianList.setModel(new javax.swing.table.DefaultTableModel(
+        technicianList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        technicianList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -144,25 +144,25 @@ public class UserForm extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        librarianList.getTableHeader().setReorderingAllowed(false);
-        librarianList.addMouseListener(new java.awt.event.MouseAdapter() {
+        technicianList.getTableHeader().setReorderingAllowed(false);
+        technicianList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                librarianListMouseClicked(evt);
+                technicianListMouseClicked(evt);
             }
         });
-        librarianList.addKeyListener(new java.awt.event.KeyAdapter() {
+        technicianList.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                librarianListKeyReleased(evt);
+                technicianListKeyReleased(evt);
             }
         });
-        jScrollPane3.setViewportView(librarianList);
-        if (librarianList.getColumnModel().getColumnCount() > 0) {
-            librarianList.getColumnModel().getColumn(4).setHeaderValue("Pay Grade");
+        jScrollPane3.setViewportView(technicianList);
+        if (technicianList.getColumnModel().getColumnCount() > 0) {
+            technicianList.getColumnModel().getColumn(4).setHeaderValue("Pay Grade");
         }
 
-        librarianLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        librarianLBL.setForeground(new java.awt.Color(226, 38, 88));
-        librarianLBL.setText("Center Technicians");
+        technicianLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
+        technicianLBL.setForeground(new java.awt.Color(226, 38, 88));
+        technicianLBL.setText("Center Technicians");
 
         user_idTXT.setEditable(false);
         user_idTXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
@@ -188,22 +188,22 @@ public class UserForm extends javax.swing.JPanel {
             }
         });
 
-        phone_numberLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        phone_numberLBL.setForeground(new java.awt.Color(226, 38, 88));
-        phone_numberLBL.setText("Phone Number");
+        dateCreatedLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
+        dateCreatedLBL.setForeground(new java.awt.Color(226, 38, 88));
+        dateCreatedLBL.setText("Date Created");
 
-        phone_numberTXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
-        phone_numberTXT.addFocusListener(new java.awt.event.FocusAdapter() {
+        dateCreatedTXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        dateCreatedTXT.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                phone_numberTXTFocusLost(evt);
+                dateCreatedTXTFocusLost(evt);
             }
         });
 
-        usernameTXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        payGradeTXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
-        usernameLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        usernameLBL.setForeground(new java.awt.Color(226, 38, 88));
-        usernameLBL.setText("Username");
+        payGradeLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
+        payGradeLBL.setForeground(new java.awt.Color(226, 38, 88));
+        payGradeLBL.setText("Pay Grade");
 
         passwordLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         passwordLBL.setForeground(new java.awt.Color(226, 38, 88));
@@ -256,8 +256,8 @@ public class UserForm extends javax.swing.JPanel {
 
         passwordTXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
-        librarianList1.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
-        librarianList1.setModel(new javax.swing.table.DefaultTableModel(
+        managerList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        managerList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -280,22 +280,22 @@ public class UserForm extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        librarianList1.getTableHeader().setReorderingAllowed(false);
-        librarianList1.addMouseListener(new java.awt.event.MouseAdapter() {
+        managerList.getTableHeader().setReorderingAllowed(false);
+        managerList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                librarianList1MouseClicked(evt);
+                managerListMouseClicked(evt);
             }
         });
-        librarianList1.addKeyListener(new java.awt.event.KeyAdapter() {
+        managerList.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                librarianList1KeyReleased(evt);
+                managerListKeyReleased(evt);
             }
         });
-        jScrollPane4.setViewportView(librarianList1);
+        jScrollPane4.setViewportView(managerList);
 
-        librarianLBL1.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        librarianLBL1.setForeground(new java.awt.Color(226, 38, 88));
-        librarianLBL1.setText("Center Managers");
+        managerLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
+        managerLBL.setForeground(new java.awt.Color(226, 38, 88));
+        managerLBL.setText("Center Managers");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -306,14 +306,14 @@ public class UserForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(borrowerLBL)
+                            .addComponent(customerLBL)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(librarianLBL)
+                            .addComponent(technicianLBL)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(librarianLBL1))
+                            .addComponent(managerLBL))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,8 +321,8 @@ public class UserForm extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(phone_numberLBL)
-                                            .addComponent(phone_numberTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(dateCreatedLBL)
+                                            .addComponent(dateCreatedTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(emailLBL)
@@ -345,8 +345,8 @@ public class UserForm extends javax.swing.JPanel {
                                     .addComponent(passwordTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(usernameLBL)
-                                    .addComponent(usernameTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(payGradeLBL)
+                                    .addComponent(payGradeTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(showPasswordCHKBX))
                                 .addGap(45, 45, 45))
                             .addGroup(layout.createSequentialGroup()
@@ -382,9 +382,9 @@ public class UserForm extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(usernameLBL)
+                                .addComponent(payGradeLBL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(usernameTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(payGradeTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(passwordLBL)
                                 .addGap(29, 29, 29))
@@ -404,50 +404,54 @@ public class UserForm extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(phone_numberLBL)
+                                .addComponent(dateCreatedLBL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(phone_numberTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dateCreatedTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(emailTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(showPasswordCHKBX)
                                 .addGap(12, 12, 12)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(borrowerLBL, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(librarianLBL))
+                    .addComponent(customerLBL, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(technicianLBL))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(librarianLBL1)
+                        .addComponent(managerLBL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void borrowerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowerListMouseClicked
-        librarianList.clearSelection();
-        APLS_userInfo(borrowerList);
-    }//GEN-LAST:event_borrowerListMouseClicked
+    private void customerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerListMouseClicked
+        technicianList.clearSelection();
+        managerList.clearSelection();
+        userInfo(customerList);
+    }//GEN-LAST:event_customerListMouseClicked
 
-    private void borrowerListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_borrowerListKeyReleased
-        librarianList.clearSelection();
-        APLS_userInfo(borrowerList);
-    }//GEN-LAST:event_borrowerListKeyReleased
+    private void customerListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerListKeyReleased
+        technicianList.clearSelection();
+        managerList.clearSelection();
+        userInfo(customerList);
+    }//GEN-LAST:event_customerListKeyReleased
 
-    private void librarianListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_librarianListMouseClicked
-        borrowerList.clearSelection();
-        APLS_userInfo(librarianList);
-    }//GEN-LAST:event_librarianListMouseClicked
+    private void technicianListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_technicianListMouseClicked
+        customerList.clearSelection();
+        managerList.clearSelection();
+        userInfo(technicianList);
+    }//GEN-LAST:event_technicianListMouseClicked
 
-    private void librarianListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_librarianListKeyReleased
-        borrowerList.clearSelection();
-        APLS_userInfo(librarianList);
-    }//GEN-LAST:event_librarianListKeyReleased
+    private void technicianListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_technicianListKeyReleased
+        customerList.clearSelection();
+        managerList.clearSelection();
+        userInfo(technicianList);
+    }//GEN-LAST:event_technicianListKeyReleased
 
     public Boolean addUserMode = true; //Boolean check if ready to add new user
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
@@ -459,25 +463,25 @@ public class UserForm extends javax.swing.JPanel {
             deleteUser.setEnabled(false);
 
             //Clear Selections
-            librarianList.clearSelection();
-            borrowerList.clearSelection();
+            technicianList.clearSelection();
+            customerList.clearSelection();
 
-            APLS_initializeUser();
+            initializeUser();
         }
         else if (roleCB.getSelectedIndex() == 2){ // librarian
-            if ((nameTXT.getText().equals("") == true) || (phone_numberTXT.getText().equals("") == true) || (emailTXT.getText().equals("") == true) || (usernameTXT.getText().equals("") == true) || (String.valueOf(passwordTXT.getPassword()).equals("") == true) || (String.valueOf(confirmPasswordTXT.getPassword()).equals("") == true)) {
+            if ((nameTXT.getText().equals("") == true) || (dateCreatedTXT.getText().equals("") == true) || (emailTXT.getText().equals("") == true) || (payGradeTXT.getText().equals("") == true) || (String.valueOf(passwordTXT.getPassword()).equals("") == true) || (String.valueOf(confirmPasswordTXT.getPassword()).equals("") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure all fields have been filled in", "Incomplete User Information", JOptionPane.WARNING_MESSAGE);
             }
-            else if ((nameTXT.getText().contains(":") == true) || (phone_numberTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true) || (usernameTXT.getText().contains(":") == true) || (String.valueOf(passwordTXT.getPassword()).contains(":") == true) || (String.valueOf(confirmPasswordTXT.getPassword()).contains(":") == true)) {
+            else if ((nameTXT.getText().contains(":") == true) || (dateCreatedTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true) || (payGradeTXT.getText().contains(":") == true) || (String.valueOf(passwordTXT.getPassword()).contains(":") == true) || (String.valueOf(confirmPasswordTXT.getPassword()).contains(":") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure that the textfields do not have the ':' character.", "Invalid Character", JOptionPane.WARNING_MESSAGE);
             }
-            else if (phone_numberTXT.getText().length() != numbersOnly){ //if length == number of times means that each character is a number
+            else if (dateCreatedTXT.getText().length() != numbersOnly){ //if length == number of times means that each character is a number
                 JOptionPane.showMessageDialog(null, "The phone number entered is invalid, please ensure only numbers are entered and that there are no ':' characters", "Invalid Phone Number", JOptionPane.WARNING_MESSAGE);
-                phone_numberTXT.requestFocus();
+                dateCreatedTXT.requestFocus();
             }        //Check if between 10 - 12 characters
-            else if ((phone_numberTXT.getText().length() < 10) || (phone_numberTXT.getText().length() > 12)){
+            else if ((dateCreatedTXT.getText().length() < 10) || (dateCreatedTXT.getText().length() > 12)){
                 JOptionPane.showMessageDialog(null, "The phone number entered is invalid, please ensure that it is between 10 to 12 digits", "Invalid Phone Number", JOptionPane.WARNING_MESSAGE);
-                phone_numberTXT.requestFocus();
+                dateCreatedTXT.requestFocus();
             }
             else if (isEmail == false){
                 JOptionPane.showMessageDialog(null, "The email entered is invalid, please re-enter the email", "Invalid Email", JOptionPane.WARNING_MESSAGE);
@@ -488,23 +492,23 @@ public class UserForm extends javax.swing.JPanel {
             }
             else{
                 //CLASS_librarian addLibrarian = new CLASS_librarian(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), usernameTXT.getText(), String.valueOf(passwordTXT.getPassword()));
-                APLS_initializeUser();
+                initializeUser();
             }
         }
         else{ // student or staff
-            if ((nameTXT.getText().equals("") == true) || (phone_numberTXT.getText().equals("") == true) || (emailTXT.getText().equals("") == true)) {
+            if ((nameTXT.getText().equals("") == true) || (dateCreatedTXT.getText().equals("") == true) || (emailTXT.getText().equals("") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure all fields have been filled in", "Incomplete User Information", JOptionPane.WARNING_MESSAGE);
             }
-            else if ((nameTXT.getText().contains(":") == true) || (phone_numberTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true)) {
+            else if ((nameTXT.getText().contains(":") == true) || (dateCreatedTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure that the textfields do not have the ':' character.", "Invalid Character", JOptionPane.WARNING_MESSAGE);
             }
-            else if (phone_numberTXT.getText().length() != numbersOnly){ //if length == number of times means that each character is a number
+            else if (dateCreatedTXT.getText().length() != numbersOnly){ //if length == number of times means that each character is a number
                 JOptionPane.showMessageDialog(null, "The phone number entered is invalid, please ensure only numbers are entered and that there are no ':' characters", "Invalid Phone Number", JOptionPane.WARNING_MESSAGE);
-                phone_numberTXT.requestFocus();
+                dateCreatedTXT.requestFocus();
             }        //Check if between 10 - 12 characters
-            else if ((phone_numberTXT.getText().length() < 10) || (phone_numberTXT.getText().length() > 12)){
+            else if ((dateCreatedTXT.getText().length() < 10) || (dateCreatedTXT.getText().length() > 12)){
                 JOptionPane.showMessageDialog(null, "The phone number entered is invalid, please ensure that it is between 10 to 12 digits", "Invalid Phone Number", JOptionPane.WARNING_MESSAGE);
-                phone_numberTXT.requestFocus();
+                dateCreatedTXT.requestFocus();
             }
             else if (isEmail == false){
                 JOptionPane.showMessageDialog(null, "The email entered is invalid, please re-enter the email", "Invalid Email", JOptionPane.WARNING_MESSAGE);
@@ -512,11 +516,11 @@ public class UserForm extends javax.swing.JPanel {
             }
             else if (roleCB.getSelectedIndex() == 0){ //student
                 //CLASS_student addStudent = new CLASS_student(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText());
-                APLS_initializeUser();
+                initializeUser();
             }
             else if (roleCB.getSelectedIndex() == 1){ //staff
                 //CLASS_staff addStaff = new CLASS_staff(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText());
-                APLS_initializeUser();
+                initializeUser();
             }
         }
     }//GEN-LAST:event_addUserActionPerformed
@@ -527,33 +531,33 @@ public class UserForm extends javax.swing.JPanel {
                                       "Delete User?", 
                                       JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
             if (librarianTable == false ){
-                //CLASS_student borrower = new CLASS_student();
-                //borrower.deleteUser(borrowerList.getRowCount(), borrowerList.getColumnCount(), borrowerList.getSelectedRow());
+                //CLASS_student customer = new CLASS_student();
+                //customer.deleteUser(customerList.getRowCount(), customerList.getColumnCount(), customerList.getSelectedRow());
             } else{
                 //CLASS_librarian librarian = new CLASS_librarian();
                 //librarian.deleteUser(librarianList.getRowCount(), librarianList.getColumnCount(), librarianList.getSelectedRow());
             }
         
         addUser.doClick();
-        APLS_initializeUser();
+        initializeUser();
         } else {}
     }//GEN-LAST:event_deleteUserActionPerformed
     
     private void saveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveChangesActionPerformed
         if (roleCB.getSelectedIndex() == 2){ // librarian
-            if ((nameTXT.getText().equals("") == true) || (phone_numberTXT.getText().equals("") == true) || (emailTXT.getText().equals("") == true) || (usernameTXT.getText().equals("") == true) || (String.valueOf(passwordTXT.getPassword()).equals("") == true) || (String.valueOf(confirmPasswordTXT.getPassword()).equals("") == true)) {
+            if ((nameTXT.getText().equals("") == true) || (dateCreatedTXT.getText().equals("") == true) || (emailTXT.getText().equals("") == true) || (payGradeTXT.getText().equals("") == true) || (String.valueOf(passwordTXT.getPassword()).equals("") == true) || (String.valueOf(confirmPasswordTXT.getPassword()).equals("") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure all fields have been filled in", "Incomplete User Information", JOptionPane.WARNING_MESSAGE);
             }
-            else if ((nameTXT.getText().contains(":") == true) || (phone_numberTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true) || (usernameTXT.getText().contains(":") == true) || (String.valueOf(passwordTXT.getPassword()).contains(":") == true) || (String.valueOf(confirmPasswordTXT.getPassword()).contains(":") == true)) {
+            else if ((nameTXT.getText().contains(":") == true) || (dateCreatedTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true) || (payGradeTXT.getText().contains(":") == true) || (String.valueOf(passwordTXT.getPassword()).contains(":") == true) || (String.valueOf(confirmPasswordTXT.getPassword()).contains(":") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure that the textfields do not have the ':' character.", "Invalid Character", JOptionPane.WARNING_MESSAGE);
             }
-            else if (phone_numberTXT.getText().length() != numbersOnly){ //if length == number of times means that each character is a number
+            else if (dateCreatedTXT.getText().length() != numbersOnly){ //if length == number of times means that each character is a number
                 JOptionPane.showMessageDialog(null, "The phone number entered is invalid, please ensure only numbers are entered and that there are no ':' characters", "Invalid Phone Number", JOptionPane.WARNING_MESSAGE);
-                phone_numberTXT.requestFocus();
+                dateCreatedTXT.requestFocus();
             }        //Check if between 10 - 12 characters
-            else if ((phone_numberTXT.getText().length() < 10) || (phone_numberTXT.getText().length() > 12)){
+            else if ((dateCreatedTXT.getText().length() < 10) || (dateCreatedTXT.getText().length() > 12)){
                 JOptionPane.showMessageDialog(null, "The phone number entered is invalid, please ensure that it is between 10 to 12 digits", "Invalid Phone Number", JOptionPane.WARNING_MESSAGE);
-                phone_numberTXT.requestFocus();
+                dateCreatedTXT.requestFocus();
             }
             else if (isEmail == false){
                 JOptionPane.showMessageDialog(null, "The email entered is invalid, please re-enter the email", "Invalid Email", JOptionPane.WARNING_MESSAGE);
@@ -565,37 +569,37 @@ public class UserForm extends javax.swing.JPanel {
             else{
                 //CLASS_librarian updateLibrarian = new CLASS_librarian(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), usernameTXT.getText(), String.valueOf(passwordTXT.getPassword()), librarianList.getRowCount(), librarianList.getColumnCount(), librarianList.getSelectedRow());
                 addUser.doClick();
-                APLS_initializeUser();
+                initializeUser();
             }
         }
         else{ // student or staff
-            if ((nameTXT.getText().equals("") == true) || (phone_numberTXT.getText().equals("") == true) || (emailTXT.getText().equals("") == true)) {
+            if ((nameTXT.getText().equals("") == true) || (dateCreatedTXT.getText().equals("") == true) || (emailTXT.getText().equals("") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure all fields have been filled in", "Incomplete User Information", JOptionPane.WARNING_MESSAGE);
             }
-            else if ((nameTXT.getText().contains(":") == true) || (phone_numberTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true)) {
+            else if ((nameTXT.getText().contains(":") == true) || (dateCreatedTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure that the textfields do not have the ':' character.", "Invalid Character", JOptionPane.WARNING_MESSAGE);
             }
-            else if (phone_numberTXT.getText().length() != numbersOnly){ //if length == number of times means that each character is a number
+            else if (dateCreatedTXT.getText().length() != numbersOnly){ //if length == number of times means that each character is a number
                 JOptionPane.showMessageDialog(null, "The phone number entered is invalid, please ensure only numbers are entered and that there are no ':' characters", "Invalid Phone Number", JOptionPane.WARNING_MESSAGE);
-                phone_numberTXT.requestFocus();
+                dateCreatedTXT.requestFocus();
             }        //Check if between 10 - 12 characters
-            else if ((phone_numberTXT.getText().length() < 10) || (phone_numberTXT.getText().length() > 12)){
+            else if ((dateCreatedTXT.getText().length() < 10) || (dateCreatedTXT.getText().length() > 12)){
                 JOptionPane.showMessageDialog(null, "The phone number entered is invalid, please ensure that it is between 10 to 12 digits", "Invalid Phone Number", JOptionPane.WARNING_MESSAGE);
-                phone_numberTXT.requestFocus();
+                dateCreatedTXT.requestFocus();
             }
             else if (isEmail == false){
                 JOptionPane.showMessageDialog(null, "The email entered is invalid, please re-enter the email", "Invalid Email", JOptionPane.WARNING_MESSAGE);
                 emailTXT.requestFocus();
             }
             else if (roleCB.getSelectedIndex() == 0){ //student
-                //CLASS_student addStudent = new CLASS_student(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), borrowerList.getRowCount(), borrowerList.getColumnCount(), borrowerList.getSelectedRow());
+                //CLASS_student addStudent = new CLASS_student(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), customerList.getRowCount(), customerList.getColumnCount(), customerList.getSelectedRow());
                 addUser.doClick();
-                APLS_initializeUser();
+                initializeUser();
             }
             else if (roleCB.getSelectedIndex() == 1){ //staff
-                //CLASS_student addStudent = new CLASS_student(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), borrowerList.getRowCount(), borrowerList.getColumnCount(), borrowerList.getSelectedRow());
+                //CLASS_student addStudent = new CLASS_student(Integer.valueOf(user_idTXT.getText()), nameTXT.getText(), emailTXT.getText(), phone_numberTXT.getText(), customerList.getRowCount(), customerList.getColumnCount(), customerList.getSelectedRow());
                 addUser.doClick();
-                APLS_initializeUser();
+                initializeUser();
             }
         }
     }//GEN-LAST:event_saveChangesActionPerformed
@@ -615,18 +619,18 @@ public class UserForm extends javax.swing.JPanel {
     }//GEN-LAST:event_roleCBActionPerformed
 
     int numbersOnly;
-    private void phone_numberTXTFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phone_numberTXTFocusLost
+    private void dateCreatedTXTFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dateCreatedTXTFocusLost
         String[] numbers = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
         numbersOnly = 0;
         
-        for(int digit =0; digit < phone_numberTXT.getText().length(); digit++){ //for each character in string
+        for(int digit =0; digit < dateCreatedTXT.getText().length(); digit++){ //for each character in string
             for(int i =0; i < numbers.length; i++){ //check if matches with each digit
-                if (phone_numberTXT.getText().substring(digit, digit + 1).equals(numbers[i])){
+                if (dateCreatedTXT.getText().substring(digit, digit + 1).equals(numbers[i])){
                     numbersOnly++; // increment by 1
                 }
             }
         }
-    }//GEN-LAST:event_phone_numberTXTFocusLost
+    }//GEN-LAST:event_dateCreatedTXTFocusLost
 
         Boolean isEmail;
     private void emailTXTFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailTXTFocusLost
@@ -639,18 +643,22 @@ public class UserForm extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_emailTXTFocusLost
 
-    private void librarianList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_librarianList1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_librarianList1MouseClicked
+    private void managerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managerListMouseClicked
+        technicianList.clearSelection();
+        customerList.clearSelection();
+        userInfo(managerList);
+    }//GEN-LAST:event_managerListMouseClicked
 
-    private void librarianList1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_librarianList1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_librarianList1KeyReleased
+    private void managerListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_managerListKeyReleased
+        technicianList.clearSelection();
+        customerList.clearSelection();
+        userInfo(managerList);
+    }//GEN-LAST:event_managerListKeyReleased
     
     public void cbSetter(){
         if(roleCB.getSelectedIndex() == 2){ //librarian has username & password
-            usernameLBL.setVisible(true);
-            usernameTXT.setVisible(true);
+            payGradeLBL.setVisible(true);
+            payGradeTXT.setVisible(true);
             passwordLBL.setVisible(true);
             passwordTXT.setVisible(true);
             confirmPasswordLBL.setVisible(true);
@@ -659,12 +667,12 @@ public class UserForm extends javax.swing.JPanel {
             
             if (roleCB.isEnabled()){
             try{
-            File librarian = new File("src/apls_DBTXT/librarian_t.txt");
+            File manager = new File("src/db/centerManager_t.txt");
                 
-            FileReader fr = new FileReader(librarian);
+            FileReader fr = new FileReader(manager);
             BufferedReader br = new BufferedReader(fr);
 
-            DefaultTableModel model = (DefaultTableModel)librarianList.getModel();
+            DefaultTableModel model = (DefaultTableModel)technicianList.getModel();
             Object[] lines = br.lines().toArray();
             
             //Generate new Librarian ID
@@ -684,8 +692,8 @@ public class UserForm extends javax.swing.JPanel {
             }
             
         } else { //staff & stduent do not
-            usernameLBL.setVisible(false);
-            usernameTXT.setVisible(false);
+            payGradeLBL.setVisible(false);
+            payGradeTXT.setVisible(false);
             passwordLBL.setVisible(false);
             passwordTXT.setVisible(false);
             confirmPasswordLBL.setVisible(false);
@@ -694,12 +702,12 @@ public class UserForm extends javax.swing.JPanel {
             
             if (roleCB.isEnabled()){
             try{
-            File borrower = new File("src/apls_DBTXT/borrower_t.txt");
+            File customer = new File("src/db/customer_t.txt");
         
-            FileReader fr = new FileReader(borrower);
+            FileReader fr = new FileReader(customer);
             BufferedReader br = new BufferedReader(fr);
 
-            DefaultTableModel model = (DefaultTableModel)borrowerList.getModel();
+            DefaultTableModel model = (DefaultTableModel)customerList.getModel();
             Object[] lines = br.lines().toArray();
             
             //Generate new Librarian ID
@@ -732,48 +740,48 @@ public class UserForm extends javax.swing.JPanel {
         passwordList = passwordList + pass;
     }
     
-    public void APLS_initializeUser(){       
+    public void initializeUser(){       
         //Clear Textboxes
         //roleCB.setSelectedIndex(0);
         user_idTXT.setText("");
         nameTXT.setText("");
-        phone_numberTXT.setText("");
+        dateCreatedTXT.setText("");
         emailTXT.setText("");
-        usernameTXT.setText("");
+        payGradeTXT.setText("");
         passwordTXT.setText("");
         confirmPasswordTXT.setText("");
         
         cbSetter();
         
         try{
-        //BORROWER_T
-        File borrower = new File("src/apls_DBTXT/borrower_t.txt");
+        //CUSTOMER_T
+        File customer = new File("src/db/customer_t.txt");
         
-        FileReader fr = new FileReader(borrower);
+        FileReader fr = new FileReader(customer);
         BufferedReader br = new BufferedReader(fr);
             
-        DefaultTableModel model = (DefaultTableModel)borrowerList.getModel();
+        DefaultTableModel model = (DefaultTableModel)customerList.getModel();
         model.setRowCount(0); //clear table
         Object[] lines = br.lines().toArray();
         
-        //List Students & Staff
+        //List Customers
         for(int i = 0; i < lines.length; i++){
             String[] row = lines[i].toString().split(":");
             model.addRow(row); //load data
         }
         
-        //LIBRARIAN_T
-        File librarian = new File("src/apls_DBTXT/librarian_t.txt");
+        //MANAGER_T
+        File manager = new File("src/db/centerManager_t.txt");
                 
-        fr = new FileReader(librarian);
+        fr = new FileReader(manager);
         br = new BufferedReader(fr);
             
-        model = (DefaultTableModel)librarianList.getModel();
+        model = (DefaultTableModel)managerList.getModel();
         model.setRowCount(0); //clear table
         lines = br.lines().toArray();
         
         passwordList = "";
-        //List Librarians
+        //List Managers
         for(int i = 0; i < lines.length; i++){
             String[] row = lines[i].toString().split(":");
             passwordList = passwordList + row[3] + ":";
@@ -781,10 +789,28 @@ public class UserForm extends javax.swing.JPanel {
             model.addRow(row); //load data
         }
         
+        //TECHNICIAN_T
+        File technician = new File("src/db/centerTechnician_t.txt");
+                
+        fr = new FileReader(technician);
+        br = new BufferedReader(fr);
+            
+        model = (DefaultTableModel)technicianList.getModel();
+        model.setRowCount(0); //clear table
+        lines = br.lines().toArray();
+        
+        passwordList = "";
+        //List Technician
+        for(int i = 0; i < lines.length; i++){
+            String[] row = lines[i].toString().split(":");
+            passwordList = passwordList + row[3] + ":";
+            row[3] = "******";
+            model.addRow(row); //load data
+        }
         } catch(FileNotFoundException ex){}
     }
     
-    public void APLS_userInfo(javax.swing.JTable table){
+    public void userInfo(javax.swing.JTable table){
         DefaultTableModel model = (DefaultTableModel)table.getModel(); //model from JTable
         int rowIndex = table.getSelectedRow();
 
@@ -795,34 +821,42 @@ public class UserForm extends javax.swing.JPanel {
         nameTXT.setText(user_name);
 
         //Save to variables
-        if (table == librarianList){
-            String username = model.getValueAt(rowIndex, 2).toString();
+        if (table == technicianList){
+            String user_email = model.getValueAt(rowIndex, 2).toString();
             String password = model.getValueAt(rowIndex, 3).toString();
-            String user_email = model.getValueAt(rowIndex, 4).toString();
-            String user_phoneNumber = model.getValueAt(rowIndex, 5).toString();
+            String pay_grade = model.getValueAt(rowIndex, 4).toString();
+            String dateCreated = model.getValueAt(rowIndex, 5).toString();
 
             roleCB.setSelectedIndex(2);
-            phone_numberTXT.setText(user_phoneNumber);
+            dateCreatedTXT.setText(dateCreated);
             emailTXT.setText(user_email);
-            usernameTXT.setText(username);
+            payGradeTXT.setText(pay_grade);
             passwordTXT.setText(getPassword(rowIndex));
             confirmPasswordTXT.setText("");
             
             librarianTable = true;
-        } else if (table == borrowerList){
-            String user_role = model.getValueAt(rowIndex, 2).toString();
-            String user_email = model.getValueAt(rowIndex, 3).toString();
-            String user_phoneNumber = model.getValueAt(rowIndex, 4).toString();
+        } else if (table == managerList){
+            String user_email = model.getValueAt(rowIndex, 2).toString();
+            String password = model.getValueAt(rowIndex, 3).toString();
+            String dateCreated = model.getValueAt(rowIndex, 4).toString();
 
-            phone_numberTXT.setText(user_phoneNumber);
+            roleCB.setSelectedIndex(1);
+            dateCreatedTXT.setText(dateCreated);
+            emailTXT.setText(user_email);
+            passwordTXT.setText(getPassword(rowIndex));
+            confirmPasswordTXT.setText("");
+            
+            librarianTable = true;
+        } else if (table == customerList){
+            String user_email = model.getValueAt(rowIndex, 2).toString();
+            String address = model.getValueAt(rowIndex, 3).toString();
+            String dateCreated = model.getValueAt(rowIndex, 4).toString();
+
+            dateCreatedTXT.setText(dateCreated);
             emailTXT.setText(user_email);
             
             librarianTable = false;
-            if (user_role.equals("student")) {
-                roleCB.setSelectedIndex(0);
-            } else if (user_role.equals("staff")){
-                roleCB.setSelectedIndex(1);
-            }
+            roleCB.setSelectedIndex(0);
         }
         user_idTXT.setText(String.valueOf(user_id));
         
@@ -835,34 +869,34 @@ public class UserForm extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addUser;
-    private javax.swing.JLabel borrowerLBL;
-    public javax.swing.JTable borrowerList;
     private javax.swing.JLabel confirmPasswordLBL;
     protected javax.swing.JPasswordField confirmPasswordTXT;
+    private javax.swing.JLabel customerLBL;
+    public javax.swing.JTable customerList;
+    private javax.swing.JLabel dateCreatedLBL;
+    protected javax.swing.JTextField dateCreatedTXT;
     private javax.swing.JButton deleteUser;
     private javax.swing.JLabel emailLBL;
     protected javax.swing.JTextField emailTXT;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JLabel librarianLBL;
-    private javax.swing.JLabel librarianLBL1;
-    public javax.swing.JTable librarianList;
-    public javax.swing.JTable librarianList1;
+    private javax.swing.JLabel managerLBL;
+    public javax.swing.JTable managerList;
     private javax.swing.JLabel nameLBL;
     protected javax.swing.JTextField nameTXT;
     private javax.swing.JLabel passwordLBL;
     protected javax.swing.JPasswordField passwordTXT;
-    private javax.swing.JLabel phone_numberLBL;
-    protected javax.swing.JTextField phone_numberTXT;
+    private javax.swing.JLabel payGradeLBL;
+    protected javax.swing.JTextField payGradeTXT;
     protected javax.swing.JComboBox<String> roleCB;
     private javax.swing.JButton saveChanges;
     private javax.swing.JLabel selectUserLBL;
     private javax.swing.JCheckBox showPasswordCHKBX;
+    private javax.swing.JLabel technicianLBL;
+    public javax.swing.JTable technicianList;
     private javax.swing.JLabel user_idLBL;
     protected javax.swing.JTextField user_idTXT;
-    private javax.swing.JLabel usernameLBL;
-    protected javax.swing.JTextField usernameTXT;
     // End of variables declaration//GEN-END:variables
 }
 /* REFERENCES
