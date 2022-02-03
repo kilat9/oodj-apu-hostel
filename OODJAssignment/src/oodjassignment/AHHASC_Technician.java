@@ -9,6 +9,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -51,6 +55,9 @@ public class AHHASC_Technician extends javax.swing.JFrame {
         customerList = new javax.swing.JTable();
         customerLBL = new javax.swing.JLabel();
         slotCB = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        pastAppointmentList = new javax.swing.JTable();
+        appointment_LBL1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("AHHASC");
@@ -186,6 +193,48 @@ public class AHHASC_Technician extends javax.swing.JFrame {
         slotCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "10am - 12pm", "2pm - 4pm", "4pm - 6pm" }));
         slotCB.setEnabled(false);
 
+        pastAppointmentList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        pastAppointmentList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Date", "Appliance", "Date Created", "Slot", "Customer_ID", "Manager_ID", "Technician_ID"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        pastAppointmentList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        pastAppointmentList.getTableHeader().setReorderingAllowed(false);
+        pastAppointmentList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pastAppointmentListMouseClicked(evt);
+            }
+        });
+        pastAppointmentList.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pastAppointmentListKeyReleased(evt);
+            }
+        });
+        jScrollPane3.setViewportView(pastAppointmentList);
+
+        appointment_LBL1.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
+        appointment_LBL1.setForeground(new java.awt.Color(226, 38, 88));
+        appointment_LBL1.setText("Past Appointments");
+
         javax.swing.GroupLayout homeLayout = new javax.swing.GroupLayout(home);
         home.setLayout(homeLayout);
         homeLayout.setHorizontalGroup(
@@ -193,23 +242,32 @@ public class AHHASC_Technician extends javax.swing.JFrame {
             .addGroup(homeLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(greeting, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(homeLayout.createSequentialGroup()
-                        .addComponent(appointment_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addComponent(slotCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(54, 54, 54)))
-                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(greeting, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(homeLayout.createSequentialGroup()
+                                .addComponent(appointment_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(64, 64, 64)
+                                .addComponent(slotCB, 0, 148, Short.MAX_VALUE)
+                                .addGap(54, 54, 54)))
+                        .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(homeLayout.createSequentialGroup()
+                                .addComponent(customerLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(homeLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(feedback_BTN, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(homeLayout.createSequentialGroup()
-                        .addComponent(customerLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(homeLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                    .addComponent(feedback_BTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(appointment_LBL1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                        .addGap(13, 13, 13))))
         );
         homeLayout.setVerticalGroup(
             homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,13 +281,18 @@ public class AHHASC_Technician extends javax.swing.JFrame {
                     .addComponent(customerLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(appointment_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(slotCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(homeLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                        .addGap(132, 132, 132)
                         .addComponent(feedback_BTN))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(homeLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(appointment_LBL1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37))
         );
 
@@ -262,8 +325,8 @@ public class AHHASC_Technician extends javax.swing.JFrame {
         this.setVisible(false);
         oodjassignment.pFeedback feedback = new oodjassignment.pFeedback();
         
-        DefaultTableModel model = (DefaultTableModel)appointmentList.getModel(); //model from JTable
-        int rowIndex = appointmentList.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel)pastAppointmentList.getModel(); //model from JTable
+        int rowIndex = pastAppointmentList.getSelectedRow();
         int appointmentId = Integer.parseInt(model.getValueAt(rowIndex, 0).toString());
         feedback.setAppointmentId(appointmentId);
         
@@ -279,12 +342,20 @@ public class AHHASC_Technician extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void appointmentListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_appointmentListKeyReleased
-        appointmentInfo();
+        appointmentInfo(appointmentList);
     }//GEN-LAST:event_appointmentListKeyReleased
 
     private void appointmentListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appointmentListMouseClicked
-        appointmentInfo();
+        appointmentInfo(appointmentList);
     }//GEN-LAST:event_appointmentListMouseClicked
+
+    private void pastAppointmentListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pastAppointmentListMouseClicked
+        appointmentInfo(pastAppointmentList);
+    }//GEN-LAST:event_pastAppointmentListMouseClicked
+
+    private void pastAppointmentListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pastAppointmentListKeyReleased
+        appointmentInfo(pastAppointmentList);
+    }//GEN-LAST:event_pastAppointmentListKeyReleased
     
     public void initializeAppointments(){
         //APPOINTMENT_T
@@ -293,15 +364,35 @@ public class AHHASC_Technician extends javax.swing.JFrame {
         try{         
         FileReader fr = new FileReader(appointment);
         BufferedReader br = new BufferedReader(fr);
-            
+        
+        // Upcoming Appontments Table
         DefaultTableModel model = (DefaultTableModel)appointmentList.getModel();
         model.setRowCount(0); //clear table
+        
+        // Past Appointments Table
+        DefaultTableModel pastAppointment = (DefaultTableModel)pastAppointmentList.getModel();
+        pastAppointment.setRowCount(0); //clear table
         Object[] lines = br.lines().toArray();
         
         for(int i = 0; i < lines.length; i++){
             String[] row = lines[i].toString().split(";");
             if (row[7].toString().equals(oodjassignment.pLogin.getId()) == true){ // only show appointments for logged in technician
-                model.addRow(row); //load data
+                
+                try{ // compare appointment date to today's date
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); //format date
+                Date appointmentDate = formatter.parse(row[1].toString());
+                
+                SimpleDateFormat local = new SimpleDateFormat("yyyy-MM-dd");
+                LocalDate today = LocalDate.now(); //today's date
+                LocalDate appointmentDateFormatted = LocalDate.parse(local.format(appointmentDate));
+                long duration = ChronoUnit.DAYS.between(today, appointmentDateFormatted);
+                
+                if (duration > 0){ // ignore past appointments
+                    model.addRow(row); //load data
+                } else {
+                    pastAppointment.addRow(row);
+                }
+                } catch(ParseException ex){}
             }
         }
         
@@ -324,17 +415,28 @@ public class AHHASC_Technician extends javax.swing.JFrame {
         } catch(FileNotFoundException ex){}
     }
     
-    public void appointmentInfo(){
-        DefaultTableModel model = (DefaultTableModel)appointmentList.getModel(); //model from JTable
-        int rowIndex = appointmentList.getSelectedRow();
+    public void appointmentInfo(javax.swing.JTable table){
+        DefaultTableModel model = (DefaultTableModel)table.getModel(); //model from JTable
+        int rowIndex = table.getSelectedRow();
         
+        int appointmentId = Integer.parseInt(model.getValueAt(rowIndex, 0).toString());
         int slot = Integer.parseInt(model.getValueAt(rowIndex, 4).toString());
         int customerId = Integer.parseInt(model.getValueAt(rowIndex, 5).toString());
         
         slotCB.setSelectedIndex(slot+ 1); // +1 because this CB's first value is empty
         rowHighlighter(customerList, customerId , 0); // customer Table [id at 0th row]
         
-        feedback_BTN.setEnabled(true);
+        if (table == pastAppointmentList){
+            appointmentList.clearSelection();
+            if (checkFeedback(appointmentId) == false){
+                feedback_BTN.setEnabled(true);
+            } else {
+                feedback_BTN.setEnabled(false);
+            }
+        } else {
+            pastAppointmentList.clearSelection();
+            feedback_BTN.setEnabled(false);
+        }
     }
     
         public void rowHighlighter(javax.swing.JTable table, int id, int colNum){
@@ -350,6 +452,28 @@ public class AHHASC_Technician extends javax.swing.JFrame {
             //to account for the possibility of a deleted record, clear selection if nothing found (the while loop exceeds)
             table.clearSelection(); //clear selection if no longer exists
         }
+    }
+        
+    private Boolean checkFeedback(int id){
+        Boolean feedbackExist = false;
+        
+        try {
+        //FEEDBACK_T
+        File feedback = new File("src/db/feedback_t.txt");
+        
+        FileReader fr = new FileReader(feedback);
+        BufferedReader br = new BufferedReader(fr);
+        Object[] lines = br.lines().toArray();
+        
+        // Split data to array
+        for(int i = 0; i < lines.length; i++){
+            String[] row = lines[i].toString().split(":");
+            if (id == Integer.valueOf(row[4])){
+                feedbackExist = true;
+            }
+        }
+        } catch(FileNotFoundException ex){}
+         return feedbackExist;
     }
     
     private void logout(){
@@ -371,6 +495,7 @@ public class AHHASC_Technician extends javax.swing.JFrame {
     protected javax.swing.JTabbedPane MDIparent;
     javax.swing.JTable appointmentList;
     private javax.swing.JLabel appointment_LBL;
+    private javax.swing.JLabel appointment_LBL1;
     private javax.swing.JLabel customerLBL;
     javax.swing.JTable customerList;
     private javax.swing.JButton feedback_BTN;
@@ -378,7 +503,9 @@ public class AHHASC_Technician extends javax.swing.JFrame {
     private javax.swing.JPanel home;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton logoutButton;
+    javax.swing.JTable pastAppointmentList;
     protected javax.swing.JComboBox<String> slotCB;
     // End of variables declaration//GEN-END:variables
 }
