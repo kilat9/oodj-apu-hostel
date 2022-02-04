@@ -489,8 +489,8 @@ public class UserForm extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "The pay grade entered is invalid, please ensure only numbers are entered and that there are no ':' characters", "Invalid Pay Grade", JOptionPane.WARNING_MESSAGE);
                 payGradeTXT.requestFocus();
             }        //Check if between 2 - 3 characters
-            else if ((payGradeTXT.getText().length() < 2) || (payGradeTXT.getText().length() > 3)){
-                JOptionPane.showMessageDialog(null, "The pay grade entered is invalid, please ensure that it is between 2 to 3 digits", "Invalid Pay Grade", JOptionPane.WARNING_MESSAGE);
+            else if ((Integer.valueOf(payGradeTXT.getText()) < 100) || (Integer.valueOf(payGradeTXT.getText()) > 150)){
+                JOptionPane.showMessageDialog(null, "The pay grade entered is invalid, please ensure that it is between 100 to 150", "Invalid Pay Grade", JOptionPane.WARNING_MESSAGE);
                 payGradeTXT.requestFocus();
             }
             else if (isEmail() == false){
@@ -577,8 +577,8 @@ public class UserForm extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "The pay grade entered is invalid, please ensure only numbers are entered and that there are no ':' characters", "Invalid Pay Grade", JOptionPane.WARNING_MESSAGE);
                 payGradeTXT.requestFocus();
             }        //Check if between 2 - 3 characters
-            else if ((payGradeTXT.getText().length() < 2) || (payGradeTXT.getText().length() > 3)){
-                JOptionPane.showMessageDialog(null, "The pay grade entered is invalid, please ensure that it is between 2 to 3 digits", "Invalid Pay Grade", JOptionPane.WARNING_MESSAGE);
+            else if ((Integer.valueOf(payGradeTXT.getText()) < 100) || (Integer.valueOf(payGradeTXT.getText()) > 150)){
+                JOptionPane.showMessageDialog(null, "The pay grade entered is invalid, please ensure that it is between 100 to 150", "Invalid Pay Grade", JOptionPane.WARNING_MESSAGE);
                 payGradeTXT.requestFocus();
             }
             else if (isEmail() == false){
