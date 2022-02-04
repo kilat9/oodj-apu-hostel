@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class centerTechnician extends user{
     
  String password;
- double basePay;
+ int basePay;
  
     public centerTechnician(){
         super();
@@ -24,7 +24,7 @@ public class centerTechnician extends user{
         this.basePay = 0;
     }
     
-    public centerTechnician(String userId, String name, String email, String password, double basePay, String accountCreationDate){
+    public centerTechnician(String userId, String name, String email, String password, int basePay, String accountCreationDate){
         super(userId, name, email, accountCreationDate);
         this.password = password;
         this.basePay = basePay;
@@ -42,12 +42,12 @@ public class centerTechnician extends user{
         this.password = password;
     }
     
-    public void setBasePay( double basePay){
+    public void setBasePay(int basePay){
         this.basePay = basePay;
     }
     
      
-    public void registerCenterTechnician(String userId, String name, String email, String password, double basePay, String accountCreationDate){
+    public void registerCenterTechnician(String userId, String name, String email, String password, int basePay, String accountCreationDate){
         try{
             
 
