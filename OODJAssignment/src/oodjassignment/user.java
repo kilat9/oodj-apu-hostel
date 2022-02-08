@@ -6,8 +6,7 @@ package oodjassignment;
 
 public abstract class user {
 
-String userId, name, email;
-String accountCreationDate;
+private String userId, name, email, accountCreationDate;
     
     public user(){
         userId = "0";
