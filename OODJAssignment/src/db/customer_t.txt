@@ -4,3 +4,4 @@
 5:Alibaba:alibaba@gcloud.com:Block 13, Endah Parade:13/01/2022:
 6:Dwyane:the@rock.wwe:45, Solid Road:04/02/2022:
 7:Nabil bin Nabaste:nabil@baste.com:12, Pheonix Road:04/02/2022:
+8:Jesof:Jesof@gmail.com:Jalan Kinabalu:08/02/2022

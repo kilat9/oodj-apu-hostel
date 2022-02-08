@@ -1,3 +1,4 @@
 1:Billy Kid:billy@gmail.com:pass:125:03/01/2022:
 2:Leeroy:leeroy@gmail.com:leerooyyyy:123:13/01/2022:
 3:Sheila Majid:majid@sh.com:smajid:110:04/02/2022:
+4:Hans Isaac:Hans@gmail.com:wasd:130:08/02/2022
