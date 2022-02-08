@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
  *
@@ -53,6 +54,13 @@ public class pPayment extends javax.swing.JFrame {
         txtManagerID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("AHHASC Payment");
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         lblTechnicianID.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         lblTechnicianID.setText("Technician ID");
@@ -75,6 +83,7 @@ public class pPayment extends javax.swing.JFrame {
             }
         });
 
+        txtAppointmentID.setEditable(false);
         txtAppointmentID.setFont(new java.awt.Font("Bahnschrift", 0, 11)); // NOI18N
         txtAppointmentID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -92,10 +101,16 @@ public class pPayment extends javax.swing.JFrame {
 
         btnBack.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         lblPaymentID.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         lblPaymentID.setText("Payment ID");
 
+        txtTechnicianID.setEditable(false);
         txtTechnicianID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTechnicianIDActionPerformed(evt);
@@ -107,6 +122,7 @@ public class pPayment extends javax.swing.JFrame {
             }
         });
 
+        txtPaymentAmount.setEditable(false);
         txtPaymentAmount.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtPaymentAmountFocusLost(evt);
@@ -129,6 +145,7 @@ public class pPayment extends javax.swing.JFrame {
         lblManagerID.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         lblManagerID.setText("Manager ID");
 
+        txtManagerID.setEditable(false);
         txtManagerID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtManagerIDActionPerformed(evt);
@@ -300,7 +317,7 @@ public class pPayment extends javax.swing.JFrame {
    
 
                 JOptionPane.showMessageDialog(null, py.toString(), "Adding Succesful!",  JOptionPane.PLAIN_MESSAGE );
-
+                returnToMenu();
             }else {
                 JOptionPane.showMessageDialog(null, "Make sure all input fields are properly keyed in");
 
@@ -373,44 +390,22 @@ public class pPayment extends javax.swing.JFrame {
        } 
     }//GEN-LAST:event_txtPaymentAmountFocusLost
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(pPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(pPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(pPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(pPayment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        returnToMenu();
+    }//GEN-LAST:event_formWindowClosing
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new pPayment().setVisible(true);
-            }
-        });
-    }
-    
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        returnToMenu();
+    }//GEN-LAST:event_btnBackActionPerformed
+      
+    private void returnToMenu(){
+         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+         
+         this.setVisible(false);
+         
+         AHHASC_Manager managerInterface = new AHHASC_Manager();
+         managerInterface.setVisible(true);
+     }
     
     boolean IsEmpty;
     private void CheckEmpty(){
@@ -507,10 +502,10 @@ public class pPayment extends javax.swing.JFrame {
     private javax.swing.JLabel lblPaymentAmount;
     private javax.swing.JLabel lblPaymentID;
     private javax.swing.JLabel lblTechnicianID;
-    private javax.swing.JTextField txtAppointmentID;
-    private javax.swing.JTextField txtManagerID;
-    private javax.swing.JTextField txtPaymentAmount;
+    protected javax.swing.JTextField txtAppointmentID;
+    protected javax.swing.JTextField txtManagerID;
+    protected javax.swing.JTextField txtPaymentAmount;
     private javax.swing.JTextField txtPaymentID;
-    private javax.swing.JTextField txtTechnicianID;
+    protected javax.swing.JTextField txtTechnicianID;
     // End of variables declaration//GEN-END:variables
 }

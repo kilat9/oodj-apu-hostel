@@ -666,7 +666,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="appointmentTime_TXT.setEnabled(false);&#xa;appointmentTime_TXT.getCalendarButton().setEnabled(true);&#xa;&#xa;Calendar cal = Calendar.getInstance();&#xa;cal.add(Calendar.MONTH, +1);// 1 MONTH later&#xa;Date max = cal.getTime();&#xa;&#xa;Date now = new Date();&#xa;appointmentTime_TXT.setSelectableDateRange(now, max);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="appointmentTime_TXT.setEnabled(false);&#xa;appointmentTime_TXT.getCalendarButton().setEnabled(true);&#xa;&#xa;Calendar cal = Calendar.getInstance();&#xa;cal.add(Calendar.MONTH, +1);// 1 MONTH later&#xa;Date max = cal.getTime();&#xa;&#xa;Calendar tommorow = Calendar.getInstance();&#xa;tommorow.add(Calendar.DAY_OF_WEEK, +1); // +1 for tommorow&#xa;Date nextDay = tommorow.getTime();&#xa;appointmentTime_TXT.setSelectableDateRange(nextDay, max); // start from tommorow"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="slot_LBL">

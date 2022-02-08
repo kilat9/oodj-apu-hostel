@@ -288,8 +288,10 @@ public class AppointmentForm extends javax.swing.JPanel {
         cal.add(Calendar.MONTH, +1);// 1 MONTH later
         Date max = cal.getTime();
 
-        Date now = new Date();
-        appointmentTime_TXT.setSelectableDateRange(now, max);
+        Calendar tommorow = Calendar.getInstance();
+        tommorow.add(Calendar.DAY_OF_WEEK, +1); // +1 for tommorow
+        Date nextDay = tommorow.getTime();
+        appointmentTime_TXT.setSelectableDateRange(nextDay, max); // start from tommorow
 
         slot_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         slot_LBL.setForeground(new java.awt.Color(226, 38, 88));
