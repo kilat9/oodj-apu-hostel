@@ -4,6 +4,7 @@
  */
 package oodjassignment;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -26,6 +27,7 @@ public class pLogin extends javax.swing.JFrame {
      */
     public pLogin() {
         initComponents();
+        getContentPane().setBackground(Color.decode("#EBD7C2")); // set background colour
     }
 
     @SuppressWarnings("unchecked")
@@ -43,20 +45,24 @@ public class pLogin extends javax.swing.JFrame {
         btnForgotPassword = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
-        setBackground(new java.awt.Color(225, 226, 188));
-        setForeground(java.awt.Color.white);
+        setTitle("AHHASC Login");
+        setBackground(new java.awt.Color(235, 215, 194));
+        setForeground(new java.awt.Color(0, 33, 71));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 33, 71));
         jLabel1.setText("User ID");
 
         jLabel2.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 33, 71));
         jLabel2.setText("Password");
 
         txtUserID.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
+        btnLogin.setBackground(new java.awt.Color(0, 33, 71));
         btnLogin.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,12 +77,16 @@ public class pLogin extends javax.swing.JFrame {
         txtAccountType.setToolTipText("");
 
         jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 33, 71));
         jLabel3.setText("Account Type");
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 0, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 33, 71));
         jLabel5.setText("LOGIN");
 
-        btnForgotPassword.setFont(new java.awt.Font("Bahnschrift", 0, 10)); // NOI18N
+        btnForgotPassword.setBackground(new java.awt.Color(0, 33, 71));
+        btnForgotPassword.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        btnForgotPassword.setForeground(new java.awt.Color(255, 255, 255));
         btnForgotPassword.setText("Forgot password?");
         btnForgotPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,35 +99,33 @@ public class pLogin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnForgotPassword)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(btnForgotPassword))
+                    .addComponent(jLabel3))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
-                        .addGap(188, 188, 188))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnLogin)
-                            .addComponent(txtAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtUserID)
+                        .addComponent(txtPassword)
+                        .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtAccountType, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel5))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap()
+                .addComponent(btnForgotPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -129,11 +137,9 @@ public class pLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogin)
-                    .addComponent(btnForgotPassword))
-                .addContainerGap())
+                .addGap(28, 28, 28)
+                .addComponent(btnLogin)
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -168,9 +174,7 @@ public class pLogin extends javax.swing.JFrame {
         if (result == JOptionPane.YES_OPTION){
             pForgotPassword ForgotPassword = new pForgotPassword();
             ForgotPassword.setVisible(true);
-        } else {
-            setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        }       
+        }
     }//GEN-LAST:event_btnForgotPasswordActionPerformed
 
     /**

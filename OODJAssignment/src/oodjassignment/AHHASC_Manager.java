@@ -5,6 +5,7 @@
  */
 package oodjassignment;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,6 +32,7 @@ public class AHHASC_Manager extends javax.swing.JFrame {
     
     public AHHASC_Manager() {
         initComponents();
+        home.setBackground(Color.decode("#EBD7C2")); // set background colour
         initializeAppointments();
     }
 
@@ -70,8 +72,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
             }
         });
 
-        MDIparent.setBackground(new java.awt.Color(225, 226, 180));
-        MDIparent.setForeground(new java.awt.Color(226, 38, 88));
+        MDIparent.setBackground(new java.awt.Color(235, 215, 194));
+        MDIparent.setForeground(new java.awt.Color(0, 33, 71));
         MDIparent.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
         MDIparent.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         MDIparent.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 16)); // NOI18N
@@ -82,15 +84,16 @@ public class AHHASC_Manager extends javax.swing.JFrame {
             }
         });
 
-        home.setBackground(new java.awt.Color(225, 226, 188));
-        home.setForeground(new java.awt.Color(226, 38, 88));
+        home.setBackground(new java.awt.Color(235, 215, 194));
+        home.setForeground(new java.awt.Color(0, 33, 71));
         home.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
 
+        greeting.setBackground(new java.awt.Color(235, 215, 194));
         greeting.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        greeting.setForeground(new java.awt.Color(226, 38, 88));
+        greeting.setForeground(new java.awt.Color(0, 33, 71));
         greeting.setText("Welcome Back!");
 
-        userPane.setBackground(new java.awt.Color(226, 38, 88));
+        userPane.setBackground(new java.awt.Color(0, 33, 71));
         userPane.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         userPane.setForeground(new java.awt.Color(255, 255, 255));
         userPane.setText("Manage Users");
@@ -100,7 +103,7 @@ public class AHHASC_Manager extends javax.swing.JFrame {
             }
         });
 
-        appointmentPane.setBackground(new java.awt.Color(226, 38, 88));
+        appointmentPane.setBackground(new java.awt.Color(0, 33, 71));
         appointmentPane.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         appointmentPane.setForeground(new java.awt.Color(255, 255, 255));
         appointmentPane.setText("Manage Appointments");
@@ -110,7 +113,7 @@ public class AHHASC_Manager extends javax.swing.JFrame {
             }
         });
 
-        logoutButton.setBackground(new java.awt.Color(226, 38, 88));
+        logoutButton.setBackground(new java.awt.Color(0, 33, 71));
         logoutButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton.setText("Log Out");
@@ -121,7 +124,7 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         });
 
         appointment_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        appointment_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        appointment_LBL.setForeground(new java.awt.Color(0, 33, 71));
         appointment_LBL.setText("Unpaid Appointments");
 
         appointmentList.setAutoCreateRowSorter(true);
@@ -162,7 +165,7 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(appointmentList);
 
-        paymentButton.setBackground(new java.awt.Color(226, 38, 88));
+        paymentButton.setBackground(new java.awt.Color(0, 33, 71));
         paymentButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 16)); // NOI18N
         paymentButton.setForeground(new java.awt.Color(255, 255, 255));
         paymentButton.setText("Make Payment");
@@ -225,12 +228,12 @@ public class AHHASC_Manager extends javax.swing.JFrame {
 
         MDIparent.addTab("Home", home);
 
-        appointment.setBackground(new java.awt.Color(225, 226, 188));
-        appointment.setForeground(new java.awt.Color(226, 38, 88));
+        appointment.setBackground(new java.awt.Color(235, 215, 194));
+        appointment.setForeground(new java.awt.Color(0, 33, 71));
         MDIparent.addTab("Appointments", appointment);
 
-        user.setBackground(new java.awt.Color(225, 226, 188));
-        user.setForeground(new java.awt.Color(226, 38, 88));
+        user.setBackground(new java.awt.Color(235, 215, 194));
+        user.setForeground(new java.awt.Color(0, 33, 71));
         MDIparent.addTab("Users", user);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -423,7 +426,7 @@ public class AHHASC_Manager extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JTabbedPane MDIparent;
     public javax.swing.JTabbedPane appointment;
-    private javax.swing.JTable appointmentList;
+    javax.swing.JTable appointmentList;
     private javax.swing.JButton appointmentPane;
     private javax.swing.JLabel appointment_LBL;
     private javax.swing.JLabel greeting;

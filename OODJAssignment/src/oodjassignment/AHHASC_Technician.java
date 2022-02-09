@@ -71,7 +71,7 @@ public class AHHASC_Technician extends javax.swing.JFrame {
         });
 
         MDIparent.setBackground(new java.awt.Color(225, 226, 180));
-        MDIparent.setForeground(new java.awt.Color(226, 38, 88));
+        MDIparent.setForeground(new java.awt.Color(0, 33, 71));
         MDIparent.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
         MDIparent.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         MDIparent.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 16)); // NOI18N
@@ -82,15 +82,16 @@ public class AHHASC_Technician extends javax.swing.JFrame {
             }
         });
 
-        home.setBackground(new java.awt.Color(225, 226, 188));
+        home.setBackground(new java.awt.Color(235, 215, 194));
         home.setForeground(new java.awt.Color(226, 38, 88));
         home.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
 
+        greeting.setBackground(new java.awt.Color(235, 215, 194));
         greeting.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        greeting.setForeground(new java.awt.Color(226, 38, 88));
+        greeting.setForeground(new java.awt.Color(0, 33, 71));
         greeting.setText("Welcome Back!");
 
-        feedback_BTN.setBackground(new java.awt.Color(226, 38, 88));
+        feedback_BTN.setBackground(new java.awt.Color(0, 33, 71));
         feedback_BTN.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         feedback_BTN.setForeground(new java.awt.Color(255, 255, 255));
         feedback_BTN.setText("Provide Feedback");
@@ -101,7 +102,7 @@ public class AHHASC_Technician extends javax.swing.JFrame {
             }
         });
 
-        logoutButton.setBackground(new java.awt.Color(226, 38, 88));
+        logoutButton.setBackground(new java.awt.Color(0, 33, 71));
         logoutButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(255, 255, 255));
         logoutButton.setText("Log Out");
@@ -151,7 +152,7 @@ public class AHHASC_Technician extends javax.swing.JFrame {
         jScrollPane1.setViewportView(appointmentList);
 
         appointment_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        appointment_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        appointment_LBL.setForeground(new java.awt.Color(0, 33, 71));
         appointment_LBL.setText("Your Upcoming Appointments");
 
         customerList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
@@ -187,7 +188,7 @@ public class AHHASC_Technician extends javax.swing.JFrame {
         }
 
         customerLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        customerLBL.setForeground(new java.awt.Color(226, 38, 88));
+        customerLBL.setForeground(new java.awt.Color(0, 33, 71));
         customerLBL.setText("Customer Details");
 
         slotCB.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
@@ -234,7 +235,7 @@ public class AHHASC_Technician extends javax.swing.JFrame {
         jScrollPane3.setViewportView(pastAppointmentList);
 
         appointment_LBL1.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        appointment_LBL1.setForeground(new java.awt.Color(226, 38, 88));
+        appointment_LBL1.setForeground(new java.awt.Color(0, 33, 71));
         appointment_LBL1.setText("Past Appointments");
 
         javax.swing.GroupLayout homeLayout = new javax.swing.GroupLayout(home);
