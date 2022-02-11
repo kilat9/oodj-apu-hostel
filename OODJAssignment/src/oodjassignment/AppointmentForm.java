@@ -68,11 +68,11 @@ public class AppointmentForm extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(900, 600));
 
-        appointment.setBackground(new java.awt.Color(225, 226, 188));
+        appointment.setBackground(new java.awt.Color(235, 215, 194));
         appointment.setForeground(new java.awt.Color(226, 38, 88));
         appointment.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 18)); // NOI18N
 
-        addAppointment.setBackground(new java.awt.Color(226, 38, 88));
+        addAppointment.setBackground(new java.awt.Color(0, 33, 71));
         addAppointment.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
         addAppointment.setForeground(new java.awt.Color(255, 255, 255));
         addAppointment.setText("Add New Appointment");
@@ -126,7 +126,7 @@ public class AppointmentForm extends javax.swing.JPanel {
         }
 
         id_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        id_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        id_LBL.setForeground(new java.awt.Color(0, 33, 71));
         id_LBL.setText("Appointment ID");
         id_LBL.setToolTipText("");
 
@@ -137,22 +137,22 @@ public class AppointmentForm extends javax.swing.JPanel {
         appointmentCustomerId_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
         appointmentCustomerId_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        appointmentCustomerId_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        appointmentCustomerId_LBL.setForeground(new java.awt.Color(0, 33, 71));
         appointmentCustomerId_LBL.setText("Customer ID");
 
         appointmentManagerId_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        appointmentManagerId_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        appointmentManagerId_LBL.setForeground(new java.awt.Color(0, 33, 71));
         appointmentManagerId_LBL.setText("Manager ID");
 
         appointmentManagerId_TXT.setEditable(false);
         appointmentManagerId_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
         appointmentTime_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        appointmentTime_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        appointmentTime_LBL.setForeground(new java.awt.Color(0, 33, 71));
         appointmentTime_LBL.setText("Appointment Time");
 
         dateCreated_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        dateCreated_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        dateCreated_LBL.setForeground(new java.awt.Color(0, 33, 71));
         dateCreated_LBL.setText("Date Created");
 
         dateCreated_TXT.setEditable(false);
@@ -161,17 +161,17 @@ public class AppointmentForm extends javax.swing.JPanel {
         appliance_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
         appliance_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        appliance_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        appliance_LBL.setForeground(new java.awt.Color(0, 33, 71));
         appliance_LBL.setText("Appliance");
 
         appointmentTechnicianId_TXT.setEditable(false);
         appointmentTechnicianId_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
         appointmentTechnicianId_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        appointmentTechnicianId_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        appointmentTechnicianId_LBL.setForeground(new java.awt.Color(0, 33, 71));
         appointmentTechnicianId_LBL.setText("Technician ID");
 
-        deleteAppointment.setBackground(new java.awt.Color(226, 38, 88));
+        deleteAppointment.setBackground(new java.awt.Color(0, 33, 71));
         deleteAppointment.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
         deleteAppointment.setForeground(new java.awt.Color(255, 255, 255));
         deleteAppointment.setText("Delete Appointment");
@@ -183,11 +183,11 @@ public class AppointmentForm extends javax.swing.JPanel {
         });
 
         appointment_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        appointment_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        appointment_LBL.setForeground(new java.awt.Color(0, 33, 71));
         appointment_LBL.setText("Appointment");
 
         customerLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        customerLBL.setForeground(new java.awt.Color(226, 38, 88));
+        customerLBL.setForeground(new java.awt.Color(0, 33, 71));
         customerLBL.setText("Customer");
 
         customerList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
@@ -228,7 +228,7 @@ public class AppointmentForm extends javax.swing.JPanel {
         jScrollPane2.setViewportView(customerList);
 
         technicianLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        technicianLBL.setForeground(new java.awt.Color(226, 38, 88));
+        technicianLBL.setForeground(new java.awt.Color(0, 33, 71));
         technicianLBL.setText("Technician");
 
         technicianList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
@@ -268,7 +268,7 @@ public class AppointmentForm extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(technicianList);
 
-        updateAppointment.setBackground(new java.awt.Color(226, 38, 88));
+        updateAppointment.setBackground(new java.awt.Color(0, 33, 71));
         updateAppointment.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
         updateAppointment.setForeground(new java.awt.Color(255, 255, 255));
         updateAppointment.setText("Update Appointment");
@@ -294,7 +294,7 @@ public class AppointmentForm extends javax.swing.JPanel {
         appointmentTime_TXT.setSelectableDateRange(nextDay, max); // start from tommorow
 
         slot_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        slot_LBL.setForeground(new java.awt.Color(226, 38, 88));
+        slot_LBL.setForeground(new java.awt.Color(0, 33, 71));
         slot_LBL.setText("Slot");
 
         slotCB.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N

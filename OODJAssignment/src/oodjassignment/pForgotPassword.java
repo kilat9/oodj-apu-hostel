@@ -4,6 +4,7 @@
  */
 package oodjassignment;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -30,6 +31,7 @@ public class pForgotPassword extends javax.swing.JFrame {
     public pForgotPassword() {
         AutoID();
         initComponents();
+        getContentPane().setBackground(Color.decode("#EBD7C2")); // set background colour
     }
 
     /**
@@ -49,14 +51,18 @@ public class pForgotPassword extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(235, 215, 194));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 33, 71));
         jLabel1.setText("Email");
 
         txtEmail.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
+        btnSend.setBackground(new java.awt.Color(0, 33, 71));
         btnSend.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        btnSend.setForeground(new java.awt.Color(255, 255, 255));
         btnSend.setText("Send Request");
         btnSend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,9 +80,12 @@ public class pForgotPassword extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 33, 71));
         jLabel3.setText("Account Type");
 
+        btnBack.setBackground(new java.awt.Color(0, 33, 71));
         btnBack.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

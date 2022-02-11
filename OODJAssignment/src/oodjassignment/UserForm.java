@@ -5,6 +5,7 @@
  */
 package oodjassignment;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -68,11 +69,12 @@ public class UserForm extends javax.swing.JPanel {
         addressTXT = new javax.swing.JTextField();
         addressLBL = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(225, 226, 188));
+        setBackground(new java.awt.Color(235, 215, 194));
+        setForeground(new java.awt.Color(0, 33, 71));
         setPreferredSize(new java.awt.Dimension(900, 600));
 
         selectUserLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        selectUserLBL.setForeground(new java.awt.Color(226, 38, 88));
+        selectUserLBL.setForeground(new java.awt.Color(0, 33, 71));
         selectUserLBL.setText("Select User:");
 
         roleCB.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
@@ -121,7 +123,7 @@ public class UserForm extends javax.swing.JPanel {
         jScrollPane2.setViewportView(customerList);
 
         customerLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        customerLBL.setForeground(new java.awt.Color(226, 38, 88));
+        customerLBL.setForeground(new java.awt.Color(0, 33, 71));
         customerLBL.setText("Customers");
 
         technicianList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
@@ -165,30 +167,30 @@ public class UserForm extends javax.swing.JPanel {
         }
 
         technicianLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        technicianLBL.setForeground(new java.awt.Color(226, 38, 88));
+        technicianLBL.setForeground(new java.awt.Color(0, 33, 71));
         technicianLBL.setText("Center Technicians");
 
         user_idTXT.setEditable(false);
         user_idTXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
         user_idLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        user_idLBL.setForeground(new java.awt.Color(226, 38, 88));
+        user_idLBL.setForeground(new java.awt.Color(0, 33, 71));
         user_idLBL.setText("User ID");
 
         nameLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        nameLBL.setForeground(new java.awt.Color(226, 38, 88));
+        nameLBL.setForeground(new java.awt.Color(0, 33, 71));
         nameLBL.setText("Name");
 
         nameTXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
         emailLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        emailLBL.setForeground(new java.awt.Color(226, 38, 88));
+        emailLBL.setForeground(new java.awt.Color(0, 33, 71));
         emailLBL.setText("Email");
 
         emailTXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
         dateCreatedLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        dateCreatedLBL.setForeground(new java.awt.Color(226, 38, 88));
+        dateCreatedLBL.setForeground(new java.awt.Color(0, 33, 71));
         dateCreatedLBL.setText("Date Created");
 
         dateCreatedTXT.setEditable(false);
@@ -198,18 +200,18 @@ public class UserForm extends javax.swing.JPanel {
         payGradeTXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
         payGradeLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        payGradeLBL.setForeground(new java.awt.Color(226, 38, 88));
+        payGradeLBL.setForeground(new java.awt.Color(0, 33, 71));
         payGradeLBL.setText("Pay Grade");
 
         passwordLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        passwordLBL.setForeground(new java.awt.Color(226, 38, 88));
+        passwordLBL.setForeground(new java.awt.Color(0, 33, 71));
         passwordLBL.setText("Password");
 
         confirmPasswordLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        confirmPasswordLBL.setForeground(new java.awt.Color(226, 38, 88));
+        confirmPasswordLBL.setForeground(new java.awt.Color(0, 33, 71));
         confirmPasswordLBL.setText("Confirm Password");
 
-        addUser.setBackground(new java.awt.Color(226, 38, 88));
+        addUser.setBackground(new java.awt.Color(0, 33, 71));
         addUser.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
         addUser.setForeground(new java.awt.Color(255, 255, 255));
         addUser.setText("Add User");
@@ -219,7 +221,7 @@ public class UserForm extends javax.swing.JPanel {
             }
         });
 
-        deleteUser.setBackground(new java.awt.Color(226, 38, 88));
+        deleteUser.setBackground(new java.awt.Color(0, 33, 71));
         deleteUser.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
         deleteUser.setForeground(new java.awt.Color(255, 255, 255));
         deleteUser.setText("Delete User");
@@ -230,7 +232,7 @@ public class UserForm extends javax.swing.JPanel {
             }
         });
 
-        saveChanges.setBackground(new java.awt.Color(226, 38, 88));
+        saveChanges.setBackground(new java.awt.Color(0, 33, 71));
         saveChanges.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
         saveChanges.setForeground(new java.awt.Color(255, 255, 255));
         saveChanges.setText("Save Changes");
@@ -290,13 +292,13 @@ public class UserForm extends javax.swing.JPanel {
         jScrollPane4.setViewportView(managerList);
 
         managerLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        managerLBL.setForeground(new java.awt.Color(226, 38, 88));
+        managerLBL.setForeground(new java.awt.Color(0, 33, 71));
         managerLBL.setText("Center Managers");
 
         addressTXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
         addressLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        addressLBL.setForeground(new java.awt.Color(226, 38, 88));
+        addressLBL.setForeground(new java.awt.Color(0, 33, 71));
         addressLBL.setText("Address");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

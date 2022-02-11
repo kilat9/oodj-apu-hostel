@@ -23,6 +23,8 @@ public class pFeedback extends javax.swing.JFrame {
      */
     public pFeedback() {
         initComponents();
+        getContentPane().setBackground(Color.decode("#EBD7C2")); // set background colour
+        
         AutoFeedbackID();
         if (txtFeedbackID.getText().equals("")){
                     txtFeedbackID.setText("1");
@@ -62,12 +64,17 @@ public class pFeedback extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(235, 215, 194));
+
+        lblTechnicianID.setBackground(new java.awt.Color(0, 33, 71));
         lblTechnicianID.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         lblTechnicianID.setText("Technician ID");
 
+        jLabel2.setBackground(new java.awt.Color(0, 33, 71));
         jLabel2.setFont(new java.awt.Font("Bahnschrift", 0, 36)); // NOI18N
         jLabel2.setText("FEEDBACK");
 
+        lblAppointmentID.setBackground(new java.awt.Color(0, 33, 71));
         lblAppointmentID.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         lblAppointmentID.setText("Appointment ID");
 
@@ -91,6 +98,7 @@ public class pFeedback extends javax.swing.JFrame {
             }
         });
 
+        lblMessage.setBackground(new java.awt.Color(0, 33, 71));
         lblMessage.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         lblMessage.setText("Message");
 
@@ -104,7 +112,9 @@ public class pFeedback extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(txtMessage);
 
+        btnSend.setBackground(new java.awt.Color(0, 33, 71));
         btnSend.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        btnSend.setForeground(new java.awt.Color(255, 255, 255));
         btnSend.setText("Send");
         btnSend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +122,9 @@ public class pFeedback extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(0, 33, 71));
         btnBack.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +132,7 @@ public class pFeedback extends javax.swing.JFrame {
             }
         });
 
+        lblMessage1.setBackground(new java.awt.Color(0, 33, 71));
         lblMessage1.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         lblMessage1.setText("Feedback ID");
 

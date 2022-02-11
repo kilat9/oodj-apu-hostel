@@ -47,10 +47,10 @@
     <Container class="javax.swing.JTabbedPane" name="MDIparent">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b4" green="e2" red="e1" type="rgb"/>
+          <Color blue="c2" green="d7" red="eb" type="rgb"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="58" green="26" red="e2" type="rgb"/>
+          <Color blue="47" green="21" red="0" type="rgb"/>
         </Property>
         <Property name="tabPlacement" type="int" value="3"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -79,10 +79,10 @@
         <Container class="javax.swing.JPanel" name="home">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="bc" green="e2" red="e1" type="rgb"/>
+              <Color blue="c2" green="d7" red="eb" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="58" green="26" red="e2" type="rgb"/>
+              <Color blue="47" green="21" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tw Cen MT Condensed Extra Bold" size="18" style="0"/>
@@ -162,11 +162,14 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="greeting">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="c2" green="d7" red="eb" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tw Cen MT Condensed Extra Bold" size="24" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="58" green="26" red="e2" type="rgb"/>
+                  <Color blue="47" green="21" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Welcome Back!"/>
               </Properties>
@@ -177,7 +180,7 @@
             <Component class="javax.swing.JButton" name="userPane">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="58" green="26" red="e2" type="rgb"/>
+                  <Color blue="47" green="21" red="0" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tw Cen MT Condensed Extra Bold" size="24" style="0"/>
@@ -194,7 +197,7 @@
             <Component class="javax.swing.JButton" name="appointmentPane">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="58" green="26" red="e2" type="rgb"/>
+                  <Color blue="47" green="21" red="0" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tw Cen MT Condensed Extra Bold" size="24" style="0"/>
@@ -211,7 +214,7 @@
             <Component class="javax.swing.JButton" name="logoutButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="58" green="26" red="e2" type="rgb"/>
+                  <Color blue="47" green="21" red="0" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tw Cen MT Condensed Extra Bold" size="24" style="0"/>
@@ -231,7 +234,7 @@
                   <Font name="Bahnschrift" size="16" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="58" green="26" red="e2" type="rgb"/>
+                  <Color blue="47" green="21" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Unpaid Appointments"/>
               </Properties>
@@ -278,7 +281,7 @@
             <Component class="javax.swing.JButton" name="paymentButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="58" green="26" red="e2" type="rgb"/>
+                  <Color blue="47" green="21" red="0" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16" style="0"/>
@@ -298,10 +301,10 @@
         <Container class="javax.swing.JTabbedPane" name="appointment">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="bc" green="e2" red="e1" type="rgb"/>
+              <Color blue="c2" green="d7" red="eb" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="58" green="26" red="e2" type="rgb"/>
+              <Color blue="47" green="21" red="0" type="rgb"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -322,10 +325,10 @@
         <Container class="javax.swing.JTabbedPane" name="user">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="bc" green="e2" red="e1" type="rgb"/>
+              <Color blue="c2" green="d7" red="eb" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="58" green="26" red="e2" type="rgb"/>
+              <Color blue="47" green="21" red="0" type="rgb"/>
             </Property>
           </Properties>
           <AuxValues>

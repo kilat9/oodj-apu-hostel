@@ -23,6 +23,7 @@ public class pPayment extends javax.swing.JFrame {
      */
     public pPayment() {
         initComponents();
+        getContentPane().setBackground(Color.decode("#EBD7C2")); // set background colour
         AutoPaymentID();
         if (txtPaymentID.getText().equals("")){
                     txtPaymentID.setText("1");
@@ -55,6 +56,7 @@ public class pPayment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AHHASC Payment");
+        setBackground(new java.awt.Color(235, 215, 194));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -63,12 +65,15 @@ public class pPayment extends javax.swing.JFrame {
         });
 
         lblTechnicianID.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        lblTechnicianID.setForeground(new java.awt.Color(0, 33, 71));
         lblTechnicianID.setText("Technician ID");
 
         jLabel2.setFont(new java.awt.Font("Bahnschrift", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 33, 71));
         jLabel2.setText("PAYMENT");
 
         lblAppointmentID.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        lblAppointmentID.setForeground(new java.awt.Color(0, 33, 71));
         lblAppointmentID.setText("Appointment ID");
 
         txtPaymentID.setEnabled(false);
@@ -91,7 +96,9 @@ public class pPayment extends javax.swing.JFrame {
             }
         });
 
+        btnSend.setBackground(new java.awt.Color(0, 33, 71));
         btnSend.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        btnSend.setForeground(new java.awt.Color(255, 255, 255));
         btnSend.setText("Send");
         btnSend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +106,9 @@ public class pPayment extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(0, 33, 71));
         btnBack.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +117,7 @@ public class pPayment extends javax.swing.JFrame {
         });
 
         lblPaymentID.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        lblPaymentID.setForeground(new java.awt.Color(0, 33, 71));
         lblPaymentID.setText("Payment ID");
 
         txtTechnicianID.setEditable(false);
@@ -140,9 +150,11 @@ public class pPayment extends javax.swing.JFrame {
         });
 
         lblPaymentAmount.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        lblPaymentAmount.setForeground(new java.awt.Color(0, 33, 71));
         lblPaymentAmount.setText("Payment Amount");
 
         lblManagerID.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        lblManagerID.setForeground(new java.awt.Color(0, 33, 71));
         lblManagerID.setText("Manager ID");
 
         txtManagerID.setEditable(false);
