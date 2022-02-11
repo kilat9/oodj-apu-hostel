@@ -15,10 +15,16 @@ import javax.swing.table.DefaultTableModel;
 
 public class centerManager extends user{
  
-    String password;
+    private String password;
+    
     public centerManager(){
         super();
         this.password = "pass";
+    }
+    
+    public centerManager(String pass){
+        super();
+        this.password = pass;
     }
     
     public centerManager(String userId, String name, String email, String password, String accountCreationDate){
@@ -38,7 +44,6 @@ public class centerManager extends user{
     public void registerCustomer(String userId, String name, String email, String customerAddress, String accountCreationDate){
         try{
             
-
             String Filename = "src\\db\\customer_t.txt";
 
             // Open the file.
@@ -47,7 +52,6 @@ public class centerManager extends user{
             PrintWriter outputFile = new PrintWriter(fw);
 
             //Overide the existing file
-
 
                 // Write the name to the file.
                 outputFile.println(userId + ":" + name + ":" + email + ":" + customerAddress + ":" + accountCreationDate);
@@ -309,6 +313,17 @@ public class centerManager extends user{
 
         } catch (IOException ex) {}
     }
+    
+    
+    @Override
+    public void checkDetails(){
+        System.out.println("ID : " + super.getUserId()+ "\n" +
+              "Name : " + super.getName() + "\n" +
+              "Email : " + super.getEmail() + "\n" +
+              "Account Creation Date : " + super.getAccountCreationDate() + "\n" +
+              "Password : " + getPassword() + "\n"
+              );
+    };
     
     
 }

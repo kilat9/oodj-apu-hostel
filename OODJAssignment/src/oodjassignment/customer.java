@@ -22,6 +22,7 @@ public class customer extends user{
         return customerAddress;
     }
     
+    @Override
     public String toString(){
       
        return "ID : " + super.getUserId()+ "\n" +
@@ -31,5 +32,15 @@ public class customer extends user{
               "Account Creation Date : " + super.getAccountCreationDate() + "\n"
               ;
    }
+    
+    @Override
+    public void checkDetails(){
+        System.out.println("ID : " + super.getUserId()+ "\n" +
+              "Name : " + super.getName() + "\n" +
+              "Email : " + super.getEmail() + "\n" +
+              "Address : " +  getCustomerAddress() +"\n" +
+              "Account Creation Date : " + super.getAccountCreationDate() + "\n"
+              );
+    };
     
 }
