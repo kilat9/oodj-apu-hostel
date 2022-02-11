@@ -58,6 +58,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         appointment = appointmentTab;
         oodjassignment.UserForm user;
         user = new oodjassignment.UserForm();
+        oodjassignment.ResetPasswordForm passwordReset;
+        passwordReset = new oodjassignment.ResetPasswordForm();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("AHHASC");
@@ -232,6 +234,7 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         user.setBackground(new java.awt.Color(225, 226, 188));
         user.setForeground(new java.awt.Color(226, 38, 88));
         MDIparent.addTab("Users", user);
+        MDIparent.addTab("Password Reset", passwordReset);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -421,15 +424,16 @@ public class AHHASC_Manager extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    protected javax.swing.JTabbedPane MDIparent;
+    protected static javax.swing.JTabbedPane MDIparent;
     public javax.swing.JTabbedPane appointment;
-    private javax.swing.JTable appointmentList;
+    javax.swing.JTable appointmentList;
     private javax.swing.JButton appointmentPane;
     private javax.swing.JLabel appointment_LBL;
     private javax.swing.JLabel greeting;
     private javax.swing.JPanel home;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logoutButton;
+    private javax.swing.JTabbedPane passwordReset;
     private javax.swing.JButton paymentButton;
     private javax.swing.JTabbedPane user;
     private javax.swing.JButton userPane;
