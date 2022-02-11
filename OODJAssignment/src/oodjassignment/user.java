@@ -57,5 +57,14 @@ private String userId, name, email, accountCreationDate;
         this.accountCreationDate = accountCreationDate;
     }
     
-  
+    public abstract void checkDetails();
+    
+    public String toString(){
+      
+       return "ID : " +  getUserId()+ "\n" +
+              "Name : " + getName() + "\n" +
+              "Email : " + getEmail() + "\n" +
+              "Account Creation Date : " + getAccountCreationDate() + "\n"
+              ;
+    }  
 }

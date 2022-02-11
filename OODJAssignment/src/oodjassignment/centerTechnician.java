@@ -76,7 +76,7 @@ public class centerTechnician extends user{
     }
     
     
-    
+    @Override
     public String toString(){
       
        return "ID : " + super.getUserId()+ "\n" +
@@ -87,4 +87,15 @@ public class centerTechnician extends user{
               "Base Pay : " + getBasePay() + "\n" 
               ;
    }   
+    
+    @Override
+    public void checkDetails(){
+        System.out.println("ID : " + super.getUserId()+ "\n" +
+              "Name : " + super.getName() + "\n" +
+              "Email : " + super.getEmail() + "\n" +
+              "Account Creation Date : " + super.getAccountCreationDate() + "\n" +
+              "Password : " + getPassword() + "\n"+
+              "Base Pay : " + getBasePay() + "\n"
+              );
+    };
 }
