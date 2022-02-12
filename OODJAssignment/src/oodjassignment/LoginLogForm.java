@@ -5,6 +5,13 @@
  */
 package oodjassignment;
 
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.Style;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.properties.TextAlignment;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -20,6 +27,7 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static oodjassignment.PaymentForm.paymentList;
 
 /**
  *
@@ -219,9 +227,63 @@ public class LoginLogForm extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
-        
+        try{
+           printLoginLogs();
+           JOptionPane.showMessageDialog(null, "PDF report generated", "Success!", JOptionPane.INFORMATION_MESSAGE);
+       } catch(FileNotFoundException e){
+            JOptionPane.showMessageDialog(null, "PDF cannot be created", "An Error occured!", JOptionPane.WARNING_MESSAGE);
+       }
     }//GEN-LAST:event_printButtonActionPerformed
 
+    private void printLoginLogs() throws FileNotFoundException{
+        
+        
+        String filePath = "src\\reports\\login_records.pdf";
+        PdfWriter pdf1 = new PdfWriter(filePath);
+        
+        PdfDocument pdfDoc = new PdfDocument(pdf1);
+        
+        Document Doc = new Document(pdfDoc);
+        
+        
+        Style styleTitle = new Style();
+        styleTitle.setTextAlignment(TextAlignment.CENTER);
+        styleTitle.setBold();
+        styleTitle.setUnderline();
+        styleTitle.setFontSize(34);
+        String title = "Login records";
+        Paragraph p1 = new Paragraph(title).addStyle(styleTitle);
+        
+        Doc.add(p1);
+        
+        float columnWidth[] = {50,100,100,100};
+        
+        Table table1 = new Table(columnWidth);
+        
+        table1.addCell("User Role");
+        table1.addCell("User ID");
+        table1.addCell("Name");
+        table1.addCell("Login Date");
+        
+        
+        for(int i=0; i<loginLogList.getRowCount() ;i++) {
+            String Role = loginLogList.getValueAt(i, 0).toString();
+            String ID = loginLogList.getValueAt(i, 1).toString();
+            String Name = loginLogList.getValueAt(i, 2).toString();
+            String Date = loginLogList.getValueAt(i, 3).toString();
+            
+            table1.addCell(Role);
+            table1.addCell(ID);
+            table1.addCell(Name);
+            table1.addCell(Date);
+        }
+        
+        Doc.add(table1);
+        
+        Doc.close();
+        
+    }
+    
     private void roleCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleCBActionPerformed
         filterLoginLogs();
     }//GEN-LAST:event_roleCBActionPerformed

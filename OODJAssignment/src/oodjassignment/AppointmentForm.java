@@ -5,6 +5,13 @@
  */
 package oodjassignment;
 
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.Style;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.properties.TextAlignment;
 import java.io.*;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
@@ -65,6 +72,7 @@ public class AppointmentForm extends javax.swing.JPanel {
         appointmentTime_TXT = new com.toedter.calendar.JDateChooser();
         slot_LBL = new javax.swing.JLabel();
         slotCB = new javax.swing.JComboBox<>();
+        btnAppointmentReport = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(900, 600));
 
@@ -300,6 +308,16 @@ public class AppointmentForm extends javax.swing.JPanel {
         slotCB.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         slotCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10am - 12pm", "2pm - 4pm", "4pm - 6pm" }));
 
+        btnAppointmentReport.setBackground(new java.awt.Color(0, 33, 71));
+        btnAppointmentReport.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
+        btnAppointmentReport.setForeground(new java.awt.Color(255, 255, 255));
+        btnAppointmentReport.setText("Print Appointment Records");
+        btnAppointmentReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointmentReportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout appointmentLayout = new javax.swing.GroupLayout(appointment);
         appointment.setLayout(appointmentLayout);
         appointmentLayout.setHorizontalGroup(
@@ -332,10 +350,10 @@ public class AppointmentForm extends javax.swing.JPanel {
                             .addComponent(appointmentManagerId_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(appointmentManagerId_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(appointmentTechnicianId_TXT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(appointmentTechnicianId_LBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(52, 52, 52)
                         .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(appliance_TXT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(appliance_LBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -347,8 +365,11 @@ public class AppointmentForm extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(appointmentLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(appointment_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(appointmentLayout.createSequentialGroup()
+                        .addComponent(appointment_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAppointmentReport))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,7 +439,9 @@ public class AppointmentForm extends javax.swing.JPanel {
                 .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(appointmentLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(customerLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(customerLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAppointmentReport))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -437,12 +460,12 @@ public class AppointmentForm extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGap(0, 921, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 3, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(appointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 3, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -561,6 +584,76 @@ public class AppointmentForm extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_updateAppointmentActionPerformed
 
+    private void btnAppointmentReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentReportActionPerformed
+         try{
+           printAppointmentRecords();
+           JOptionPane.showMessageDialog(null, "PDF report generated", "Success!", JOptionPane.INFORMATION_MESSAGE);
+       } catch(FileNotFoundException e){
+            JOptionPane.showMessageDialog(null, "PDF cannot be created", "An Error occured!", JOptionPane.WARNING_MESSAGE);
+       }
+    }//GEN-LAST:event_btnAppointmentReportActionPerformed
+
+    
+    private void printAppointmentRecords() throws FileNotFoundException{
+        
+        
+        String filePath = "src\\reports\\appointment_records.pdf";
+        PdfWriter pdf1 = new PdfWriter(filePath);
+        
+        PdfDocument pdfDoc = new PdfDocument(pdf1);
+        
+        Document Doc = new Document(pdfDoc);
+        
+        
+        Style styleTitle = new Style();
+        styleTitle.setTextAlignment(TextAlignment.CENTER);
+        styleTitle.setBold();
+        styleTitle.setUnderline();
+        styleTitle.setFontSize(34);
+        String title = "Appointment records";
+        Paragraph p1 = new Paragraph(title).addStyle(styleTitle);
+        
+        Doc.add(p1);
+        
+        float columnWidth[] = {50,100,100,100,100,50,50,50};
+        
+        Table table1 = new Table(columnWidth);
+        
+        table1.addCell("ID");
+        table1.addCell("Date");
+        table1.addCell("Appliance");
+        table1.addCell("Date Created");
+        table1.addCell("Slot");
+        table1.addCell("Customer_ID");
+        table1.addCell("Manager_ID");
+        table1.addCell("Technician_ID");
+        
+        
+        for(int i=0; i<appointmentList.getRowCount() ;i++) {
+            String ID = appointmentList.getValueAt(i, 0).toString();
+            String Date = appointmentList.getValueAt(i, 1).toString();
+            String Appliance = appointmentList.getValueAt(i, 2).toString();
+            String Date_Created = appointmentList.getValueAt(i, 3).toString();
+            String Slot = appointmentList.getValueAt(i, 4).toString();
+            String Customer_ID = appointmentList.getValueAt(i,5).toString();
+            String Manager_ID = appointmentList.getValueAt(i, 6).toString();
+            String Technician_ID = appointmentList.getValueAt(i, 7).toString();
+            
+            table1.addCell(ID);
+            table1.addCell(Date);
+            table1.addCell(Appliance);
+            table1.addCell(Date_Created);
+            table1.addCell(Slot);
+            table1.addCell(Customer_ID);
+            table1.addCell(Manager_ID);
+            table1.addCell(Technician_ID);
+        }
+        
+        Doc.add(table1);
+        
+        Doc.close();
+        
+    }
     SimpleDateFormat appointmentTimeFormatter = new SimpleDateFormat("dd/MM/yyyy");
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm a"); //format date time and am/pm
                 
@@ -762,6 +855,7 @@ public class AppointmentForm extends javax.swing.JPanel {
     private javax.swing.JLabel appointmentTime_LBL;
     private com.toedter.calendar.JDateChooser appointmentTime_TXT;
     private javax.swing.JLabel appointment_LBL;
+    private javax.swing.JButton btnAppointmentReport;
     private javax.swing.JLabel customerLBL;
     javax.swing.JTable customerList;
     private javax.swing.JLabel dateCreated_LBL;
