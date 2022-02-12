@@ -56,6 +56,9 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         appointmentList = new javax.swing.JTable();
         paymentButton = new javax.swing.JButton();
+        resetPasswordPane = new javax.swing.JButton();
+        loginLogPane = new javax.swing.JButton();
+        paymentPane = new javax.swing.JButton();
         oodjassignment.AppointmentForm appointment;
         appointment = appointmentTab;
         oodjassignment.UserForm user;
@@ -182,6 +185,36 @@ public class AHHASC_Manager extends javax.swing.JFrame {
             }
         });
 
+        resetPasswordPane.setBackground(new java.awt.Color(0, 33, 71));
+        resetPasswordPane.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        resetPasswordPane.setForeground(new java.awt.Color(255, 255, 255));
+        resetPasswordPane.setText("Password Reset");
+        resetPasswordPane.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetPasswordPaneActionPerformed(evt);
+            }
+        });
+
+        loginLogPane.setBackground(new java.awt.Color(0, 33, 71));
+        loginLogPane.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        loginLogPane.setForeground(new java.awt.Color(255, 255, 255));
+        loginLogPane.setText("Login Logs");
+        loginLogPane.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginLogPaneActionPerformed(evt);
+            }
+        });
+
+        paymentPane.setBackground(new java.awt.Color(0, 33, 71));
+        paymentPane.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        paymentPane.setForeground(new java.awt.Color(255, 255, 255));
+        paymentPane.setText("View Payments");
+        paymentPane.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paymentPaneActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout homeLayout = new javax.swing.GroupLayout(home);
         home.setLayout(homeLayout);
         homeLayout.setHorizontalGroup(
@@ -203,7 +236,10 @@ public class AHHASC_Manager extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(userPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(appointmentPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(appointmentPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(resetPasswordPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(loginLogPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(paymentPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(27, 27, 27))
         );
         homeLayout.setVerticalGroup(
@@ -221,12 +257,18 @@ public class AHHASC_Manager extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(appointment_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeLayout.createSequentialGroup()
-                        .addComponent(appointmentPane, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(userPane, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(homeLayout.createSequentialGroup()
+                        .addComponent(appointmentPane, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(userPane, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(resetPasswordPane, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(loginLogPane, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(paymentPane, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -243,7 +285,7 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         MDIparent.addTab("Users", user);
         MDIparent.addTab("Password Reset", passwordReset);
         MDIparent.addTab("Login Logs", loginLog);
-        MDIparent.addTab("Payments", payment);
+        MDIparent.addTab("View Payments", payment);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -335,6 +377,18 @@ public class AHHASC_Manager extends javax.swing.JFrame {
     private void userPaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userPaneActionPerformed
         MDIparent.setSelectedIndex(2);
     }//GEN-LAST:event_userPaneActionPerformed
+
+    private void resetPasswordPaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPasswordPaneActionPerformed
+        MDIparent.setSelectedIndex(3);
+    }//GEN-LAST:event_resetPasswordPaneActionPerformed
+
+    private void loginLogPaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginLogPaneActionPerformed
+        MDIparent.setSelectedIndex(4);
+    }//GEN-LAST:event_loginLogPaneActionPerformed
+
+    private void paymentPaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentPaneActionPerformed
+        MDIparent.setSelectedIndex(5);
+    }//GEN-LAST:event_paymentPaneActionPerformed
     
     private void logout(){
         int result = JOptionPane.showConfirmDialog(null, "Are you sure you would like to logout? Any unsaved changes will be lost.", "Logout?", JOptionPane.ERROR_MESSAGE); 
@@ -442,10 +496,13 @@ public class AHHASC_Manager extends javax.swing.JFrame {
     private javax.swing.JPanel home;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane loginLog;
+    private javax.swing.JButton loginLogPane;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTabbedPane passwordReset;
     private javax.swing.JTabbedPane payment;
     private javax.swing.JButton paymentButton;
+    private javax.swing.JButton paymentPane;
+    private javax.swing.JButton resetPasswordPane;
     private javax.swing.JTabbedPane user;
     private javax.swing.JButton userPane;
     // End of variables declaration//GEN-END:variables
