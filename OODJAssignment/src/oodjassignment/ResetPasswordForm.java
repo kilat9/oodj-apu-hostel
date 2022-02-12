@@ -47,6 +47,7 @@ public class ResetPasswordForm extends javax.swing.JPanel {
         resetPasswordLBL = new javax.swing.JLabel();
         resolvedButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(235, 215, 194));
         setPreferredSize(new java.awt.Dimension(900, 600));
 
         resetPasswordList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
@@ -87,10 +88,10 @@ public class ResetPasswordForm extends javax.swing.JPanel {
         jScrollPane2.setViewportView(resetPasswordList);
 
         resetPasswordLBL.setFont(new java.awt.Font("Bahnschrift", 0, 20)); // NOI18N
-        resetPasswordLBL.setForeground(new java.awt.Color(226, 38, 88));
+        resetPasswordLBL.setForeground(new java.awt.Color(0, 33, 88));
         resetPasswordLBL.setText("Users Requesting a Password Change");
 
-        resolvedButton.setBackground(new java.awt.Color(226, 38, 88));
+        resolvedButton.setBackground(new java.awt.Color(0, 33, 71));
         resolvedButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 16)); // NOI18N
         resolvedButton.setForeground(new java.awt.Color(255, 255, 255));
         resolvedButton.setText("Mark as Resolved");

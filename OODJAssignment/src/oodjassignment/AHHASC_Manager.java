@@ -62,6 +62,10 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         user = new oodjassignment.UserForm();
         oodjassignment.ResetPasswordForm passwordReset;
         passwordReset = new oodjassignment.ResetPasswordForm();
+        oodjassignment.LoginLogForm loginLog;
+        loginLog = new oodjassignment.LoginLogForm();
+        oodjassignment.PaymentForm payment;
+        payment = new oodjassignment.PaymentForm();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("AHHASC");
@@ -238,6 +242,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         user.setForeground(new java.awt.Color(0, 33, 71));
         MDIparent.addTab("Users", user);
         MDIparent.addTab("Password Reset", passwordReset);
+        MDIparent.addTab("Login Logs", loginLog);
+        MDIparent.addTab("Payments", payment);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -435,8 +441,10 @@ public class AHHASC_Manager extends javax.swing.JFrame {
     private javax.swing.JLabel greeting;
     private javax.swing.JPanel home;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane loginLog;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTabbedPane passwordReset;
+    private javax.swing.JTabbedPane payment;
     private javax.swing.JButton paymentButton;
     private javax.swing.JTabbedPane user;
     private javax.swing.JButton userPane;

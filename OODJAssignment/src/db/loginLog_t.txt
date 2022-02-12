@@ -1,44 +1,7 @@
-Center Manager:1:John Doe:11/01/2022 22:35:30
-Center Technician:1:Billy Kid:11/01/2022 22:36:07
-Center Manager:1:John Doe:17/01/2022 15:38:05
-Center Manager:1:John Doe:17/01/2022 15:39:29
-Center Technician:1:Billy Kid:17/01/2022 15:39:39
-Center Manager:1:John Doe:01/02/2022 11:22:21
-Center Technician:1:Billy Kid:01/02/2022 11:22:36
-Center Manager:1:John Doe:01/02/2022 11:23:07
-Center Manager:1:John Doe:01/02/2022 11:30:52
-Center Technician:1:Billy Kid:01/02/2022 12:24:36
-Center Technician:1:Billy Kid:01/02/2022 12:39:21
-Center Technician:1:Billy Kid:01/02/2022 12:40:51
-Center Technician:1:Billy Kid:01/02/2022 12:41:38
-Center Technician:1:Billy Kid:01/02/2022 12:46:04
-Center Technician:1:Billy Kid:01/02/2022 12:51:00
-Center Technician:1:Billy Kid:01/02/2022 12:51:44
-Center Technician:1:Billy Kid:01/02/2022 13:05:47
-Center Technician:1:Billy Kid:01/02/2022 13:06:20
-Center Technician:1:Billy Kid:03/02/2022 10:26:43
-Center Technician:1:Billy Kid:03/02/2022 10:59:02
-Center Manager:1:John Doe:03/02/2022 10:59:13
-Center Technician:1:Billy Kid:03/02/2022 11:00:29
-Center Technician:1:Billy Kid:03/02/2022 11:02:26
-Center Technician:1:Billy Kid:03/02/2022 12:17:52
-Center Technician:1:Billy Kid:03/02/2022 12:19:35
-Center Technician:1:Billy Kid:03/02/2022 12:36:27
-Center Technician:1:Billy Kid:03/02/2022 13:03:51
-Center Technician:1:Billy Kid:03/02/2022 13:04:31
-Center Manager:1:John Doe:03/02/2022 13:35:36
-Center Manager:2:testDebugging:03/02/2022 13:35:57
-Center Technician:1:Billy Kid:03/02/2022 13:37:51
-Center Technician:1:Billy Kid:03/02/2022 13:39:14
-Center Technician:1:Billy Kid:03/02/2022 16:27:48
-Center Manager:1:John Doe:03/02/2022 16:33:25
-Center Manager:1:John Doe:03/02/2022 17:19:20
-Center Manager:1:John Doe:03/02/2022 17:20:32
-Center Manager:1:John Doe:03/02/2022 17:22:21
-Center Technician:1:Billy Kid:03/02/2022 17:22:38
-Center Manager:1:John Doe:07/02/2022 15:57:32
-Center Manager:1:John Doe:08/02/2022 16:25:12
-Center Manager:1:John Doe:08/02/2022 17:30:41
-Center Manager:1:John Doe:08/02/2022 17:43:49
-Center Manager:1:John Doe:08/02/2022 18:59:15
-Center Manager:1:John Doe:09/02/2022 18:22:36
+Center Manager;1;John Doe;12/02/2022 15:32:56
+Center Manager;1;John Doe;12/02/2022 15:34:04
+Center Technician;1;Billy Kid;12/02/2022 15:34:44
+Center Technician;2;Leeroy;12/02/2022 15:35:25
+Center Manager;4;Micheal;12/02/2022 15:35:39
+Center Manager;4;Micheal;12/02/2022 17:03:50
+Center Manager;4;Micheal;12/02/2022 17:17:23

@@ -322,7 +322,7 @@ public class pLogin extends javax.swing.JFrame {
 
 
                 // Write the name to the file.
-                outputFile.println(userRole + ":" + userID + ":" + name + ":" + creationDate);
+                outputFile.println(userRole + ";" + userID + ";" + name + ";" + creationDate);
 
                 outputFile.close(); // Close the file.
                 System.out.println("Data written to the file.");
