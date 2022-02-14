@@ -132,9 +132,38 @@ public class ResetPasswordForm extends javax.swing.JPanel {
     private static void checkStatus(){
         if (resetPasswordList.isRowSelected(resetPasswordList.getSelectedRow()) == true){ // only if a row is selected
             resolvedButton.setEnabled(true);
+            
+            DefaultTableModel model = (DefaultTableModel)resetPasswordList.getModel(); //model from JTable
+            int rowIndex = resetPasswordList.getSelectedRow();
+            
+            String role = model.getValueAt(rowIndex, 1).toString();
+            int id = Integer.valueOf(model.getValueAt(rowIndex, 2).toString());
+            
             oodjassignment.AHHASC_Manager.MDIparent.setSelectedIndex(2);
+            oodjassignment.UserForm.initializeUser();
+            if (role.equals("Center Manager")){
+                rowHighlighter(oodjassignment.UserForm.managerList, id, 0);
+            }
+            else if (role.equals("Center Technician")){
+                rowHighlighter(oodjassignment.UserForm.technicianList, id, 0);
+            } else{}
         } else {
             resolvedButton.setEnabled(false);
+        }
+    }
+    
+    public static void rowHighlighter(javax.swing.JTable table, int id, int colNum){
+        try{ //Highlight
+            int rowNum = -1;
+            Object valueRow;
+            do{
+                rowNum++; //increment to 0
+                valueRow = table.getModel().getValueAt(rowNum, colNum); //get the id at stated row
+            }while(Integer.parseInt(valueRow.toString()) != id && rowNum < table.getRowCount()); //check if id matches and ensure checking does not exceed number of rows
+                table.setRowSelectionInterval(rowNum, rowNum); //highlight the row in table
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            //to account for the possibility of a deleted record, clear selection if nothing found (the while loop exceeds)
+            table.clearSelection(); //clear selection if no longer exists
         }
     }
     

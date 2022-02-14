@@ -162,9 +162,6 @@ public class UserForm extends javax.swing.JPanel {
             }
         });
         jScrollPane3.setViewportView(technicianList);
-        if (technicianList.getColumnModel().getColumnCount() > 0) {
-            technicianList.getColumnModel().getColumn(4).setHeaderValue("Pay Grade");
-        }
 
         technicianLBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         technicianLBL.setForeground(new java.awt.Color(0, 33, 71));
@@ -693,7 +690,7 @@ public class UserForm extends javax.swing.JPanel {
         return numericalValues;
     }
         
-    public void cbSetter(){
+    public static void cbSetter(){
         if(roleCB.getSelectedIndex() == 2){ // technician            
             payGradeTXT.setEnabled(true);
             passwordTXT.setEnabled(true);
@@ -797,8 +794,8 @@ public class UserForm extends javax.swing.JPanel {
             }
         }
     }
-    private String passwordListManager = "";
-    private String passwordListTechnician = "";
+    static private String passwordListManager = "";
+    static private String passwordListTechnician = "";
     private String[] passwordArray;
     private String passwordSelected;
     
@@ -814,8 +811,8 @@ public class UserForm extends javax.swing.JPanel {
         return passwordSelected;
     }
     
-    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-    public void initializeUser(){       
+    static SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    public static void initializeUser(){       
         //Clear Textboxes
         //roleCB.setSelectedIndex(0);
         user_idTXT.setText("");
@@ -949,35 +946,35 @@ public class UserForm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addUser;
     private javax.swing.JLabel addressLBL;
-    protected javax.swing.JTextField addressTXT;
+    protected static javax.swing.JTextField addressTXT;
     private javax.swing.JLabel confirmPasswordLBL;
-    protected javax.swing.JPasswordField confirmPasswordTXT;
+    protected static javax.swing.JPasswordField confirmPasswordTXT;
     private javax.swing.JLabel customerLBL;
-    public javax.swing.JTable customerList;
+    public static javax.swing.JTable customerList;
     private javax.swing.JLabel dateCreatedLBL;
-    protected javax.swing.JTextField dateCreatedTXT;
+    protected static javax.swing.JTextField dateCreatedTXT;
     private javax.swing.JButton deleteUser;
     private javax.swing.JLabel emailLBL;
-    protected javax.swing.JTextField emailTXT;
+    protected static javax.swing.JTextField emailTXT;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel managerLBL;
-    public javax.swing.JTable managerList;
+    public static javax.swing.JTable managerList;
     private javax.swing.JLabel nameLBL;
-    protected javax.swing.JTextField nameTXT;
+    protected static javax.swing.JTextField nameTXT;
     private javax.swing.JLabel passwordLBL;
-    protected javax.swing.JPasswordField passwordTXT;
+    protected static javax.swing.JPasswordField passwordTXT;
     private javax.swing.JLabel payGradeLBL;
-    protected javax.swing.JTextField payGradeTXT;
-    protected javax.swing.JComboBox<String> roleCB;
+    protected static javax.swing.JTextField payGradeTXT;
+    protected static javax.swing.JComboBox<String> roleCB;
     private javax.swing.JButton saveChanges;
     private javax.swing.JLabel selectUserLBL;
-    private javax.swing.JCheckBox showPasswordCHKBX;
+    private static javax.swing.JCheckBox showPasswordCHKBX;
     private javax.swing.JLabel technicianLBL;
-    public javax.swing.JTable technicianList;
+    public static javax.swing.JTable technicianList;
     private javax.swing.JLabel user_idLBL;
-    protected javax.swing.JTextField user_idTXT;
+    protected static javax.swing.JTextField user_idTXT;
     // End of variables declaration//GEN-END:variables
 }
 /* REFERENCES
