@@ -68,6 +68,7 @@ public class UserForm extends javax.swing.JPanel {
         managerLBL = new javax.swing.JLabel();
         addressTXT = new javax.swing.JTextField();
         addressLBL = new javax.swing.JLabel();
+        btnUsersReport = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(235, 215, 194));
         setForeground(new java.awt.Color(0, 33, 71));
@@ -298,6 +299,16 @@ public class UserForm extends javax.swing.JPanel {
         addressLBL.setForeground(new java.awt.Color(0, 33, 71));
         addressLBL.setText("Address");
 
+        btnUsersReport.setBackground(new java.awt.Color(0, 33, 71));
+        btnUsersReport.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
+        btnUsersReport.setForeground(new java.awt.Color(255, 255, 255));
+        btnUsersReport.setText("Print Users");
+        btnUsersReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsersReportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -306,8 +317,11 @@ public class UserForm extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(customerLBL)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(customerLBL)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnUsersReport))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,10 +434,12 @@ public class UserForm extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(showPasswordCHKBX)
                                 .addGap(12, 12, 12)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(customerLBL, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(technicianLBL))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(technicianLBL)
+                        .addComponent(btnUsersReport)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -674,6 +690,15 @@ public class UserForm extends javax.swing.JPanel {
         customerList.clearSelection();
         userInfo(managerList);
     }//GEN-LAST:event_managerListKeyReleased
+
+    private void btnUsersReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsersReportActionPerformed
+//        try{
+//            printAppointmentRecords();
+//            JOptionPane.showMessageDialog(null, "PDF report generated", "Success!", JOptionPane.INFORMATION_MESSAGE);
+//        } catch(FileNotFoundException e){
+//            JOptionPane.showMessageDialog(null, "PDF cannot be created", "An Error occured!", JOptionPane.WARNING_MESSAGE);
+//        }
+    }//GEN-LAST:event_btnUsersReportActionPerformed
 
     private int numbersOnly(){
         String[] numbers = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
@@ -947,6 +972,7 @@ public class UserForm extends javax.swing.JPanel {
     private javax.swing.JButton addUser;
     private javax.swing.JLabel addressLBL;
     protected static javax.swing.JTextField addressTXT;
+    private javax.swing.JButton btnUsersReport;
     private javax.swing.JLabel confirmPasswordLBL;
     protected static javax.swing.JPasswordField confirmPasswordTXT;
     private javax.swing.JLabel customerLBL;
