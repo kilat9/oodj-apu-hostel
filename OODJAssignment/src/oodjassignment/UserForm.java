@@ -5,6 +5,13 @@
  */
 package oodjassignment;
 
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.Style;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.properties.TextAlignment;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
@@ -692,14 +699,181 @@ public class UserForm extends javax.swing.JPanel {
     }//GEN-LAST:event_managerListKeyReleased
 
     private void btnUsersReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsersReportActionPerformed
-//        try{
-//            printAppointmentRecords();
-//            JOptionPane.showMessageDialog(null, "PDF report generated", "Success!", JOptionPane.INFORMATION_MESSAGE);
-//        } catch(FileNotFoundException e){
-//            JOptionPane.showMessageDialog(null, "PDF cannot be created", "An Error occured!", JOptionPane.WARNING_MESSAGE);
-//        }
+        try{
+            printManagertRecords();
+            printTechniciantRecords();
+            printCustomerRecords();
+            JOptionPane.showMessageDialog(null, "PDF report generated", "Success!", JOptionPane.INFORMATION_MESSAGE);
+        } catch(FileNotFoundException e){
+            JOptionPane.showMessageDialog(null, "PDF cannot be created", "An Error occured!", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnUsersReportActionPerformed
 
+    
+    private void printManagertRecords() throws FileNotFoundException{
+        
+        
+        String filePath = "src\\reports\\users_manager_records.pdf";
+        PdfWriter pdf1 = new PdfWriter(filePath);
+        
+        PdfDocument pdfDoc = new PdfDocument(pdf1);
+        
+        Document Doc = new Document(pdfDoc);
+        
+        
+        Style styleTitle = new Style();
+        styleTitle.setTextAlignment(TextAlignment.CENTER);
+        styleTitle.setBold();
+        styleTitle.setUnderline();
+        styleTitle.setFontSize(34);
+        String title = "Manager records";
+        Paragraph p1 = new Paragraph(title).addStyle(styleTitle);
+        
+        Doc.add(p1);
+        
+        float columnWidth[] = {50,100,100,100,100};
+        
+        Table table1 = new Table(columnWidth);
+        
+        table1.addCell("ID");
+        table1.addCell("Name");
+        table1.addCell("Email");
+        table1.addCell("Password");
+        table1.addCell("Date Created");
+
+        
+        
+        for(int i=0; i<managerList.getRowCount() ;i++) {
+            String ID = managerList.getValueAt(i, 0).toString();
+            String Name = managerList.getValueAt(i, 1).toString();
+            String Email = managerList.getValueAt(i, 2).toString();
+            String Password = managerList.getValueAt(i, 3).toString();
+            String DateCreated = managerList.getValueAt(i, 4).toString();
+            
+            table1.addCell(ID);
+            table1.addCell(Name);
+            table1.addCell(Email);
+            table1.addCell(Password);
+            table1.addCell(DateCreated);
+        }
+        
+        Doc.add(table1);
+        
+        Doc.close();
+        
+    }
+    
+     private void printTechniciantRecords() throws FileNotFoundException{
+        
+        
+        String filePath = "src\\reports\\users_technician_records.pdf";
+        PdfWriter pdf1 = new PdfWriter(filePath);
+        
+        PdfDocument pdfDoc = new PdfDocument(pdf1);
+        
+        Document Doc = new Document(pdfDoc);
+        
+        
+        Style styleTitle = new Style();
+        styleTitle.setTextAlignment(TextAlignment.CENTER);
+        styleTitle.setBold();
+        styleTitle.setUnderline();
+        styleTitle.setFontSize(34);
+        String title = "Technician records";
+        Paragraph p1 = new Paragraph(title).addStyle(styleTitle);
+        
+        Doc.add(p1);
+        
+        float columnWidth[] = {50,100,100,100,100,100};
+        
+        Table table1 = new Table(columnWidth);
+        
+        table1.addCell("ID");
+        table1.addCell("Name");
+        table1.addCell("Email");
+        table1.addCell("Password");
+        table1.addCell("Pay Grade");
+        table1.addCell("Date Created");
+
+        
+        
+        for(int i=0; i<technicianList.getRowCount() ;i++) {
+            String ID = technicianList.getValueAt(i, 0).toString();
+            String Name = technicianList.getValueAt(i, 1).toString();
+            String Email = technicianList.getValueAt(i, 2).toString();
+            String Password = technicianList.getValueAt(i, 3).toString();
+            String Pay = technicianList.getValueAt(i, 4).toString();
+            String DateCreated = technicianList.getValueAt(i, 5).toString();
+            
+            table1.addCell(ID);
+            table1.addCell(Name);
+            table1.addCell(Email);
+            table1.addCell(Password);
+            table1.addCell(Pay);
+            table1.addCell(DateCreated);
+        }
+        
+        Doc.add(table1);
+        
+        Doc.close();
+        
+    }
+     
+     
+    private void printCustomerRecords() throws FileNotFoundException{
+        
+        
+        String filePath = "src\\reports\\users_customer_records.pdf";
+        PdfWriter pdf1 = new PdfWriter(filePath);
+        
+        PdfDocument pdfDoc = new PdfDocument(pdf1);
+        
+        Document Doc = new Document(pdfDoc);
+        
+        
+        Style styleTitle = new Style();
+        styleTitle.setTextAlignment(TextAlignment.CENTER);
+        styleTitle.setBold();
+        styleTitle.setUnderline();
+        styleTitle.setFontSize(34);
+        String title = "Customer records";
+        Paragraph p1 = new Paragraph(title).addStyle(styleTitle);
+        
+        Doc.add(p1);
+        
+        float columnWidth[] = {50,100,100,100,100};
+        
+        Table table1 = new Table(columnWidth);
+        
+        table1.addCell("ID");
+        table1.addCell("Name");
+        table1.addCell("Email");
+        table1.addCell("Adress");
+        table1.addCell("Date Created");
+
+        
+        
+        for(int i=0; i<customerList.getRowCount() ;i++) {
+            String ID = customerList.getValueAt(i, 0).toString();
+            String Name = customerList.getValueAt(i, 1).toString();
+            String Email = customerList.getValueAt(i, 2).toString();
+            String Adress = customerList.getValueAt(i, 3).toString();
+            String DateCreated = customerList.getValueAt(i, 4).toString();
+            
+            table1.addCell(ID);
+            table1.addCell(Name);
+            table1.addCell(Email);
+            table1.addCell(Adress);
+            table1.addCell(DateCreated);
+        }
+        
+        Doc.add(table1);
+        
+        Doc.close();
+        
+    }
+    
+    
     private int numbersOnly(){
         String[] numbers = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
         int numericalValues = 0;
