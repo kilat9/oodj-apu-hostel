@@ -221,17 +221,17 @@ public class FeedbackForm extends javax.swing.JPanel {
     
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
         try{
-           printPaymentsRecords();
+           printFeedbackRecords();
            JOptionPane.showMessageDialog(null, "PDF report generated", "Success!", JOptionPane.INFORMATION_MESSAGE);
        } catch(FileNotFoundException e){
             JOptionPane.showMessageDialog(null, "PDF cannot be created", "An Error occured!", JOptionPane.WARNING_MESSAGE);
        }
     }//GEN-LAST:event_printButtonActionPerformed
 
-    private void printPaymentsRecords() throws FileNotFoundException{
+    private void printFeedbackRecords() throws FileNotFoundException{
         
         
-        String filePath = "src\\reports\\payment_records.pdf";
+        String filePath = "src\\reports\\feedback_records.pdf";
         PdfWriter pdf1 = new PdfWriter(filePath);
         
         PdfDocument pdfDoc = new PdfDocument(pdf1);
@@ -244,35 +244,32 @@ public class FeedbackForm extends javax.swing.JPanel {
         styleTitle.setBold();
         styleTitle.setUnderline();
         styleTitle.setFontSize(34);
-        String title = "Payment records";
+        String title = "Feedback records";
         Paragraph p1 = new Paragraph(title).addStyle(styleTitle);
         
         Doc.add(p1);
         
-        float columnWidth[] = {50,100,100,100,100,50};
+        float columnWidth[] = {25,250,100,50,50};
         
         Table table1 = new Table(columnWidth);
         
         table1.addCell("ID");
-        table1.addCell("Payment Amount");
+        table1.addCell("Message");
         table1.addCell("Date");
-        table1.addCell("Manager ID");
         table1.addCell("Technician ID");
         table1.addCell("Appointment ID");
         
         
         for(int i=0; i<feedbackList.getRowCount() ;i++) {
             String ID = feedbackList.getValueAt(i, 0).toString();
-            String Payment = feedbackList.getValueAt(i, 1).toString();
+            String Message = feedbackList.getValueAt(i, 1).toString();
             String Date = feedbackList.getValueAt(i, 2).toString();
-            String Manager = feedbackList.getValueAt(i, 3).toString();
-            String Technician = feedbackList.getValueAt(i, 4).toString();
-            String Appointment = feedbackList.getValueAt(i,5).toString();
+            String Technician = feedbackList.getValueAt(i, 3).toString();
+            String Appointment = feedbackList.getValueAt(i, 4).toString();
             
             table1.addCell(ID);
-            table1.addCell(Payment);
+            table1.addCell(Message);
             table1.addCell(Date);
-            table1.addCell(Manager);
             table1.addCell(Technician);
             table1.addCell(Appointment);
         }
