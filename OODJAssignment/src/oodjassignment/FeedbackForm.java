@@ -26,14 +26,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author kishe
  */
-public class PaymentForm extends javax.swing.JPanel {
+public class FeedbackForm extends javax.swing.JPanel {
 
     /**
      * Creates new form ResetPasswordForm
      */
-    public PaymentForm() {
+    public FeedbackForm() {
         initComponents();
-        initializePayment();
+        initializeFeedback();
     }
 
     /**
@@ -46,11 +46,11 @@ public class PaymentForm extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        paymentList = new javax.swing.JTable();
-        paymentLBL = new javax.swing.JLabel();
+        feedbackList = new javax.swing.JTable();
+        feedbackLBL = new javax.swing.JLabel();
         printButton = new javax.swing.JButton();
-        paymentDate_TXT = new com.toedter.calendar.JDateChooser();
-        paymentDate_LBL = new javax.swing.JLabel();
+        feedbackDate_TXT = new com.toedter.calendar.JDateChooser();
+        feedbackDate_LBL = new javax.swing.JLabel();
         appointmentId_TXT = new javax.swing.JTextField();
         appointmentId_LBL = new javax.swing.JLabel();
         clearButton = new javax.swing.JButton();
@@ -60,21 +60,21 @@ public class PaymentForm extends javax.swing.JPanel {
         setBackground(new java.awt.Color(235, 215, 194));
         setPreferredSize(new java.awt.Dimension(900, 600));
 
-        paymentList.setAutoCreateRowSorter(true);
-        paymentList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
-        paymentList.setModel(new javax.swing.table.DefaultTableModel(
+        feedbackList.setAutoCreateRowSorter(true);
+        feedbackList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
+        feedbackList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Payment Amount", "Date", "Manager ID", "Technician ID", "Appointment ID"
+                "ID", "Message", "Date", "Technician ID", "Appointment ID"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -85,12 +85,12 @@ public class PaymentForm extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        paymentList.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(paymentList);
+        feedbackList.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(feedbackList);
 
-        paymentLBL.setFont(new java.awt.Font("Bahnschrift", 0, 20)); // NOI18N
-        paymentLBL.setForeground(new java.awt.Color(0, 33, 88));
-        paymentLBL.setText("Payments");
+        feedbackLBL.setFont(new java.awt.Font("Bahnschrift", 0, 20)); // NOI18N
+        feedbackLBL.setForeground(new java.awt.Color(0, 33, 88));
+        feedbackLBL.setText("Feedback");
 
         printButton.setBackground(new java.awt.Color(0, 33, 71));
         printButton.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 16)); // NOI18N
@@ -102,23 +102,23 @@ public class PaymentForm extends javax.swing.JPanel {
             }
         });
 
-        paymentDate_TXT.setDateFormatString("dd/MM/y");
-        paymentDate_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
-        paymentDate_TXT.setEnabled(false);
-        paymentDate_TXT.getCalendarButton().setEnabled(true);
+        feedbackDate_TXT.setDateFormatString("dd/MM/y");
+        feedbackDate_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        feedbackDate_TXT.setEnabled(false);
+        feedbackDate_TXT.getCalendarButton().setEnabled(true);
 
         Calendar today = Calendar.getInstance();
         Date toDay = today.getTime();
-        paymentDate_TXT.setMaxSelectableDate(toDay); // select until today
-        paymentDate_TXT.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        feedbackDate_TXT.setMaxSelectableDate(toDay); // select until today
+        feedbackDate_TXT.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                paymentDate_TXTPropertyChange(evt);
+                feedbackDate_TXTPropertyChange(evt);
             }
         });
 
-        paymentDate_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
-        paymentDate_LBL.setForeground(new java.awt.Color(0, 33, 71));
-        paymentDate_LBL.setText("Payment Date :");
+        feedbackDate_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
+        feedbackDate_LBL.setForeground(new java.awt.Color(0, 33, 71));
+        feedbackDate_LBL.setText("Feedback Date :");
 
         appointmentId_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
         appointmentId_TXT.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -161,14 +161,14 @@ public class PaymentForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(paymentLBL)
+                        .addComponent(feedbackLBL)
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(paymentDate_LBL)
+                            .addComponent(feedbackDate_LBL)
                             .addComponent(appointmentId_LBL))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(paymentDate_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(feedbackDate_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(appointmentId_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -177,7 +177,7 @@ public class PaymentForm extends javax.swing.JPanel {
                                 .addComponent(technicianId_LBL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(technicianId_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                         .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -189,7 +189,7 @@ public class PaymentForm extends javax.swing.JPanel {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(paymentDate_TXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(feedbackDate_TXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(appointmentId_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -197,8 +197,8 @@ public class PaymentForm extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(paymentLBL, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(paymentDate_LBL, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addComponent(feedbackLBL, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(feedbackDate_LBL, javax.swing.GroupLayout.Alignment.TRAILING))
                                         .addGap(24, 24, 24)
                                         .addComponent(appointmentId_LBL))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -261,13 +261,13 @@ public class PaymentForm extends javax.swing.JPanel {
         table1.addCell("Appointment ID");
         
         
-        for(int i=0; i<paymentList.getRowCount() ;i++) {
-            String ID = paymentList.getValueAt(i, 0).toString();
-            String Payment = paymentList.getValueAt(i, 1).toString();
-            String Date = paymentList.getValueAt(i, 2).toString();
-            String Manager = paymentList.getValueAt(i, 3).toString();
-            String Technician = paymentList.getValueAt(i, 4).toString();
-            String Appointment = paymentList.getValueAt(i,5).toString();
+        for(int i=0; i<feedbackList.getRowCount() ;i++) {
+            String ID = feedbackList.getValueAt(i, 0).toString();
+            String Payment = feedbackList.getValueAt(i, 1).toString();
+            String Date = feedbackList.getValueAt(i, 2).toString();
+            String Manager = feedbackList.getValueAt(i, 3).toString();
+            String Technician = feedbackList.getValueAt(i, 4).toString();
+            String Appointment = feedbackList.getValueAt(i,5).toString();
             
             table1.addCell(ID);
             table1.addCell(Payment);
@@ -286,8 +286,8 @@ public class PaymentForm extends javax.swing.JPanel {
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         technicianId_TXT.setText("");
         appointmentId_TXT.setText("");
-        paymentDate_TXT.setDate(null);
-        initializePayment();
+        feedbackDate_TXT.setDate(null);
+        initializeFeedback();
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void appointmentId_TXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_appointmentId_TXTKeyReleased
@@ -310,9 +310,9 @@ public class PaymentForm extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_appointmentId_TXTKeyReleased
 
-    private void paymentDate_TXTPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_paymentDate_TXTPropertyChange
+    private void feedbackDate_TXTPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_feedbackDate_TXTPropertyChange
         filterPayment();
-    }//GEN-LAST:event_paymentDate_TXTPropertyChange
+    }//GEN-LAST:event_feedbackDate_TXTPropertyChange
 
     private void technicianId_TXTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_technicianId_TXTKeyReleased
         String[] numbers = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
@@ -336,79 +336,79 @@ public class PaymentForm extends javax.swing.JPanel {
     
     SimpleDateFormat loginDateFormatter = new SimpleDateFormat("dd/MM/yyyy");
     private void filterPayment(){
-        //Payment_T
-        File payment = new File("src/db/payment_t.txt");
+        //LOGIN LOG_T
+        File feedback = new File("src/db/feedback_t.txt");
         
         try{         
-        FileReader fr = new FileReader(payment);
+        FileReader fr = new FileReader(feedback);
         BufferedReader br = new BufferedReader(fr);
             
-        DefaultTableModel model = (DefaultTableModel)paymentList.getModel();
+        DefaultTableModel model = (DefaultTableModel)feedbackList.getModel();
         model.setRowCount(0); //clear table
         Object[] lines = br.lines().toArray();
         
         for(int i = 0; i < lines.length; i++){
             String[] row = lines[i].toString().split(":");
-            if(paymentDate_TXT.getDate() != null && ( appointmentId_TXT.getText().equals("") == true ) && ( technicianId_TXT.getText().equals("") == true )){  // code to filter based on condition
-                if(row[2].contains(loginDateFormatter.format(paymentDate_TXT.getDate())) == true){
+            if(feedbackDate_TXT.getDate() != null && ( appointmentId_TXT.getText().equals("") == true ) && ( technicianId_TXT.getText().equals("") == true )){  // code to filter based on condition
+                if(row[2].contains(loginDateFormatter.format(feedbackDate_TXT.getDate())) == true){
                     model.addRow(row); //load data
                 }
             }
-            else if(paymentDate_TXT.getDate() == null && ( appointmentId_TXT.getText().equals("") == false ) && ( technicianId_TXT.getText().equals("") == true )){  // code to filter based on condition
-                if(row[5].equals(appointmentId_TXT.getText()) == true){
+            else if(feedbackDate_TXT.getDate() == null && ( appointmentId_TXT.getText().equals("") == false ) && ( technicianId_TXT.getText().equals("") == true )){  // code to filter based on condition
+                if(row[4].equals(appointmentId_TXT.getText()) == true){
                     model.addRow(row); //load data
                 }
             }
-            else if(paymentDate_TXT.getDate() == null && ( appointmentId_TXT.getText().equals("") == true ) && ( technicianId_TXT.getText().equals("") == false )){  // code to filter based on condition
-                if(row[4].equals(technicianId_TXT.getText()) == true){
+            else if(feedbackDate_TXT.getDate() == null && ( appointmentId_TXT.getText().equals("") == true ) && ( technicianId_TXT.getText().equals("") == false )){  // code to filter based on condition
+                if(row[3].equals(technicianId_TXT.getText()) == true){
                     model.addRow(row); //load data
                 }
             }
-            else if(paymentDate_TXT.getDate() != null && ( appointmentId_TXT.getText().equals("") == false ) && ( technicianId_TXT.getText().equals("") == true )){  // code to filter based on condition
-                if(row[2].contains(loginDateFormatter.format(paymentDate_TXT.getDate())) == true){
-                    if(row[5].equals(appointmentId_TXT.getText()) == true){
+            else if(feedbackDate_TXT.getDate() != null && ( appointmentId_TXT.getText().equals("") == false ) && ( technicianId_TXT.getText().equals("") == true )){  // code to filter based on condition
+                if(row[2].contains(loginDateFormatter.format(feedbackDate_TXT.getDate())) == true){
+                    if(row[4].equals(appointmentId_TXT.getText()) == true){
                         model.addRow(row); //load data
                     }
                 }
             }
-            else if(paymentDate_TXT.getDate() != null && ( appointmentId_TXT.getText().equals("") == true ) && ( technicianId_TXT.getText().equals("") == false )){  // code to filter based on condition
-                if(row[2].contains(loginDateFormatter.format(paymentDate_TXT.getDate())) == true){
-                    if(row[4].equals(technicianId_TXT.getText()) == true){
+            else if(feedbackDate_TXT.getDate() != null && ( appointmentId_TXT.getText().equals("") == true ) && ( technicianId_TXT.getText().equals("") == false )){  // code to filter based on condition
+                if(row[2].contains(loginDateFormatter.format(feedbackDate_TXT.getDate())) == true){
+                    if(row[3].equals(technicianId_TXT.getText()) == true){
                         model.addRow(row); //load data
                     }
                 }
             }
-            else if(paymentDate_TXT.getDate() == null && ( appointmentId_TXT.getText().equals("") == false ) && ( technicianId_TXT.getText().equals("") == false )){  // code to filter based on condition
-                if(row[5].equals(appointmentId_TXT.getText()) == true){
-                    if(row[4].equals(technicianId_TXT.getText()) == true){
+            else if(feedbackDate_TXT.getDate() == null && ( appointmentId_TXT.getText().equals("") == false ) && ( technicianId_TXT.getText().equals("") == false )){  // code to filter based on condition
+                if(row[4].equals(appointmentId_TXT.getText()) == true){
+                    if(row[3].equals(technicianId_TXT.getText()) == true){
                         model.addRow(row); //load data
                     }
                 }
             }
-            else if (paymentDate_TXT.getDate() != null && ( appointmentId_TXT.getText().equals("") == false ) && ( technicianId_TXT.getText().equals("") == false )) { // FILTER USING ALL
-                if(row[5].equals(appointmentId_TXT.getText()) == true){
-                    if(row[4].equals(technicianId_TXT.getText()) == true){
-                        if(row[2].contains(loginDateFormatter.format(paymentDate_TXT.getDate())) == true){
+            else if (feedbackDate_TXT.getDate() != null && ( appointmentId_TXT.getText().equals("") == false ) && ( technicianId_TXT.getText().equals("") == false )) { // FILTER USING ALL
+                if(row[4].equals(appointmentId_TXT.getText()) == true){
+                    if(row[3].equals(technicianId_TXT.getText()) == true){
+                        if(row[2].contains(loginDateFormatter.format(feedbackDate_TXT.getDate())) == true){
                             model.addRow(row); //load data
                         }
                     }
                 }
             }
-            else { initializePayment(); }
+            else { initializeFeedback(); }
             
         }
         } catch(FileNotFoundException ex){}
     }
     
-    private void initializePayment(){
-        //LOGIN LOG_T
-        File payment = new File("src/db/payment_t.txt");
+    private void initializeFeedback(){
+        //Feedback_T
+        File feedback = new File("src/db/feedback_t.txt");
         
         try{         
-        FileReader fr = new FileReader(payment);
+        FileReader fr = new FileReader(feedback);
         BufferedReader br = new BufferedReader(fr);
             
-        DefaultTableModel model = (DefaultTableModel)paymentList.getModel();
+        DefaultTableModel model = (DefaultTableModel)feedbackList.getModel();
         model.setRowCount(0); //clear table
         Object[] lines = br.lines().toArray();
         
@@ -423,11 +423,11 @@ public class PaymentForm extends javax.swing.JPanel {
     private javax.swing.JLabel appointmentId_LBL;
     protected javax.swing.JTextField appointmentId_TXT;
     private static javax.swing.JButton clearButton;
+    private javax.swing.JLabel feedbackDate_LBL;
+    private com.toedter.calendar.JDateChooser feedbackDate_TXT;
+    private javax.swing.JLabel feedbackLBL;
+    static javax.swing.JTable feedbackList;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel paymentDate_LBL;
-    private com.toedter.calendar.JDateChooser paymentDate_TXT;
-    private javax.swing.JLabel paymentLBL;
-    static javax.swing.JTable paymentList;
     private static javax.swing.JButton printButton;
     private javax.swing.JLabel technicianId_LBL;
     protected javax.swing.JTextField technicianId_TXT;

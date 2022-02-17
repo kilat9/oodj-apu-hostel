@@ -59,6 +59,7 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         resetPasswordPane = new javax.swing.JButton();
         loginLogPane = new javax.swing.JButton();
         paymentPane = new javax.swing.JButton();
+        feedbackPane = new javax.swing.JButton();
         oodjassignment.AppointmentForm appointment;
         appointment = appointmentTab;
         oodjassignment.UserForm user;
@@ -69,6 +70,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         loginLog = new oodjassignment.LoginLogForm();
         oodjassignment.PaymentForm payment;
         payment = new oodjassignment.PaymentForm();
+        oodjassignment.FeedbackForm feedback;
+        feedback = new oodjassignment.FeedbackForm();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("AHHASC");
@@ -106,6 +109,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         userPane.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         userPane.setForeground(new java.awt.Color(255, 255, 255));
         userPane.setText("Manage Users");
+        userPane.setMaximumSize(new java.awt.Dimension(161, 20));
+        userPane.setMinimumSize(new java.awt.Dimension(161, 20));
         userPane.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userPaneActionPerformed(evt);
@@ -116,6 +121,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         appointmentPane.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         appointmentPane.setForeground(new java.awt.Color(255, 255, 255));
         appointmentPane.setText("Manage Appointments");
+        appointmentPane.setMaximumSize(new java.awt.Dimension(235, 20));
+        appointmentPane.setMinimumSize(new java.awt.Dimension(235, 20));
         appointmentPane.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 appointmentPaneActionPerformed(evt);
@@ -189,6 +196,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         resetPasswordPane.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         resetPasswordPane.setForeground(new java.awt.Color(255, 255, 255));
         resetPasswordPane.setText("Password Reset");
+        resetPasswordPane.setMaximumSize(new java.awt.Dimension(173, 20));
+        resetPasswordPane.setMinimumSize(new java.awt.Dimension(173, 20));
         resetPasswordPane.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetPasswordPaneActionPerformed(evt);
@@ -199,6 +208,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         loginLogPane.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         loginLogPane.setForeground(new java.awt.Color(255, 255, 255));
         loginLogPane.setText("Login Logs");
+        loginLogPane.setMaximumSize(new java.awt.Dimension(127, 20));
+        loginLogPane.setMinimumSize(new java.awt.Dimension(127, 20));
         loginLogPane.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginLogPaneActionPerformed(evt);
@@ -209,9 +220,23 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         paymentPane.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         paymentPane.setForeground(new java.awt.Color(255, 255, 255));
         paymentPane.setText("View Payments");
+        paymentPane.setMaximumSize(new java.awt.Dimension(171, 20));
+        paymentPane.setMinimumSize(new java.awt.Dimension(171, 20));
         paymentPane.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 paymentPaneActionPerformed(evt);
+            }
+        });
+
+        feedbackPane.setBackground(new java.awt.Color(0, 33, 71));
+        feedbackPane.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        feedbackPane.setForeground(new java.awt.Color(255, 255, 255));
+        feedbackPane.setText("View Feedback");
+        feedbackPane.setMaximumSize(new java.awt.Dimension(171, 20));
+        feedbackPane.setMinimumSize(new java.awt.Dimension(171, 20));
+        feedbackPane.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                feedbackPaneActionPerformed(evt);
             }
         });
 
@@ -239,7 +264,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
                             .addComponent(appointmentPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(resetPasswordPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(loginLogPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(paymentPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(paymentPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(feedbackPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(27, 27, 27))
         );
         homeLayout.setVerticalGroup(
@@ -257,18 +283,20 @@ public class AHHASC_Manager extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(appointment_LBL, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(homeLayout.createSequentialGroup()
-                        .addComponent(appointmentPane, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(appointmentPane, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(userPane, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(userPane, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(resetPasswordPane, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(resetPasswordPane, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(loginLogPane, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(loginLogPane, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(paymentPane, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(paymentPane, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(feedbackPane, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -286,6 +314,7 @@ public class AHHASC_Manager extends javax.swing.JFrame {
         MDIparent.addTab("Password Reset", passwordReset);
         MDIparent.addTab("Login Logs", loginLog);
         MDIparent.addTab("View Payments", payment);
+        MDIparent.addTab("View Feedback", feedback);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -389,6 +418,10 @@ public class AHHASC_Manager extends javax.swing.JFrame {
     private void paymentPaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentPaneActionPerformed
         MDIparent.setSelectedIndex(5);
     }//GEN-LAST:event_paymentPaneActionPerformed
+
+    private void feedbackPaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedbackPaneActionPerformed
+        MDIparent.setSelectedIndex(6);
+    }//GEN-LAST:event_feedbackPaneActionPerformed
     
     private void logout(){
         int result = JOptionPane.showConfirmDialog(null, "Are you sure you would like to logout? Any unsaved changes will be lost.", "Logout?", JOptionPane.ERROR_MESSAGE); 
@@ -492,6 +525,8 @@ public class AHHASC_Manager extends javax.swing.JFrame {
     javax.swing.JTable appointmentList;
     private javax.swing.JButton appointmentPane;
     private javax.swing.JLabel appointment_LBL;
+    private javax.swing.JTabbedPane feedback;
+    private javax.swing.JButton feedbackPane;
     private javax.swing.JLabel greeting;
     private javax.swing.JPanel home;
     private javax.swing.JScrollPane jScrollPane1;
