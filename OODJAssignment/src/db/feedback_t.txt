@@ -1,2 +1,3 @@
-1:Was wollen wir trinken?:05/01/2022:1:2
+1:Replaced part:05/01/2022:1:2
 2:Changed Compressor for Fridge:09/01/2022:1:1
+3:Replaced copper pipe with PVC:17/02/2022:3:5
