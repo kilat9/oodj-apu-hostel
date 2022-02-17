@@ -920,4 +920,12 @@ Stack Overflow, 2014. How to set the value of specific cell in JTable?. [Online]
 Available at: https://stackoverflow.com/questions/21158083/how-to-set-the-value-of-specific-cell-in-jtable
 [Accessed 3 March 2021].
 
+Stack Overflow. (10 September, 2012). how to clear JDateChooser field? [closed]. 
+Retrieved from Stack Overflow: 
+https://stackoverflow.com/questions/11719917/how-to-clear-jdatechooser-field
+
+Stack Overflow. (4 May, 2017). setting minimum selectable date as 15 years past birthday (from mySQL) and max as current date. 
+Retrieved from Stack Overlfow: 
+https://stackoverflow.com/questions/43777455/setting-minimum-selectable-date-as-15-years-past-birthday-from-mysql-and-max-a
+
 */
