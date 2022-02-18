@@ -90,7 +90,6 @@ public class AppointmentForm extends javax.swing.JPanel {
             }
         });
 
-        appointmentList.setAutoCreateRowSorter(true);
         appointmentList.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         appointmentList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -167,6 +166,11 @@ public class AppointmentForm extends javax.swing.JPanel {
         dateCreated_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
 
         appliance_TXT.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
+        appliance_TXT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                appliance_TXTKeyPressed(evt);
+            }
+        });
 
         appliance_LBL.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         appliance_LBL.setForeground(new java.awt.Color(0, 33, 71));
@@ -353,11 +357,11 @@ public class AppointmentForm extends javax.swing.JPanel {
                         .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(appointmentTechnicianId_TXT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(appointmentTechnicianId_LBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
+                        .addGap(18, 18, 18)
                         .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(appliance_TXT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(appliance_LBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(66, 66, 66)
+                .addGap(100, 100, 100)
                 .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(addAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                     .addComponent(deleteAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -375,7 +379,7 @@ public class AppointmentForm extends javax.swing.JPanel {
                 .addGroup(appointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(appointmentLayout.createSequentialGroup()
                         .addComponent(customerLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 263, Short.MAX_VALUE))
                     .addGroup(appointmentLayout.createSequentialGroup()
                         .addComponent(technicianLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(236, 236, 236))
@@ -593,6 +597,15 @@ public class AppointmentForm extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_btnAppointmentReportActionPerformed
 
+    private void appliance_TXTKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_appliance_TXTKeyPressed
+        String value = appliance_TXT.getText();
+            int l = value.length();
+            if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+               JOptionPane.showMessageDialog(null, "Please enter only text");
+                appliance_TXT.setText("");
+            } else {}
+    }//GEN-LAST:event_appliance_TXTKeyPressed
+
     
     private void printAppointmentRecords() throws FileNotFoundException{
         
@@ -659,18 +672,17 @@ public class AppointmentForm extends javax.swing.JPanel {
                 
     public void appointmentInfo(){
         try{
-            DefaultTableModel model = (DefaultTableModel)appointmentList.getModel(); //model from JTable
             int rowIndex = appointmentList.getSelectedRow();
             
             //Save to variables
-            int appointmentId = Integer.parseInt(model.getValueAt(rowIndex, 0).toString());
-            Date appointmentTime = appointmentTimeFormatter.parse(model.getValueAt(rowIndex, 1).toString());
-            String appliance = model.getValueAt(rowIndex, 2).toString();
-            Date dateCreated = formatter.parse(model.getValueAt(rowIndex, 3).toString());
-            int slot = Integer.parseInt(model.getValueAt(rowIndex, 4).toString());
-            int customerId = Integer.parseInt(model.getValueAt(rowIndex, 5).toString());
-            int managerId = Integer.parseInt(model.getValueAt(rowIndex, 6).toString());
-            int technicianId = Integer.parseInt(model.getValueAt(rowIndex, 7).toString());
+            int appointmentId = Integer.parseInt(appointmentList.getValueAt(rowIndex, 0).toString());
+            Date appointmentTime = appointmentTimeFormatter.parse(appointmentList.getValueAt(rowIndex, 1).toString());
+            String appliance = appointmentList.getValueAt(rowIndex, 2).toString();
+            Date dateCreated = formatter.parse(appointmentList.getValueAt(rowIndex, 3).toString());
+            int slot = Integer.parseInt(appointmentList.getValueAt(rowIndex, 4).toString());
+            int customerId = Integer.parseInt(appointmentList.getValueAt(rowIndex, 5).toString());
+            int managerId = Integer.parseInt(appointmentList.getValueAt(rowIndex, 6).toString());
+            int technicianId = Integer.parseInt(appointmentList.getValueAt(rowIndex, 7).toString());
 
             //Save to variables
             id_TXT.setText(String.valueOf(appointmentId));
@@ -693,7 +705,6 @@ public class AppointmentForm extends javax.swing.JPanel {
     }
     
     public boolean checkAvailability(String date, int slotTime, int technicianID){
-        DefaultTableModel model = (DefaultTableModel)appointmentList.getModel(); //model from JTable
         int rowIndex = appointmentList.getSelectedRow();
 
         String appointmentTime;
@@ -705,15 +716,15 @@ public class AppointmentForm extends javax.swing.JPanel {
                     i++;
                 }
 
-                appointmentTime = model.getValueAt(i, 1).toString();
-                slot = Integer.parseInt(model.getValueAt(i, 4).toString());
-                technicianId = Integer.parseInt(model.getValueAt(i, 7).toString());
+                appointmentTime = appointmentList.getValueAt(i, 1).toString();
+                slot = Integer.parseInt(appointmentList.getValueAt(i, 4).toString());
+                technicianId = Integer.parseInt(appointmentList.getValueAt(i, 7).toString());
 
                 if((appointmentTime.equals(date)) && (slot == slotTime) && (technicianId == technicianID)){
                     return false;
                 }
             }
-        }catch(ArrayIndexOutOfBoundsException ex){
+        }catch(IndexOutOfBoundsException ex){
            return true;
         }
         return true;
