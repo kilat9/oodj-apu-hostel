@@ -64,6 +64,8 @@ public class pPayment extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(235, 215, 194));
+
         lblTechnicianID.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         lblTechnicianID.setForeground(new java.awt.Color(0, 33, 71));
         lblTechnicianID.setText("Technician ID");
@@ -300,7 +302,7 @@ public class pPayment extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAppointmentIDKeyReleased
     
     String managerID, technicianID, appointmentID, paymentID,creationDate;
-    double paymentAmount;
+    int paymentAmount;
     private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
 
         try{
@@ -310,7 +312,7 @@ public class pPayment extends javax.swing.JFrame {
 
             creationDate = datef.format(currentDate.getTime());
             paymentID = txtPaymentID.getText(); 
-            paymentAmount = Double.parseDouble(txtPaymentAmount.getText());
+            paymentAmount = Integer.parseInt(txtPaymentAmount.getText());
             managerID = txtManagerID.getText();
             technicianID = txtTechnicianID.getText();
             appointmentID = txtAppointmentID.getText();

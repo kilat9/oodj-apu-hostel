@@ -261,51 +261,51 @@ public class pFeedback extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAppointmentIDKeyReleased
 
     private void txtMessageFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMessageFocusLost
-        if(txtMessage.getText().contains(":")){
-            JOptionPane.showMessageDialog(null, "Invalid symbol ':' used ");
-            txtMessage.setText("");
-        }
+
     }//GEN-LAST:event_txtMessageFocusLost
     
     String technicianID, appointmentID, message, feedbackID,creationDate;
     private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
-
-        try{
-
-            Calendar currentDate = Calendar.getInstance();
-            SimpleDateFormat datef = new SimpleDateFormat("dd/MM/yyyy");
-
-            creationDate = datef.format(currentDate.getTime());
-            feedbackID = txtFeedbackID.getText();
-            technicianID = txtTechnicianID.getText();
-            appointmentID = txtAppointmentID.getText();
-            message = txtMessage.getText();
-
-            IsEmpty = true;
-            CheckEmpty();
-
-            if (IsEmpty == false){
-                // Write the name to the file.
-                feedback fb = new feedback(feedbackID, message, creationDate,  technicianID, appointmentID);
-                fb.addFeedback(feedbackID, message, creationDate, technicianID, appointmentID);
-                
-                //JOptionPane.showMessageDialog(null, "Adding Succesful!");
-                ClearText();
-                AutoFeedbackID();
-                System.out.println(feedbackID);
-
-                JOptionPane.showMessageDialog(null, fb.toString(), "Adding Succesful!",  JOptionPane.PLAIN_MESSAGE );
-                returnToMenu();
-            }else {
-                JOptionPane.showMessageDialog(null, "Make sure all input fields are properly keyed in");
-
-            }
-
-        } catch(Exception e){
-            JOptionPane.showMessageDialog(null, "An error occured!");
+        if(txtMessage.getText().contains(":")){
+            JOptionPane.showMessageDialog(null, "Invalid symbol ':' used ");
+            txtMessage.setText("");
         }
+        else {
+            try{
 
-        
+                Calendar currentDate = Calendar.getInstance();
+                SimpleDateFormat datef = new SimpleDateFormat("dd/MM/yyyy");
+
+                creationDate = datef.format(currentDate.getTime());
+                feedbackID = txtFeedbackID.getText();
+                technicianID = txtTechnicianID.getText();
+                appointmentID = txtAppointmentID.getText();
+                message = txtMessage.getText();
+
+                IsEmpty = true;
+                CheckEmpty();
+
+                if (IsEmpty == false){
+                    // Write the name to the file.
+                    feedback fb = new feedback(feedbackID, message, creationDate,  technicianID, appointmentID);
+                    fb.addFeedback(feedbackID, message, creationDate, technicianID, appointmentID);
+
+                    //JOptionPane.showMessageDialog(null, "Adding Succesful!");
+                    ClearText();
+                    AutoFeedbackID();
+                    System.out.println(feedbackID);
+
+                    JOptionPane.showMessageDialog(null, fb.toString(), "Adding Succesful!",  JOptionPane.PLAIN_MESSAGE );
+                    returnToMenu();
+                }else {
+                    JOptionPane.showMessageDialog(null, "Make sure all input fields are properly keyed in");
+
+                }
+
+            } catch(Exception e){
+                JOptionPane.showMessageDialog(null, "An error occured!");
+            }
+        }        
     }//GEN-LAST:event_btnSendActionPerformed
 
     private void txtTechnicianIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTechnicianIDActionPerformed

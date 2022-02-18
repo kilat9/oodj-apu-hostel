@@ -552,7 +552,7 @@ public class UserForm extends javax.swing.JPanel {
             if ((nameTXT.getText().equals("") == true) || (emailTXT.getText().equals("") == true) || (addressTXT.getText().equals("") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure all fields have been filled in", "Incomplete User Information", JOptionPane.WARNING_MESSAGE);
             }
-            else if ((nameTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true)) {
+            else if ((nameTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true) || (addressTXT.getText().contains(":") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure that the textfields do not have the ':' character.", "Invalid Character", JOptionPane.WARNING_MESSAGE);
             }
             else if (isEmail() == false){
@@ -642,7 +642,7 @@ public class UserForm extends javax.swing.JPanel {
             if ((nameTXT.getText().equals("") == true) || (emailTXT.getText().equals("") == true) || (addressTXT.getText().equals("") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure all fields have been filled in", "Incomplete User Information", JOptionPane.WARNING_MESSAGE);
             }
-            else if ((nameTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true)) {
+            else if ((nameTXT.getText().contains(":") == true) || (emailTXT.getText().contains(":") == true) || (addressTXT.getText().contains(":") == true)) {
                 JOptionPane.showMessageDialog(null, "Please ensure that the textfields do not have the ':' character.", "Invalid Character", JOptionPane.WARNING_MESSAGE);
             }
             else if (isEmail() == false){
@@ -889,7 +889,7 @@ public class UserForm extends javax.swing.JPanel {
         return numericalValues;
     }
         
-    public static void cbSetter(){
+    public void cbSetter(){
         if(roleCB.getSelectedIndex() == 2){ // technician            
             payGradeTXT.setEnabled(true);
             passwordTXT.setEnabled(true);
@@ -993,8 +993,8 @@ public class UserForm extends javax.swing.JPanel {
             }
         }
     }
-    static private String passwordListManager = "";
-    static private String passwordListTechnician = "";
+    private String passwordListManager = "";
+    private String passwordListTechnician = "";
     private String[] passwordArray;
     private String passwordSelected;
     
@@ -1010,8 +1010,8 @@ public class UserForm extends javax.swing.JPanel {
         return passwordSelected;
     }
     
-    static SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-    public static void initializeUser(){       
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    public void initializeUser(){       
         //Clear Textboxes
         //roleCB.setSelectedIndex(0);
         user_idTXT.setText("");
@@ -1145,36 +1145,36 @@ public class UserForm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addUser;
     private javax.swing.JLabel addressLBL;
-    protected static javax.swing.JTextField addressTXT;
+    protected javax.swing.JTextField addressTXT;
     private javax.swing.JButton btnUsersReport;
     private javax.swing.JLabel confirmPasswordLBL;
-    protected static javax.swing.JPasswordField confirmPasswordTXT;
+    protected javax.swing.JPasswordField confirmPasswordTXT;
     private javax.swing.JLabel customerLBL;
-    public static javax.swing.JTable customerList;
+    public javax.swing.JTable customerList;
     private javax.swing.JLabel dateCreatedLBL;
-    protected static javax.swing.JTextField dateCreatedTXT;
+    protected javax.swing.JTextField dateCreatedTXT;
     private javax.swing.JButton deleteUser;
     private javax.swing.JLabel emailLBL;
-    protected static javax.swing.JTextField emailTXT;
+    protected javax.swing.JTextField emailTXT;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel managerLBL;
-    public static javax.swing.JTable managerList;
+    public javax.swing.JTable managerList;
     private javax.swing.JLabel nameLBL;
-    protected static javax.swing.JTextField nameTXT;
+    protected javax.swing.JTextField nameTXT;
     private javax.swing.JLabel passwordLBL;
-    protected static javax.swing.JPasswordField passwordTXT;
+    protected javax.swing.JPasswordField passwordTXT;
     private javax.swing.JLabel payGradeLBL;
-    protected static javax.swing.JTextField payGradeTXT;
-    protected static javax.swing.JComboBox<String> roleCB;
+    protected javax.swing.JTextField payGradeTXT;
+    protected javax.swing.JComboBox<String> roleCB;
     private javax.swing.JButton saveChanges;
     private javax.swing.JLabel selectUserLBL;
-    private static javax.swing.JCheckBox showPasswordCHKBX;
+    private javax.swing.JCheckBox showPasswordCHKBX;
     private javax.swing.JLabel technicianLBL;
-    public static javax.swing.JTable technicianList;
+    public javax.swing.JTable technicianList;
     private javax.swing.JLabel user_idLBL;
-    protected static javax.swing.JTextField user_idTXT;
+    protected javax.swing.JTextField user_idTXT;
     // End of variables declaration//GEN-END:variables
 }
 /* REFERENCES

@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -137,35 +138,37 @@ public class ResetPasswordForm extends javax.swing.JPanel {
             int rowIndex = resetPasswordList.getSelectedRow();
             
             String role = model.getValueAt(rowIndex, 1).toString();
+            String name = model.getValueAt(rowIndex, 3).toString();
             int id = Integer.valueOf(model.getValueAt(rowIndex, 2).toString());
             
             oodjassignment.AHHASC_Manager.MDIparent.setSelectedIndex(2);
-            oodjassignment.UserForm.initializeUser();
-            if (role.equals("Center Manager")){
-                rowHighlighter(oodjassignment.UserForm.managerList, id, 0);
-            }
-            else if (role.equals("Center Technician")){
-                rowHighlighter(oodjassignment.UserForm.technicianList, id, 0);
-            } else{}
+            JOptionPane.showMessageDialog(null, "User Information: \n ID: " + id + "\n Name: " + name + "\n Role: " + role, "Reset Password", JOptionPane.INFORMATION_MESSAGE);
+//            oodjassignment.UserForm.initializeUser();
+//            if (role.equals("Center Manager")){
+//                rowHighlighter(oodjassignment.UserForm.managerList, id, 0);
+//            }
+//            else if (role.equals("Center Technician")){
+//                rowHighlighter(oodjassignment.UserForm.technicianList, id, 0);
+//            } else{}
         } else {
             resolvedButton.setEnabled(false);
         }
     }
     
-    public static void rowHighlighter(javax.swing.JTable table, int id, int colNum){
-        try{ //Highlight
-            int rowNum = -1;
-            Object valueRow;
-            do{
-                rowNum++; //increment to 0
-                valueRow = table.getModel().getValueAt(rowNum, colNum); //get the id at stated row
-            }while(Integer.parseInt(valueRow.toString()) != id && rowNum < table.getRowCount()); //check if id matches and ensure checking does not exceed number of rows
-                table.setRowSelectionInterval(rowNum, rowNum); //highlight the row in table
-        } catch (ArrayIndexOutOfBoundsException ex) {
-            //to account for the possibility of a deleted record, clear selection if nothing found (the while loop exceeds)
-            table.clearSelection(); //clear selection if no longer exists
-        }
-    }
+//    public static void rowHighlighter(javax.swing.JTable table, int id, int colNum){
+//        try{ //Highlight
+//            int rowNum = -1;
+//            Object valueRow;
+//            do{
+//                rowNum++; //increment to 0
+//                valueRow = table.getModel().getValueAt(rowNum, colNum); //get the id at stated row
+//            }while(Integer.parseInt(valueRow.toString()) != id && rowNum < table.getRowCount()); //check if id matches and ensure checking does not exceed number of rows
+//                table.setRowSelectionInterval(rowNum, rowNum); //highlight the row in table
+//        } catch (ArrayIndexOutOfBoundsException ex) {
+//            //to account for the possibility of a deleted record, clear selection if nothing found (the while loop exceeds)
+//            table.clearSelection(); //clear selection if no longer exists
+//        }
+//    }
     
     private void resetPasswordListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetPasswordListMouseClicked
         checkStatus();

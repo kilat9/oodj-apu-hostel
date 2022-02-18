@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
  */
 public class payment {
     private String id, dateCreated, paymentManagerId, paymentTechnicianId, paymentAppointmentId;
-    private double paymentAmount;
+    private int paymentAmount;
 
-    public payment(String paymentID ,double paymentAmount, String dateCreated, String paymentManagerId, String paymentTechnicianId, String paymentAppointmentId){
+    public payment(String paymentID ,int paymentAmount, String dateCreated, String paymentManagerId, String paymentTechnicianId, String paymentAppointmentId){
         // TODO: automatically set id
         this.id = paymentID;
         this.paymentAmount = paymentAmount;
@@ -32,7 +32,7 @@ public class payment {
         return id;
     }
 
-    public double getPaymentAmount() {
+    public int getPaymentAmount() {
         return paymentAmount;
     }
 
@@ -56,7 +56,7 @@ public class payment {
         this.id = paymentID;
     }
 
-    public void setPaymentAmount(double paymentAmount) {
+    public void setPaymentAmount(int paymentAmount) {
         this.paymentAmount = paymentAmount;
     }
 
@@ -73,7 +73,7 @@ public class payment {
     }
     
   
-    public void addPayment(String paymentID, double paymentAmount, String dateCreated, String paymentManagerId, String paymentTechnicianId, String paymentAppointmentId){
+    public void addPayment(String paymentID, int paymentAmount, String dateCreated, String paymentManagerId, String paymentTechnicianId, String paymentAppointmentId){
         try{
             
 
